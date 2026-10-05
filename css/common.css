@@ -1620,7 +1620,6 @@ html.menu-open .menu-aside {
 }
 
 .narrative-content h3 {
-  margin: 3rem 0 1.1rem;
   color: var(--heading);
   font-size: clamp(1.45rem, 2vw, 1.8rem);
   font-weight: 420;

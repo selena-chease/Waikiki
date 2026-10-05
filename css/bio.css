@@ -7,11 +7,6 @@
     transition: background-color var(--duration-normal) var(--ease-out);
 }
 
-.narrative-content {
-    max-width: 860px;
-    margin: 0 auto;
-}
-
 /* Bio Summary Royal Accolades Strip */
 .bio-summary {
     font-family: var(--font-sans);
@@ -100,19 +95,6 @@
     max-width: 900px;
 }
 
-.bio-quote::before {
-    content: "“";
-    font-family: var(--font-display);
-    font-size: 5rem;
-    line-height: 1;
-    color: var(--coral-300);
-    position: absolute;
-    top: -15px;
-    left: 24px;
-    opacity: 0.5;
-    pointer-events: none;
-}
-
 /* Lagoon Night (Dark Mode) */
 .body-dark #narrative {
     background: var(--sand-950);
@@ -138,9 +120,4 @@
     border-color: rgba(124, 198, 188, 0.18);
     color: var(--sand-50) !important;
     box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.6);
-}
-
-.body-dark .bio-quote::before {
-    color: var(--teal-400);
-    opacity: 0.35;
 }
