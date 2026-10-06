@@ -82,6 +82,20 @@
   fill: var(--ill-sand);
 }
 
+.ill .province-path {
+  fill: var(--ill-sand);
+  stroke: var(--ill-line);
+  stroke-width: 0.8;
+  cursor: pointer;
+  transition: fill 0.25s var(--ease-out, ease), stroke 0.25s var(--ease-out, ease);
+}
+
+.ill .province-path:hover {
+  fill: var(--ill-glass);
+  stroke: var(--ill-ink-2);
+  stroke-width: 1.2;
+}
+
 .ill .f-ink {
   fill: var(--ill-ink);
 }
@@ -393,11 +407,28 @@
   stroke: var(--tertiary);
 }
 
-/* Feature list (numbered rows beside an illustration) */
+/* Feature list (numbered rows beside or beneath an illustration) */
+#mobility .ill-panel,
+#megaprojects .ill-panel,
+#digital-space .ill-panel {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto 2.5rem;
+}
+
+#megaprojects .card-grid,
+#digital-space .card-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .feature-list {
   list-style: none;
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
   gap: 1.1rem;
+  max-width: 1400px;
+  margin: 0 auto;
   counter-reset: feat;
 }
 
@@ -630,15 +661,15 @@
 
 /* Height Comparison Chart */
 .height-chart text.h-val {
-  font: 330 22px/1 var(--font-display);
+  font: 330 17px/1 var(--font-display);
   letter-spacing: 0;
   fill: var(--heading);
 }
 
 .height-chart text.h-name {
-  font-size: 11px;
+  font-size: 10px;
   fill: var(--text);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
