@@ -497,7 +497,7 @@
 
         // Spotlight that follows the cursor across cards.
         document.addEventListener('pointermove', rafThrottle((event) => {
-            const card = event.target.closest && event.target.closest('.card, .stat-card, .tile, .province-card');
+            const card = event.target.closest && event.target.closest('.card, .stat-card, .tile, .province-card, .hover-card');
             if (!card) return;
             const rect = card.getBoundingClientRect();
             card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
