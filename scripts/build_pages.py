@@ -18,6 +18,8 @@ be re-run safely after menu or copy changes:
 
     python3 scripts/build_pages.py            # rebuild everything
     python3 scripts/build_pages.py --check    # report pages that would change
+    python3 scripts/build_pages.py --empty    # generate an empty page (en/empty.html and hu/empty.html)
+    python3 scripts/build_pages.py --new SLUG # generate a new empty page with the given slug
 """
 
 from __future__ import annotations
@@ -557,7 +559,7 @@ def convert_hero(page: Page, body: str) -> tuple[str, str]:
     return body, ""
 
 
-FALLBACK_IMAGE = "UniversalUpscaler_93281a3c-f408-4f55-b29b-e8a6b87ab85d.jpg"
+FALLBACK_IMAGE = "UniversalUpscaler_93281a3c-f408-4f55-b29b-e8a6b87ab85d-U.jpg"
 
 
 def replace_block(text: str, name: str, content: str) -> str:
@@ -690,7 +692,7 @@ def process(path: Path, meta: dict) -> str:
     if "<!-- @chrome:header -->" not in text:
         text = convert_legacy(page, text)
 
-    info = meta[f"{page.locale}/{page.slug}"]
+    info = meta.get(f"{page.locale}/{page.slug}") or page_meta(text)
     outside_chrome = re.sub(r"<!-- @chrome:head -->.*?<!-- /@chrome:head -->", "", text, flags=re.S)
     has_own_description = re.search(r'<meta name="description"', outside_chrome) is not None
     description = "" if has_own_description else describe(info["lead"] or info["title"])
@@ -712,10 +714,118 @@ def process(path: Path, meta: dict) -> str:
     return text
 
 
+def create_empty_page(
+    slug: str = "empty",
+    title: str | None = None,
+    group: str = "nation",
+    locale: str = "en",
+) -> Path:
+    """Generate a clean starter template page following site rules and structure."""
+    target_file = ROOT / locale / f"{slug}.html"
+    target_file.parent.mkdir(parents=True, exist_ok=True)
+
+    depth = len(Path(f"{locale}/{slug}.html").parts) - 1
+    root_prefix = "../" * depth
+
+    if locale == "hu":
+        default_title = "Üres Oldal" if slug == "empty" else slug.split("/")[-1].replace("-", " ").capitalize()
+        page_title = title or default_title
+        eyebrow = f"{group_label(group, 'hu')} · Sablon"
+        lead = "Kezdő sablonoldal Waikiki Szuverén Állam hivatalos portáljához."
+        sec1_title = "Áttekintés"
+        sec1_intro = "Ez a szakasz készen áll a tartalomra és követi az oldal stílusirányelveit."
+        sec2_title = "Részletek és Jellemzők"
+        sec2_intro = "Váltakozó hátterű szakasz a vizuális ritmus fenntartásához."
+    else:
+        default_title = "Empty Page" if slug == "empty" else slug.split("/")[-1].replace("-", " ").title()
+        page_title = title or default_title
+        eyebrow = f"{group_label(group, 'en')} · Template"
+        lead = "A clean starter template page for the Sovereign Nation of Waikiki portal."
+        sec1_title = "Overview"
+        sec1_intro = "This section is ready for content and structured according to site guidelines."
+        sec2_title = "Details and Features"
+        sec2_intro = "Alternating section with a soft background tone to maintain visual rhythm."
+
+    template = f"""<!DOCTYPE html>
+<html lang="{locale}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- @chrome:head --><!-- /@chrome:head -->
+    <title>{esc(page_title)}</title>
+    <link rel="icon" href="{root_prefix}icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="1024x1024" href="{root_prefix}icons/logo-green.png" />
+    <link href="{root_prefix}manifest.json" rel="manifest" />
+    <link rel="stylesheet" href="{root_prefix}css/common.css" />
+</head>
+<body class="page-{slug.replace('/', '-')} group-{group}">
+    <!-- @chrome:header --><!-- /@chrome:header -->
+    <main id="main">
+        <section class="hero hero--compact" data-hero>
+            <div class="hero-content">
+                <span class="hero-eyebrow">{esc(eyebrow)}</span>
+                <h1 class="hero-title">{esc(page_title)}</h1>
+                <p class="hero-lead">{esc(lead)}</p>
+            </div>
+        </section>
+        <!-- @chrome:subnav --><!-- /@chrome:subnav -->
+        <section id="overview">
+            <h2 class="section-title">{esc(sec1_title)}</h2>
+            <p class="section-intro">{esc(sec1_intro)}</p>
+        </section>
+        <section id="details" class="light-bg">
+            <h2 class="section-title">{esc(sec2_title)}</h2>
+            <p class="section-intro">{esc(sec2_intro)}</p>
+        </section>
+        <!-- @chrome:next --><!-- /@chrome:next -->
+    </main>
+    <!-- @chrome:footer --><!-- /@chrome:footer -->
+    <script src="{root_prefix}js/common.js"></script>
+</body>
+</html>
+"""
+    target_file.write_text(template, encoding="utf-8")
+    return target_file
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--check", action="store_true", help="only report pages that would change")
+    parser.add_argument(
+        "--new",
+        nargs="?",
+        const="empty",
+        metavar="SLUG",
+        help="generate a new empty page (default slug: empty)",
+    )
+    parser.add_argument(
+        "--empty",
+        dest="empty_flag",
+        action="store_true",
+        help="generate an empty page (alias for --new empty)",
+    )
+    parser.add_argument("--title", help="title for the new page")
+    parser.add_argument(
+        "--group",
+        default="nation",
+        choices=[g[0] for g in GROUPS],
+        help="site group (default: nation)",
+    )
+    parser.add_argument(
+        "--locale",
+        choices=["en", "hu", "both"],
+        default="both",
+        help="locale to generate (default: both)",
+    )
     args = parser.parse_args()
+
+    # Generate template / empty page if requested
+    if args.new or args.empty_flag:
+        slug = (args.new if args.new and args.new != "empty" else "empty").strip("/").removesuffix(".html")
+        locales = ("en", "hu") if args.locale == "both" else (args.locale,)
+        for loc in locales:
+            created_path = create_empty_page(slug=slug, title=args.title, group=args.group, locale=loc)
+            print(f"Created template: {created_path.relative_to(ROOT)}")
 
     paths = all_pages()
 

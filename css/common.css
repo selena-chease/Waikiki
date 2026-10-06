@@ -189,7 +189,8 @@
   --transition-easing: var(--ease-out);
   --animation-duration: 0.8s;
   --base-animation-delay: 0.05s;
-  --animation-delay-increment: 0.08s;
+  --animation-delay-increment: 0.05s;
+  --delay-increment: 50ms;
 
   /* 1.10 Z-Index */
   --z-curtain: 9000;
@@ -322,7 +323,7 @@ html {
     opacity 1s var(--ease-out),
     transform 1.2s var(--ease-out),
     clip-path 1.4s var(--ease-out);
-  transition-delay: calc(var(--i, 0) * 85ms);
+  transition-delay: calc(var(--i, 0) * var(--delay-increment));
   will-change: opacity, transform;
 }
 
@@ -1145,7 +1146,7 @@ html.menu-open .menu-aside {
 }
 
 .hero-lead {
-  max-width: 64ch;
+  max-width: 86ch;
   color: rgba(255, 255, 255, 0.86);
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   line-height: 1.8;

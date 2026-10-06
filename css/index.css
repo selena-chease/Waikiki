@@ -146,7 +146,6 @@
   border-radius: var(--radius);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-sm);
-  max-width: 44%;
   transition:
     transform 0.7s var(--ease-out),
     box-shadow 0.7s var(--ease-out),
@@ -196,6 +195,7 @@
 }
 
 @media (max-width: 800px) {
+
   .timeline::before,
   .timeline::after {
     left: 24px;

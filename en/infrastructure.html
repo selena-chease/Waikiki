@@ -285,7 +285,7 @@
             <h2 class="section-title">Corridors that unite the provinces</h2>
             <p class="section-intro">Waikiki's constitution forbids any restriction on the movement of people or goods between provinces. The transport network turns that principle into concrete, steel and magnetic levitation.</p>
             <figure class="ill-panel" data-reveal="zoom">
-                <svg class="ill" viewBox="0 0 1160 540" role="img" aria-label="Schematic map of Waikiki transport corridors connecting Florida, Cuba and Haiti">
+                <svg class="ill" viewBox="0 0 1160 540" role="img" aria-label="Schematic map of Waikiki transport corridors connecting Florida, Cuba, and Haiti">
                     <defs>
                         <clipPath id="rm-clip">
                             <rect width="1160" height="540" rx="28" />
@@ -293,41 +293,49 @@
                     </defs>
                     <g clip-path="url(#rm-clip)">
                         <rect width="1160" height="540" class="f-sea3" />
-                        <!-- Cartographic Coordinate Grid -->
+                        <!-- Geographic Coordinate Grid -->
                         <g class="k-white" stroke-width="1" opacity=".3">
                             <path d="M0 135h1160M0 270h1160M0 405h1160M290 0v540M580 0v540M870 0v540" />
                         </g>
-                        <!-- Florida Peninsula, Panhandle and Space Coast -->
-                        <path d="M20 0 H248 C252 18, 256 36, 262 52 C272 62, 280 72, 278 84 C276 96, 268 112, 270 128 C272 144, 268 158, 266 172 C264 182, 256 190, 246 194 C236 198, 226 192, 220 182 C214 162, 212 144, 206 128 C200 114, 190 102, 186 88 C182 74, 170 64, 154 54 C122 48, 70 44, 20 40 Z" class="f-sand" />
-                        <!-- Lake Okeechobee -->
-                        <ellipse cx="242" cy="148" rx="8" ry="10" class="f-sea3" />
-                        <!-- Florida Keys Archipelago -->
-                        <g class="f-sand">
-                            <path d="M264 194 c4 4 2 9 -3 10 c-5 1 -7 -3 -5 -8 c2 -4 5 -4 8 -2 z" />
-                            <path d="M248 206 c4 3 1 7 -3 8 c-5 1 -6 -3 -4 -7 c2 -3 5 -3 7 -1 z" />
-                            <path d="M232 214 c4 3 1 6 -3 7 c-4 1 -6 -2 -4 -6 c2 -3 5 -3 7 -1 z" />
-                            <path d="M216 221 c3 3 0 5 -3 6 c-4 1 -5 -2 -3 -5 c2 -3 4 -3 6 -1 z" />
-                            <path d="M202 225 c3 2 0 5 -3 5 c-4 1 -5 -2 -3 -5 c2 -2 4 -2 6 0 z" />
-                            <circle cx="188" cy="227" r="2.2" />
-                            <circle cx="174" cy="228" r="1.6" />
+                        <!-- ==================== FLORIDA REGIONS ==================== -->
+                        <g id="florida-mainland">
+                            <!-- FL-PAN: Panhandle -->
+                            <path class="f-sand province-path" d="M 20,0 L 168,0 C 168,16 167,32 166,48 C 162,50 156,54 150,56 C 142,59 135,66 128,67 C 120,68 112,65 104,61 C 96,57 88,54 78,51 C 66,48 52,44 38,40 C 28,37 22,35 20,34 Z" id="FL-PAN" title="Florida Panhandle" />
+                            <!-- FL-NORTH: North Florida and First Coast -->
+                            <path class="f-sand province-path" d="M 168,0 L 248,0 C 251,12 253,24 255,36 C 257,44 260,52 263,60 C 264,64 263,67 260,70 C 250,71 236,71 222,72 C 210,73 198,75 188,76 C 183,71 178,63 174,56 C 170,51 168,49 166,48 C 167,32 168,16 168,0 Z" id="FL-NORTH" title="North Florida and First Coast" />
+                            <!-- FL-CENTRAL: Central Florida and Space Coast -->
+                            <path class="f-sand province-path" d="M 188,76 C 198,75 210,73 222,72 C 236,71 250,71 260,70 C 263,67 264,64 263,60 C 266,66 272,74 276,80 C 278,84 278,88 276,94 C 274,102 272,112 271,122 C 262,125 252,129 242,134 C 238,131 232,126 226,122 C 218,117 210,111 204,104 C 198,96 193,87 188,76 Z" id="FL-CENTRAL" title="Central Florida and Space Coast" />
+                            <!-- FL-WEST: Tampa Bay and Suncoast -->
+                            <path class="f-sand province-path" d="M 188,76 C 193,87 198,96 204,104 C 210,111 218,117 226,122 C 220,128 214,136 210,144 C 206,152 204,160 206,168 C 208,174 212,178 216,182 C 212,176 208,166 204,154 C 200,142 196,130 195,122 C 194,114 192,106 189,96 C 187,88 187,82 188,76 Z" id="FL-WEST" title="Tampa Bay and Suncoast" />
+                            <!-- FL-SOUTH: South Florida and Miami Gold Coast -->
+                            <path class="f-sand province-path" d="M 271,122 C 270,132 268,144 267,156 C 266,166 265,174 264,180 C 262,186 258,192 254,195 C 251,192 249,186 248,180 C 247,172 248,164 249,154 C 250,146 251,138 252,130 C 258,127 265,124 271,122 Z" id="FL-SOUTH" title="South Florida and Miami" />
+                            <!-- FL-GLADES: Everglades and Florida Bay -->
+                            <path class="f-sand province-path" d="M 226,122 C 232,126 238,131 242,134 C 247,132 250,129 252,130 C 251,138 250,146 249,154 C 248,164 247,172 248,180 C 249,186 251,192 254,195 C 248,198 240,199 232,197 C 224,195 218,190 216,182 C 212,178 208,174 206,168 C 204,160 206,152 210,144 C 214,136 220,128 226,122 Z" id="FL-GLADES" title="Everglades and Florida Bay" />
+                            <!-- Lake Okeechobee Freshwater Basin -->
+                            <path class="f-sea3" d="M 238,138 C 244,134 250,136 252,141 C 254,146 251,152 247,155 C 242,157 236,155 234,149 C 233,144 235,140 238,138 Z" />
                         </g>
-                        <!-- Lucayan Archipelago (Bahamas) -->
+                        <!-- ==================== FLORIDA KEYS ==================== -->
+                        <g id="florida-keys">
+                            <path class="f-sand province-path" d="M 258,194 C 262,196 266,200 264,204 C 262,207 257,206 255,202 C 254,198 255,195 258,194 Z" id="FL-KEY-LARGO" title="Key Largo and Upper Keys" />
+                            <path class="f-sand province-path" d="M 248,205 C 252,207 253,211 250,214 C 247,215 244,213 243,210 C 243,207 245,205 248,205 Z" id="FL-KEY-ISLAMORADA" title="Islamorada and Middle Keys" />
+                            <path class="f-sand province-path" d="M 233,213 C 237,215 238,218 235,221 C 231,223 227,220 226,217 C 226,214 229,213 233,213 Z" id="FL-KEY-MARATHON" title="Marathon and Seven Mile Arc" />
+                            <path class="f-sand province-path" d="M 218,219 C 222,221 222,224 219,227 C 216,228 213,226 212,223 C 212,220 215,219 218,219 Z" id="FL-KEY-BIGPINE" title="Big Pine Key and Lower Keys" />
+                            <path class="f-sand province-path" d="M 204,223 C 207,224 207,227 204,229 C 201,230 198,228 198,226 C 198,224 201,223 204,223 Z" id="FL-KEY-WEST" title="Key West" />
+                            <path class="f-sand province-path" d="M 188,226 C 191,227 191,229 189,230 C 186,231 184,229 185,227 C 185,226 187,226 188,226 Z" id="FL-KEY-MARQUESAS" title="Marquesas Keys" />
+                            <path class="f-sand province-path" d="M 174,227 C 176,227 176,229 174,230 C 172,230 171,229 171,228 C 171,227 173,227 174,227 Z" id="FL-KEY-TORTUGAS" title="Dry Tortugas" />
+                        </g>
+                        <!-- ==================== BAHAMAS ARCHIPELAGO ==================== -->
                         <g class="f-sand" opacity=".88">
                             <path d="M294 72 c16 -5 36 -6 49 -2 c4 2 2 6 -3 7 c-16 3 -36 2 -48 -2 c-4 -1 -2 -5 2 -5 z" />
                             <path d="M352 62 c8 2 13 10 11 18 c-2 9 -10 15 -14 12 c-3 -2 -1 -7 2 -12 c3 -5 3 -14 1 -18 z" />
                             <ellipse cx="292" cy="154" rx="4.5" ry="2.8" />
                             <circle cx="328" cy="118" r="3.2" />
                             <path d="M318 152 c9 -6 22 -4 26 5 c4 10 2 26 -4 37 c-6 11 -16 15 -21 9 c-5 -7 -3 -24 1 -35 c2 -8 1 -12 -2 -16 z" />
-                            <ellipse cx="368" cy="150" rx="6.5" ry="4" />
-                            <path d="M380 134 c10 4 21 19 17 33 c-2 6 -6 4 -5 -2 c1 -12 -6 -23 -15 -27 c-3 -2 0 -5 3 -4 z" />
-                            <path d="M382 175 c4 6 1 12 -4 14 c-5 1 -6 -3 -4 -8 c2 -4 5 -5 8 -6 z" />
-                            <circle cx="402" cy="198" r="2.8" />
-                            <circle cx="418" cy="216" r="3.2" />
-                            <path d="M428 172 c4 8 2 16 -3 18 c-4 1 -5 -4 -3 -9 c2 -5 4 -7 6 -9 z" />
-                            <circle cx="452" cy="190" r="2.8" />
-                            <path d="M438 226 c6 12 4 24 -2 28 c-4 2 -6 -3 -4 -11 c2 -8 4 -14 6 -17 z" />
+                            <circle cx="370" cy="176" r="3" />
+                            <path d="M382 192 c12 -4 26 -2 32 4 c3 3 0 7 -4 7 c-12 1 -24 -2 -28 -6 z" />
+                            <circle cx="430" cy="226" r="2.8" />
                         </g>
-                        <!-- Detailed Waikiki (Cuba) Island Provinces and Isla de la Juventud -->
+                        <!-- ==================== CUBA ARCHIPELAGO (DETAILED) ==================== -->
                         <g class="cuba-archipelago" transform="translate(75, 228) scale(0.82)">
                             <path class="f-sand province-path" d="m 233.86335,8.7083 0,0 -0.1,0.63 -0.72,0.95 0.91,4.08 0.13,0.99 0.02,0.54 -0.11,0.03 -0.19,-0.07 -0.69,-0.41 -0.37,0.01 -0.37,0.21 -0.5,0.71 -0.14,0.39 0.04,0.29 0.61,0.5 0.32,0.42 0.02,0.22 -0.18,0.23 -0.28,0.12 -0.66,0.93 -1.45,1 -0.4,0.35 -0.04,0.06 -0.08,0.16 -0.12,0.28 -0.18,0.6 0.12,0.25 0.25,0.14 0.79,0.1 0.52,0.2 0.52,0.41 0.56,0.52 1.17,1.52 0.83,1.23 0.06,0.24 0.05,0.53 -0.07,0.32 -0.18,2.22 -0.92,2.9 1.17,2.1 1.1,1.04 0.92,0.66 0.3,0.43 0,0.48 -0.78,1.96 -0.03,1.19 0.42,0.73 2.7,1.67 1.17,1.04 0.13,1.16 -0.55,3.92 -0.14,0.54 -0.23,0.57 -0.41,0.68 -0.61,0.8 -0.92,1.49 -0.24,0.23 -0.31,0.23 -0.24,0.11 -0.06,0.05 -0.08,0.13 -0.11,0.16 -0.5,-0.17 -1.07,-0.03 -1.96,-1.7 -1.34,-1.09 -2.47,-1.89 -2.51,-0.93 -6.37,-2.3 -2.5,0.09 -5.73,0.53 -7.6,1.3 -2.3,-1 -4.86,-1.39 -5.43,0.01 -3.03,0.36 -1.56,0.18 -1.49,-0.17 -2.27,-0.59 0.26,-1.64 -0.24,-0.98 -0.94,-0.59 -0.9,-0.53 -1.46,-2.06 -1.46,-3.01 0,-2.86 0.58,-2.53 0.88,-1.91 0,-2.06 0.1,-2.69 1.16,-0.47 0.55,-0.17 0.5,0.33 0.77,0.95 0.4,0.09 0.49,-0.21 0.94,-0.84 0.28,-0.55 0.64,-0.64 2.81,0.26 1.84,-0.12 0.75,0.34 0.71,0.09 0.85,0 0.63,-0.25 0.43,-0.6 0.54,-1 2.44,-2.72 0.06,-0.28 -0.1,-0.37 -0.6,-1.25 -0.11,-0.68 0.03,-0.5 0.17,-0.65 0.05,-0.39 -0.01,-0.38 -0.11,-0.3 -0.05,-0.22 0.08,-0.11 0.41,-0.03 0.4,0.43 0.51,0.73 0.24,0.04 0.41,-0.28 0.47,-0.44 0.36,-0.97 0.08,-0.42 0.12,-0.25 0.25,-0.24 0.3,-0.1 0.63,0.32 0.42,0.3 2.51,2.97 0.69,-1.27 0.09,-1.32 0.09,-0.35 0.17,-0.22 0.39,-0.33 0.07,-0.33 -0.2,-0.7 -0.03,-0.44 0.17,-0.27 0.68,-0.04 0.37,-0.31 -1.21,-1.52 -0.4,-0.69 0.13,-0.78 -0.23,-0.76 0,0 0.84,-0.22 1.67,-0.17 0.72,-0.17 0.78,-0.3 0.77,-0.14 0.7,0.35 2.69,1.91 2.12,0.61 4.59,0.45 2.12,0.53 1.6,-0.53 11.17,0.07 z" title="Mayabeque" id="CU-16" />
                             <path class="f-sand province-path" d="m 385.07335,36.1183 0,0 3.72,4.23 1.55,1.28 3.29,1.02 2.68,2.22 2.92,1.14 1.44,1.5 1.17,1.75 0.62,1.41 -1.62,-1.46 -0.57,-0.18 -0.63,-0.13 -0.66,-0.3 -0.96,-0.63 -1.06,-0.95 -2.4,-2.7 -1.29,0.47 -1.32,-0.15 -1.22,-0.6 -1.63,-1.27 -0.46,-0.18 -0.28,-0.33 -0.11,-0.89 -0.24,-0.3 -1.14,-0.86 -0.35,-0.18 -0.59,-0.5 -0.37,-1.09 -0.62,-1.09 -1.35,-0.5 -2.12,0.9 -0.95,-0.06 -0.12,-1.42 2.03,-0.62 1.46,-0.08 1.18,0.55 z m -7.88,-4.29 0,0 0.99,0.57 0.39,0.54 -0.64,0.69 -1.11,0.2 -0.5,-0.51 0,-0.54 -0.21,-0.26 -0.28,-0.15 -0.39,0.05 -0.5,-0.13 -1.38,-0.98 -0.64,-0.75 0.08,-0.78 0.9,-0.25 -0.15,-0.49 0.05,-0.67 0.38,-0.25 0.48,0.86 -0.2,1.25 0.5,0.17 1.38,0.3 0.44,0.67 0.41,0.46 z m -16.51,-8.31 0,0 1.11,0.56 0.59,-0.04 -0.05,1.04 -0.76,0.75 -1.53,-0.98 -0.68,0.22 -0.74,1.06 -0.71,0.34 -0.55,-1.91 1.03,-0.63 1.12,-0.4 1.17,-0.01 z m 5.44,4.24 0,0 -0.83,0.11 -0.82,-0.51 -0.47,-0.7 0.22,-0.46 0.44,-0.37 0.17,-0.39 -0.64,-0.1 -0.66,-0.37 0.72,-1.15 1.61,-0.43 0.88,0.27 0.56,0.8 0.1,0.55 -0.44,0.37 -0.85,0.27 -0.51,0.56 0.32,0.44 0.62,0.11 0.12,0.43 -0.54,0.57 z m -29.81,-5.8 0,0 0.65,0.3 0.46,0.46 0.26,0.6 0.05,0.76 -7.21,-1.25 -1.09,-0.87 0.44,-0.35 0.42,-0.18 0.49,0.08 0.6,0.45 3.48,-1.73 1.59,-0.17 1.28,0.84 -0.37,0.22 -0.7,0.61 -0.35,0.23 z m -14.55,1.12 0,0 0.74,0.91 0.94,0.81 1.3,0.34 4.04,-0.01 0.89,0.28 1.08,0.95 1.15,0.66 1.19,0.44 1.22,0.28 2.35,0.08 2.22,-0.47 4.27,-1.68 -0.54,-1.85 1.2,-0.04 3.8,1.9 1.69,0.53 1.43,-0.27 0.27,-1.86 0.77,0.42 0.78,0.55 0.61,0.67 0.24,0.75 1.62,2.94 0.16,0.5 2.71,1.59 0.39,0.07 1.27,-0.07 0.49,0.18 0.21,0.38 0.04,0.38 -0.01,0.17 1.49,-0.45 2.33,-2.22 4.39,-1.24 0.63,0.15 0,0.59 -0.67,0.62 -1.33,0.91 -1.64,-0.79 -0.8,0.63 -0.93,2.82 0.78,1.2 0.45,0.52 0.68,0.44 0.76,0.21 2.94,0.27 1.27,0.43 4.2,3.01 0.23,0.37 0.27,0.34 0.43,0.14 0.39,-0.18 0.43,-0.38 0.32,-0.38 0.08,-0.17 1.63,-0.21 0.61,0.4 1.77,7.85 0.04,0.05 1.07,0.35 0.87,0.45 0.77,0.62 0.81,0.89 0.82,1.23 0.98,2.4 0.66,1.13 1.82,2.05 0.4,0.35 1.07,0.21 2.06,0.04 0.83,0.23 1.9,2.96 0.37,0.89 0.57,0.48 -0.04,0.08 0.03,1.78 -1.32,2.48 0.83,0.65 0.6,0.97 2.4,4.82 2.03,2.81 0.05,0.57 -0.28,0.96 -0.18,0.93 0.08,1.23 -0.22,1.39 -1.84,-0.3 -1.78,-0.94 -0.7,-0.16 -0.88,0.06 -1.26,0.47 -0.85,0.45 -1.28,1.32 -0.39,1.39 -0.37,0.97 -0.53,1.08 -0.61,0.82 -0.64,0.59 -0.8,0.34 -1.01,0.13 -1.01,-0.42 -0.62,-0.42 -0.97,-0.44 -1.46,0.47 -2.93,-0.89 -0.66,-0.05 -0.95,0.1 -1.02,0.7 -0.52,0.28 -0.62,0.04 -0.74,-0.19 -0.75,-0.66 -0.36,-0.53 -0.26,-0.5 -0.83,-0.69 -2.37,-0.06 -0.78,0.7 -0.15,0.53 0.03,0.8 0.46,1.33 1.04,2.05 0.32,0.87 0.26,0.5 0.22,0.23 0.31,0.07 0.36,-0.04 0.42,0.02 0.32,0.16 0.27,0.42 -0.06,1.01 -0.38,1.42 -1.18,2.38 -1.41,2.32 -1.77,1.52 -2.13,-0.16 -1.02,-0.54 -0.35,-0.27 -0.52,-0.22 -4.15,-1 -0.68,0.09 -0.73,0.31 -0.71,0.91 -0.27,0.61 -0.15,0.65 -0.2,0.4 -0.36,0.23 -1.06,-0.09 -0.49,0.14 -1.33,1.09 -2.54,1.19 0.06,-1.05 -0.11,-0.16 -1.45,-1.11 -0.24,-0.67 -0.11,-0.73 0.05,-1.16 -0.12,-2.05 -0.18,-0.63 -0.38,-0.53 -1.34,-1.12 -0.48,-0.95 -0.37,-1.05 -0.75,-3.06 -0.05,-0.65 0.05,-1.52 -0.27,-2.99 0.08,-0.7 0.28,-0.64 0.26,-0.45 0.78,-2.49 -1.8,-0.83 -0.88,-1.16 -0.62,-1.15 -0.4,-0.88 -0.19,-0.7 -0.23,-1.73 -0.12,-0.28 -0.17,-0.14 -0.3,-0.07 -0.37,0.04 -1.07,0.33 -0.51,0.04 -0.51,-0.1 -0.88,-0.46 -2.6,-2.55 -0.44,-0.61 -0.25,-0.5 -0.03,-0.83 1.36,-1.49 0.23,-1.02 -0.2,-0.33 -0.27,-0.3 -0.51,-0.27 -0.29,-0.56 -0.04,-0.44 0.12,-0.56 0.28,-0.67 -0.22,-0.79 -1.36,-0.77 -0.25,-0.4 -0.8,-1.87 -0.08,-0.68 0.02,-0.4 0.22,-0.19 0.23,-0.11 0.28,-0.08 0.21,-0.11 0.17,-0.38 0.11,-0.65 0,-1.37 -0.1,-0.51 -0.15,-0.23 -0.19,0.15 -0.33,0.38 -0.21,0.14 -0.43,0.08 -0.46,0 -1,-0.09 -0.42,0.01 -0.25,0.1 -0.24,0.29 -0.26,0.51 -0.54,1.72 -0.14,0.21 -0.23,0.13 -0.39,0.02 -0.55,-0.02 -0.39,0.03 -0.33,0.13 -0.8,0.53 -0.46,0.23 -0.81,0.28 -0.39,0.01 -0.32,-0.1 -0.11,-0.18 -0.05,-0.21 0.06,-0.34 0.35,-1.03 0.14,-0.73 0.04,-1.12 -0.34,-0.42 -0.6,-0.12 -1.77,0.35 -1.71,-1.42 -0.37,-0.13 -0.6,-0.05 -0.34,0.19 -0.27,0.25 -0.2,0.3 -0.87,1.01 -2.97,1.74 -1.04,-1.79 -0.44,-0.49 -0.32,-0.77 -0.2,-0.78 -0.17,-1.53 -0.35,-0.6 -0.32,-0.37 -0.17,-0.32 -0.07,-0.57 0.37,-3.64 -0.03,-0.67 -0.12,-0.51 -0.33,-0.53 -0.52,-0.55 -0.12,-0.34 0.09,-0.44 0.4,-0.59 0.67,-0.29 0.37,-0.22 0.1,-0.4 -0.19,-0.58 -1.08,-1.86 -0.51,-1.6 -0.31,-0.68 -0.08,-0.26 -0.3,-0.68 -0.2,-0.3 -0.53,-0.23 -0.69,0.01 -1.4,0.54 -1.41,1.04 -0.53,0.23 -1.15,0.08 -1.44,-1.26 -1.2,-0.79 -0.29,-0.27 -0.21,-0.3 -0.21,-0.43 -0.45,-0.65 -0.74,-0.81 -0.24,-0.37 -0.14,-0.36 -0.08,-0.51 -0.14,-0.25 -0.26,-0.19 -0.27,-0.15 -0.12,-0.22 0.09,-0.29 0.51,-0.29 0.36,-0.37 0.39,-0.56 0.18,-1.13 -0.08,-0.63 -0.29,-1.18 -0.04,-0.87 0.05,-0.61 0.2,-0.74 0.24,-0.33 0.38,-0.2 1.78,0.05 0.3,-0.04 1.01,-0.38 0.34,-0.09 0.39,-0.02 0.27,0.05 0.29,0.14 0.62,0.43 0.33,0.07 0.42,-0.04 0.72,-0.23 0.52,-0.42 0.35,-0.61 0.04,-1.3 -0.05,-0.8 0.21,-1.78 1.14,-2.21 0.44,-0.19 0.01,0 2.59,4.72 1.47,1.04 1.14,0.08 2.9,0.56 1.09,0.42 0.68,0.64 z m 27.93,-6.68 0,0 0.23,0.64 0.27,0.57 0.29,1.03 -0.2,0.2 -0.4,-0.59 -0.33,-0.36 -0.3,0.02 -0.47,0.1 -0.58,-0.08 -0.41,-0.35 -0.26,-0.43 0.02,-0.18 0.25,0.05 0.11,-0.42 0.13,-0.93 0.78,-0.19 0.87,0.92 z m -5.57,-1.39 0,0 -1.43,0.67 -1.45,-0.29 -3.02,-1.44 0.16,-0.8 0.38,-0.57 0.47,-0.57 0.45,-0.76 0.54,0 0.45,1 0.78,0.87 0.95,0.6 0.99,0.23 1.15,0.04 0.38,0.16 -0.2,0.32 -0.6,0.54 z m -7.31,-0.73 0,0 -0.41,0.03 -0.48,-0.34 -0.34,-0.54 -0.29,-0.59 -0.56,-0.19 -1.06,-0.61 -0.32,-0.14 -0.12,-0.35 -0.13,-0.17 -0.46,-0.3 -0.2,-0.63 0.7,-0.46 0.53,-0.1 0.53,-0.05 0.62,0.18 -0.01,0.44 0.51,0.54 1.04,0.95 0.45,0.6 0.18,0.25 0.28,0.52 -0.09,0.52 -0.37,0.44 z m -9.54,-4.85 0,0 -0.58,0.14 -0.56,-0.05 -1.84,0.24 -0.69,0.56 -1.08,0.47 -0.98,0.26 -0.12,-0.14 -0.17,-0.51 0.27,-0.16 0.64,0.08 -0.12,-0.69 0.36,-0.43 1.02,-0.15 0.53,-0.02 1.64,-0.14 0.82,0.01 0.98,0.18 -0.12,0.35 z" title="Villa Clara" id="CU-05" />
@@ -360,6 +368,14 @@
                             <path d="M430 355 c12 6 26 14 38 18 c-10 -2 -24 -8 -38 -18 z" />
                             <path d="M475 375 c12 6 24 12 36 16 c-10 -2 -22 -7 -36 -16 z" />
                         </g>
+                        <!-- Cayman Islands (South of Cuba) -->
+                        <g class="f-sand" opacity=".85">
+                            <!-- Grand Cayman -->
+                            <path d="M320 405 c6 -2 14 0 18 3 c-3 2 -11 2 -16 -1 z" />
+                            <!-- Little Cayman and Cayman Brac -->
+                            <circle cx="362" cy="392" r="2" />
+                            <ellipse cx="376" cy="388" rx="3.5" ry="1.6" />
+                        </g>
                         <!-- Waikiki Artificial Archipelagos (Palm, World, Chameleon) -->
                         <g class="f-sand">
                             <!-- The Palm Island -->
@@ -376,14 +392,45 @@
                             <path d="M232 296 c3 -3 8 -3 11 0 c2 2 3 5 1 7 c-2 2 -6 2 -8 1 c-3 -1 -4 3 -2 4 c2 1 5 0 6 -1 c-1 3 -4 4 -6 3 c-3 -2 -4 -6 -2 -8 c1 -2 0 -4 -1 -5 z" />
                             <circle cx="240" cy="297" r="1.2" class="f-white" />
                         </g>
-                        <!-- Hispaniola (Haiti and Dominican Republic) -->
-                        <path d="M748 438 C758 430, 778 432, 808 433 C835 434, 858 436, 882 440 C896 442, 912 436, 910 426 C904 416, 890 404, 874 388 C864 378, 852 368, 838 364 C820 360, 786 356, 762 354 C750 350, 744 342, 748 336 C756 326, 782 324, 812 324 C840 324, 870 326, 894 332 C922 336, 960 334, 1000 336 C1050 338, 1110 342, 1160 348 L1160 455 C1115 452, 1060 445, 1005 440 C955 435, 910 432, 875 430 C845 428, 815 430, 788 433 C768 435, 750 439, 742 441 C736 442, 740 444, 748 438 Z" class="f-sand" />
-                        <!-- Île de la Gonâve and Tortuga -->
-                        <path d="M828 408 c14 -8 32 -6 44 4 c8 8 5 18 -4 22 c-14 6 -32 4 -42 -4 c-7 -6 -5 -16 2 -22 z" class="f-sand" />
-                        <path d="M814 326 c12 -4 28 -3 38 2 c5 3 2 8 -5 9 c-12 2 -28 1 -34 -3 c-5 -3 -3 -7 1 -8 z" class="f-sand" />
-                        <!-- Jamaica Island -->
-                        <path d="M532 480 c16 -7 38 -9 62 -7 c24 2 48 6 62 12 c6 3 4 10 -2 13 c-20 8 -46 9 -72 6 c-26 -3 -46 -8 -54 -13 c-4 -3 -2 -9 4 -11 z" class="f-sand" opacity=".88" />
-                        <!-- Transport Corridors -->
+                        <!-- ==================== JAMAICA (DETAILED COUNTIES) ==================== -->
+                        <g id="jamaica-regions">
+                            <!-- JM-CORNWALL: Cornwall County (West) -->
+                            <path class="f-sand province-path" d="M 526,488 C 530,482 538,477 548,474 C 556,472 562,475 566,480 L 568,498 C 560,501 550,501 540,498 C 532,495 526,492 526,488 Z" id="JM-CORNWALL" title="Jamaica · Cornwall County (Montego Bay and Negril)" />
+                            <!-- JM-MIDDLESEX: Middlesex County (Central) -->
+                            <path class="f-sand province-path" d="M 566,480 C 574,475 586,474 600,475 C 610,476 618,479 622,484 L 624,502 C 614,506 606,514 596,512 C 586,510 578,504 568,498 L 566,480 Z" id="JM-MIDDLESEX" title="Jamaica · Middlesex County (Ocho Rios and Portland Point)" />
+                            <!-- JM-SURREY: Surrey County (East and Kingston) -->
+                            <path class="f-sand province-path" d="M 622,484 C 628,480 638,480 648,483 C 658,487 664,491 664,494 C 660,499 652,501 642,502 C 632,502 626,501 624,502 L 622,484 Z" id="JM-SURREY" title="Jamaica · Surrey County (Kingston and Blue Mountains)" />
+                            <!-- Port Royal and The Palisadoes Spit -->
+                            <path class="f-sand province-path" d="M 622,501 C 628,502 636,503 640,501 C 641,500 638,498 632,498 C 626,499 622,500 622,501 Z" id="JM-PALISADOES" title="Port Royal and The Palisadoes" />
+                            <!-- Pedro Cays -->
+                            <path class="f-sand province-path" d="M 584,528 C 588,527 592,528 594,530 C 592,532 588,531 584,528 Z" id="JM-PEDRO" title="Pedro Cays" />
+                        </g>
+                        <!-- ==================== HISPANIOLA (HAITI AND DOMINICAN REP. DETAILED) ==================== -->
+                        <g id="hispaniola-regions">
+                            <!-- HT-NW: Nord-Ouest -->
+                            <path class="f-sand province-path" d="M 752,338 C 762,334 778,332 796,330 C 804,337 810,346 816,354 C 820,360 822,364 818,366 C 804,367 790,364 776,358 C 764,352 754,344 752,338 Z" id="HT-NW" title="Haiti · Nord-Ouest (Môle Saint-Nicolas)" />
+                            <!-- HT-NORD: Nord and Nord-Est (Cap-Haïtien) -->
+                            <path class="f-sand province-path" d="M 796,330 C 818,328 842,332 864,338 C 884,336 902,335 918,336 C 916,346 912,356 908,366 C 892,365 874,364 856,362 C 836,360 824,358 816,354 C 810,346 804,337 796,330 Z" id="HT-NORD" title="Haiti · Nord and Nord-Est (Cap-Haïtien)" />
+                            <!-- HT-ART: Artibonite and Centre -->
+                            <path class="f-sand province-path" d="M 818,366 C 822,364 820,360 816,354 C 824,358 836,360 856,362 C 874,364 892,365 908,366 C 910,378 914,392 918,406 C 904,408 888,409 874,408 C 864,398 854,386 842,378 C 832,372 824,368 818,366 Z" id="HT-ART" title="Haiti · Artibonite and Centre" />
+                            <!-- HT-OUEST: Ouest and Port-au-Prince -->
+                            <path class="f-sand province-path" d="M 874,408 C 888,409 904,408 918,406 C 922,418 924,430 926,442 C 914,444 898,443 884,440 C 876,432 872,422 870,416 C 871,412 873,410 874,408 Z" id="HT-OUEST" title="Haiti · Ouest and Port-au-Prince" />
+                            <!-- HT-SUD: Sud, Grand'Anse and Nippes (Tiburon Peninsula) -->
+                            <path class="f-sand province-path" d="M 744,438 C 758,432 776,430 798,430 C 820,430 844,432 866,435 C 870,437 876,440 884,440 C 898,443 914,444 926,442 C 926,448 924,452 920,454 C 900,453 876,450 852,448 C 824,452 796,455 776,453 C 760,450 748,446 744,438 Z" id="HT-SUD" title="Haiti · Sud and Tiburon Peninsula" />
+                            <!-- HT-GONAVE: Île de la Gonâve -->
+                            <path class="f-sand province-path" d="M 826,410 C 838,404 854,405 864,411 C 869,415 867,421 860,424 C 848,427 834,425 826,419 C 822,415 822,412 826,410 Z" id="HT-GONAVE" title="Île de la Gonâve" />
+                            <!-- HT-TORTUGA: Île de la Tortue (Tortuga) -->
+                            <path class="f-sand province-path" d="M 810,324 C 822,320 836,321 846,325 C 850,328 848,332 842,333 C 830,335 818,334 810,329 C 807,327 807,325 810,324 Z" id="HT-TORTUGA" title="Île de la Tortue (Tortuga)" />
+                            <!-- HT-VACHE: Île-à-Vache -->
+                            <path class="f-sand province-path" d="M 778,455 C 782,453 787,454 789,457 C 789,459 786,461 782,460 C 778,459 776,457 778,455 Z" id="HT-VACHE" title="Île-à-Vache" />
+                            <!-- DO-CIBAO: Dominican Republic · North and Cibao -->
+                            <path class="f-sand province-path" d="M 918,336 C 946,334 984,332 1024,334 C 1068,336 1114,340 1160,346 L 1160,392 C 1118,390 1072,388 1028,386 C 980,384 942,386 918,388 C 914,374 910,360 908,366 C 912,356 916,346 918,336 Z" id="DO-CIBAO" title="Dominican Republic · Cibao and North Coast" />
+                            <!-- DO-SUR: Dominican Republic · South and Santo Domingo -->
+                            <path class="f-sand province-path" d="M 918,388 C 942,386 980,384 1028,386 C 1072,388 1118,390 1160,392 L 1160,446 C 1120,444 1074,440 1028,438 C 984,438 950,444 926,442 C 924,430 922,418 918,406 C 914,392 910,378 918,388 Z" id="DO-SUR" title="Dominican Republic · Santo Domingo and South Coast" />
+                            <!-- DO-SAONA: Isla Saona -->
+                            <path class="f-sand province-path" d="M 1128,450 C 1135,448 1142,450 1145,453 C 1145,456 1139,458 1133,456 C 1128,454 1126,451 1128,450 Z" id="DO-SAONA" title="Isla Saona" />
+                        </g>
+                        <!-- ==================== TRANSPORT CORRIDORS ==================== -->
                         <!-- Florida Undersea Corridor: Miami to Nova Aurelia via Keys -->
                         <path d="M265 178 C255 198, 235 218, 202 225 C186 248, 214 274, 255 292" class="k-ink" stroke-width="4.5" stroke-dasharray="2 7" stroke-linecap="round" />
                         <!-- Trans-Cuba Main Line: Nova Aurelia to Morón -->
@@ -395,6 +442,9 @@
                         <!-- Windward Passage Link: Santiago to Cap-Haïtien and Port-au-Prince -->
                         <path d="M598 419 C645 428, 690 422, 730 395 C780 360, 820 345, 862 340" class="k-coral" stroke-width="5.5" stroke-linecap="round" />
                         <path d="M862 340 C882 370, 895 400, 908 432" class="k-coral" stroke-width="5.5" stroke-linecap="round" />
+                        <!-- Jamaica Maritime Express Link: Santiago to Kingston and Montego Bay -->
+                        <path d="M598 419 C610 445, 622 470, 630 498" class="k-sea" stroke-width="3.5" stroke-dasharray="3 6" stroke-linecap="round" />
+                        <path d="M255 292 C320 370, 440 435, 556 474" class="k-sea" stroke-width="2.8" stroke-dasharray="3 6" stroke-linecap="round" opacity=".75" />
                         <!-- Island Elevated Link to Artificial Islands -->
                         <path d="M255 292 C245 294, 235 296, 226 288" class="k-ink2" stroke-width="2.8" stroke-dasharray="4 4" />
                         <!-- Animated Traffic Dots -->
@@ -416,6 +466,10 @@
                         <circle r="4.5" class="f-white">
                             <animateMotion dur="3.6s" repeatCount="indefinite" path="M862 340 C882 370, 895 400, 908 432" />
                         </circle>
+                        <circle r="4" class="f-white">
+                            <animateMotion dur="6.0s" repeatCount="indefinite" path="M598 419 C610 445, 622 470, 630 498" />
+                        </circle>
+                        <!-- ==================== CAPITAL AND STATIONS ==================== -->
                         <!-- Capital City Marker: Nova Aurelia (Southern shores of Waikiki) -->
                         <g>
                             <circle cx="255" cy="292" r="16" class="f-coral pulse" />
@@ -432,6 +486,8 @@
                             <circle cx="598" cy="419" r="7" />
                             <circle cx="862" cy="340" r="7" />
                             <circle cx="908" cy="432" r="7" />
+                            <circle cx="630" cy="498" r="6" />
+                            <circle cx="556" cy="474" r="5.5" />
                         </g>
                         <!-- Mega Pyramid Mark -->
                         <path d="M290 255 l4 7 h-8 z" class="f-gold" />
@@ -444,8 +500,10 @@
                             <circle cx="598" cy="419" r="2.8" />
                             <circle cx="862" cy="340" r="2.8" />
                             <circle cx="908" cy="432" r="2.8" />
+                            <circle cx="630" cy="498" r="2.4" />
+                            <circle cx="556" cy="474" r="2.2" />
                         </g>
-                        <!-- Typography and Geographic Labels -->
+                        <!-- ==================== TYPOGRAPHY AND LABELS ==================== -->
                         <g font-size="11.5">
                             <text x="255" y="322" text-anchor="middle" font-size="13.5" font-weight="700">NOVA AURELIA</text>
                             <text x="278" y="178" font-size="12" font-weight="600">MIAMI</text>
@@ -456,23 +514,27 @@
                             <text x="598" y="438" text-anchor="middle" font-size="12" font-weight="600">SANTIAGO</text>
                             <text x="862" y="328" text-anchor="middle" font-size="12" font-weight="600">CAP-HAÏTIEN</text>
                             <text x="922" y="436" font-size="12" font-weight="600">PORT-AU-PRINCE</text>
+                            <text x="642" y="512" font-size="10.5" font-weight="600">KINGSTON</text>
+                            <text x="548" y="468" font-size="9.5" font-weight="600" text-anchor="end">MONTEGO BAY</text>
                             <!-- Major Territories -->
                             <text x="210" y="70" font-size="13" font-weight="600" opacity=".6" letter-spacing=".15em">FLORIDA</text>
                             <text x="365" y="115" font-size="11" font-weight="600" opacity=".45" letter-spacing=".15em">BAHAMAS</text>
                             <text x="360" y="306" font-size="15" font-weight="600" opacity=".5" letter-spacing=".22em">CUBA</text>
-                            <text x="830" y="375" font-size="14" font-weight="600" opacity=".5" letter-spacing=".22em">HAITI</text>
-                            <text x="585" y="508" font-size="11" opacity=".55" letter-spacing=".15em" text-anchor="middle">JAMAICA</text>
+                            <text x="825" y="380" font-size="14" font-weight="600" opacity=".5" letter-spacing=".22em">HAITI</text>
+                            <text x="980" y="365" font-size="12" font-weight="600" opacity=".4" letter-spacing=".18em">DOMINICAN REP.</text>
+                            <text x="595" y="492" font-size="11" opacity=".55" letter-spacing=".15em" text-anchor="middle">JAMAICA</text>
                             <text x="145" y="298" font-size="9" text-anchor="middle">PALM · WORLD · CHAMELEON</text>
                             <text x="210" y="246" font-size="9" opacity=".8" font-weight="600" transform="rotate(58 210 246)">UNDERSEA CORRIDOR</text>
                             <text x="760" y="378" font-size="9.5" opacity=".8" font-weight="600" transform="rotate(-24 760 378)">WINDWARD PASSAGE LINK</text>
                         </g>
-                        <!-- Map Legend Box -->
-                        <g transform="translate(830 454)" font-size="10">
-                            <rect x="-14" y="-14" width="294" height="66" rx="12" class="f-white" opacity=".92" />
+                        <!-- ==================== MAP LEGEND BOX ==================== -->
+                        <g transform="translate(810 448)" font-size="10">
+                            <rect x="-14" y="-12" width="314" height="70" rx="12" class="f-white" opacity=".92" />
                             <path d="M0 2h26" class="k-coral" stroke-width="5" stroke-linecap="round" /><text x="34" y="5.5" font-weight="600">MAGLEV</text>
                             <path d="M125 2h26" class="k-gold" stroke-width="5" stroke-linecap="round" /><text x="159" y="5.5" font-weight="600">HYPERLOOP</text>
-                            <path d="M0 28h26" class="k-ink" stroke-width="4" stroke-dasharray="2 7" stroke-linecap="round" /><text x="34" y="31.5" font-weight="600">TUNNEL</text>
-                            <path d="M125 28h26" class="k-ink2" stroke-width="4" stroke-linecap="round" /><text x="159" y="31.5" font-weight="600">MAIN LINE</text>
+                            <path d="M0 26h26" class="k-ink" stroke-width="4" stroke-dasharray="2 7" stroke-linecap="round" /><text x="34" y="29.5" font-weight="600">TUNNEL</text>
+                            <path d="M125 26h26" class="k-ink2" stroke-width="4" stroke-linecap="round" /><text x="159" y="29.5" font-weight="600">MAIN LINE</text>
+                            <path d="M0 46h26" class="k-sea" stroke-width="3" stroke-dasharray="3 6" stroke-linecap="round" /><text x="34" y="49.5" font-weight="600">MARITIME ROUTE</text>
                         </g>
                     </g>
                 </svg>
@@ -503,18 +565,16 @@
             <div class="energy-mix">
                 <div class="energy-bar" data-reveal="fade" role="img" aria-label="National electricity mix">
                     <div class="energy-seg seg-solar" style="--w:30%;--d:0" title="Solar 30%"><span>30%</span></div>
-                    <div class="energy-seg seg-fusion" style="--w:22%;--d:1" title="Fusion 22%"><span>22%</span></div>
+                    <div class="energy-seg seg-fusion" style="--w:27%;--d:1" title="Hydrogen fusion 27%"><span>27%</span></div>
                     <div class="energy-seg seg-wind" style="--w:18%;--d:2" title="Wind 18%"><span>18%</span></div>
                     <div class="energy-seg seg-nuclear" style="--w:16%;--d:3" title="Nuclear 16%"><span>16%</span></div>
-                    <div class="energy-seg seg-hydro" style="--w:5%;--d:4" title="Hydrogen 5%"><span>5%</span></div>
-                    <div class="energy-seg seg-fossil" style="--w:9%;--d:5" title="Oil and gas 9%"><span>9%</span></div>
+                    <div class="energy-seg seg-fossil" style="--w:9%;--d:4" title="Oil and gas 9%"><span>9%</span></div>
                 </div>
                 <ul class="energy-legend">
                     <li><i class="seg-solar"></i>Solar</li>
-                    <li><i class="seg-fusion"></i>Fusion</li>
+                    <li><i class="seg-fusion"></i>Hydrogen fusion</li>
                     <li><i class="seg-wind"></i>Wind</li>
                     <li><i class="seg-nuclear"></i>Nuclear</li>
-                    <li><i class="seg-hydro"></i>Hydrogen</li>
                     <li><i class="seg-fossil"></i>Oil and gas</li>
                 </ul>
             </div>
@@ -526,16 +586,15 @@
                             <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
                             <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
                         </svg></span>
-                    <h3>Fusion power plants</h3>
-                    <p>State programmes under the Ministry of Energy operate commercial fusion plants, a breakthrough made possible by patriotic investment in science.</p>
+                    <h3>Hydrogen fusion since 2017</h3>
+                    <p>Waikiki commissioned its first commercial hydrogen fusion power plant in 2017. Today, state programmes operate multiple commercial fusion facilities providing virtually limitless clean energy.</p>
                 </article>
                 <article class="card"><span class="card-icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 2.5s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 9.5 12 2.5 12 2.5z" />
-                            <path d="M9.5 14.5h5M12 12v5" />
                         </svg></span>
-                    <h3>Hydrogen since 2007</h3>
-                    <p>Waikiki commissioned its first hydrogen power plant in 2007, the same year construction of the national space station accelerated.</p>
+                    <h3>Hydroelectric power</h3>
+                    <p>Harnessing the immense river basins of Amazonia and Brazilia, massive hydroelectric stations complement the grid with steady baseload renewable power.</p>
                 </article>
                 <article class="card"><span class="card-icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -556,7 +615,7 @@
         </section>
         <section id="megaprojects" class="light-bg">
             <h2 class="section-title">Mega Buildings</h2>
-            <p class="section-intro">Announced by Raimondo Chease in 2016, the Mega Buildings programme redefines the skyline of three continents. Each project is designed to be energy-independent and carbon-neutral.</p>
+            <p class="section-intro">Announced by Raimondo Chease in 2016, the Mega Buildings programme redefines the nation's skyline across two continents. Each project is designed to be energy-independent and carbon-neutral.</p>
             <figure class="ill-panel">
                 <svg class="ill height-chart" data-reveal="fade" viewBox="0 0 1120 420" role="img" aria-label="Height comparison of Waikiki's tallest structures">
                     <!-- Elevation Grid Guidelines -->
@@ -729,13 +788,6 @@
                     <h3>Miapolis</h3>
                     <p>A vertical city-state of almost 1,000 metres planned for Rio de Janeiro, with its own residential zones, parks and intelligent elevators.</p>
                 </article>
-                <article class="card"><span class="card-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M2 16h20M4 16V9M20 16V9M4 9c4 0 4 7 8 7s4-7 8-7M8 16v4M16 16v4" />
-                        </svg></span>
-                    <h3>Kingdom Bridges</h3>
-                    <p>A monumental bridge system spanning the Nile in New Cairo, Waikiki's flagship engineering partnership abroad.</p>
-                </article>
             </div>
         </section>
         <section id="milestones">
@@ -746,10 +798,6 @@
                     <h3>Space station core module</h3>
                     <p>The national space agency places the station's first module in orbit.</p>
                 </li>
-                <li><span class="year">2007</span>
-                    <h3>First hydrogen plant</h3>
-                    <p>Hydrogen joins the national energy mix.</p>
-                </li>
                 <li><span class="year">2009</span>
                     <h3>Palm Island</h3>
                     <p>Waikiki's first artificial archipelago opens, linked by elevated rail.</p>
@@ -757,6 +805,10 @@
                 <li><span class="year">2016</span>
                     <h3>Digital port</h3>
                     <p>Angelina and Taylor oversee the digitalisation of Nova Aurelia's commercial port.</p>
+                </li>
+                <li><span class="year">2017</span>
+                    <h3>First hydrogen fusion plant</h3>
+                    <p>Commercial nuclear fusion joins the national grid, revolutionising clean power generation.</p>
                 </li>
                 <li><span class="year">2019</span>
                     <h3>Mega Pyramid and Clock Tower</h3>
