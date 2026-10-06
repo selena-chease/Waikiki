@@ -15,7 +15,7 @@
     background:
         radial-gradient(900px 500px at 90% 0%, rgba(227, 115, 90, 0.18), transparent 60%),
         radial-gradient(900px 600px at 0% 100%, rgba(124, 198, 188, 0.12), transparent 60%),
-        var(--teal-950);
+        var(--darker-blue);
 }
 
 .intimate-section {
@@ -40,12 +40,12 @@
 }
 
 .private-container {
-    max-width: var(--maxw);
+    max-width: var(--maxw-timeline);
     margin: 0 auto;
 }
 
 .private-intro {
-    max-width: 880px;
+    max-width: 1200px;
     margin: 0 auto clamp(3rem, 6vw, 4.5rem);
     text-align: center;
 }

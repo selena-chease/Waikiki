@@ -423,10 +423,10 @@ def build_subnav(page: Page) -> str:
 
 
 TARGET_NEXT_IMAGES = {
-    "overview": "overview.jpg",
-    "infrastructure": "infrastructure.jpg",
-    "constitution": "constitution.jpg",
-    "travel-guide": "travel-guide.jpg",
+    "overview": "UniversalUpscaler_Pro_Precise_2_1f1c19d5-4a8a-6240-8c96-a28f543c898c.jpg",
+    "infrastructure": "UniversalUpscaler_Pro_Precise_2_1f1c1a29-2ad2-6700-ba29-0886f847836a.jpg",
+    "constitution": "UniversalUpscaler_Pro_Precise_2_1f1c1a2a-3682-6450-b953-3cd17cf5a1a7.jpg",
+    "travel-guide": "UniversalUpscaler_Pro_Precise_2_1f1c1a3a-8488-6130-962d-09f15cdbb0eb.jpg",
     "faq": "faq.jpg",
 }
 

@@ -26,9 +26,9 @@
   --tertiary-subtle: rgba(124, 198, 188, 0.15);
 
   /* Accent (Tropical Warm Coral / Terracotta) */
-  --accent: #c29a57;
+  --accent: #c28a29;
   --accent-hover: #c95a41;
-  --accent-light: #f5c46e;
+  --accent-light: #c28a29;
   --accent-dark: #9e3821;
   --accent-subtle: rgba(227, 115, 90, 0.14);
 
@@ -101,6 +101,7 @@
   --light-bg: var(--neutral-200);
   --dark-bg: var(--neutral-900);
   --dark-blue: #10302e;
+  --darker-blue: #0A1930;
   --dark-grey: #132826;
   --dark-azure: #1e3b3c;
   --blue: var(--primary-hover);
@@ -1127,7 +1128,6 @@ html.menu-open .menu-aside {
 }
 
 .hero-title {
-  max-width: 17ch;
   color: #fff;
   font-family: var(--font-display);
   font-size: clamp(2.7rem, 6.6vw, 6.4rem);
@@ -1146,7 +1146,7 @@ html.menu-open .menu-aside {
 }
 
 .hero-lead {
-  max-width: 86ch;
+  max-width: 84ch;
   color: rgba(255, 255, 255, 0.86);
   font-size: clamp(1rem, 1.2vw, 1.15rem);
   line-height: 1.8;
@@ -1756,7 +1756,7 @@ html.menu-open .menu-aside {
 
 /* 10. FAQ ================================================================== */
 .faq-container {
-  max-width: min(100%, var(--maxw));
+  max-width: min(100%, var(--maxw-timeline));
   margin: 0 auto;
 }
 
@@ -1889,11 +1889,45 @@ html.menu-open .menu-aside {
   transform: rotate(0deg);
 }
 
+.faq-item.is-closing {
+  border-color: var(--line-strong);
+  box-shadow: 0 0 0 1px rgba(17, 96, 91, 0.06), var(--shadow-sm);
+}
+
+.faq-item.is-closing:not(:hover) .faq-question {
+  color: var(--heading);
+}
+
+.faq-item.is-closing .faq-toggle {
+  transform: rotate(0deg);
+  background: transparent;
+  border-color: var(--line-strong);
+}
+
+.faq-item.is-closing .faq-toggle::before,
+.faq-item.is-closing .faq-toggle::after {
+  background: var(--primary);
+}
+
+.faq-item.is-closing .faq-toggle::after {
+  transform: rotate(90deg);
+}
+
 .faq-answer {
   padding: 0 1.75rem 1.5rem;
   color: var(--text);
   line-height: 1.85;
-  animation: faqOpen 0.6s var(--ease-out);
+}
+
+.faq-item[open] .faq-answer {
+  animation: faqOpen 0.4s var(--ease-out);
+}
+
+.faq-item.is-closing .faq-answer {
+  animation: none;
+  opacity: 0;
+  transform: translate3d(0, -6px, 0);
+  transition: opacity 0.22s var(--ease-out), transform 0.22s var(--ease-out);
 }
 
 .faq-cta {

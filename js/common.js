@@ -15,6 +15,7 @@
      rail         Auto-generated section navigation rail
      progress     Scroll progress bar + back-to-top ring
      timeline     Scroll-drawn timeline line
+     faq          Smooth accordion expansion and collapse
    ========================================================================== */
 
 (function () {
@@ -607,6 +608,102 @@
         });
     }
 
+    /* ------------------------------------------------------------------ faq */
+    function initFaqAccordion() {
+        const items = $$('details.faq-item');
+        if (!items.length) return;
+
+        items.forEach((details) => {
+            const summary = details.querySelector('.faq-question') || details.querySelector('summary');
+            if (!summary) return;
+
+            let animation = null;
+            let isClosing = false;
+            let isExpanding = false;
+
+            summary.addEventListener('click', (e) => {
+                if (prefersReducedMotion) return;
+                e.preventDefault();
+
+                if (isClosing || !details.open) {
+                    open();
+                } else if (isExpanding || details.open) {
+                    close();
+                }
+            });
+
+            function open() {
+                if (animation) animation.cancel();
+                isClosing = false;
+                isExpanding = true;
+                details.classList.remove('is-closing');
+
+                const startHeight = details.getBoundingClientRect().height;
+                details.open = true;
+                const endHeight = details.getBoundingClientRect().height;
+                details.style.height = `${startHeight}px`;
+
+                animation = details.animate(
+                    {
+                        height: [`${startHeight}px`, `${endHeight}px`],
+                    },
+                    {
+                        duration: 380,
+                        easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    }
+                );
+
+                animation.onfinish = () => {
+                    details.style.height = '';
+                    animation = null;
+                    isExpanding = false;
+                };
+
+                animation.oncancel = () => {
+                    isExpanding = false;
+                    details.style.height = '';
+                };
+            }
+
+            function close() {
+                if (animation) animation.cancel();
+                isExpanding = false;
+                isClosing = true;
+                details.classList.add('is-closing');
+
+                const startHeight = details.getBoundingClientRect().height;
+                details.open = false;
+                const endHeight = details.getBoundingClientRect().height;
+                details.open = true;
+                details.style.height = `${startHeight}px`;
+
+                animation = details.animate(
+                    {
+                        height: [`${startHeight}px`, `${endHeight}px`],
+                    },
+                    {
+                        duration: 320,
+                        easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                    }
+                );
+
+                animation.onfinish = () => {
+                    details.open = false;
+                    details.classList.remove('is-closing');
+                    details.style.height = '';
+                    animation = null;
+                    isClosing = false;
+                };
+
+                animation.oncancel = () => {
+                    isClosing = false;
+                    details.classList.remove('is-closing');
+                    details.style.height = '';
+                };
+            }
+        });
+    }
+
     /* ----------------------------------------------------------------- boot */
     function init() {
         initTheme();
@@ -622,6 +719,7 @@
         initSectionRail();
         initProgress();
         initTimelines();
+        initFaqAccordion();
     }
 
     if (document.readyState === 'loading') {
