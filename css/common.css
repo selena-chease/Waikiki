@@ -2140,7 +2140,6 @@ video {
   justify-content: center;
   align-items: center;
   min-height: var(--subnav-h);
-  height: var(--subnav-h);
   padding: 0 var(--gutter);
   background: var(--glass);
   backdrop-filter: blur(var(--blur-lg)) saturate(1.4);
@@ -2807,6 +2806,15 @@ html.header-hidden .subnav {
 }
 
 @media (max-width: 480px) {
+  .subnav {
+    padding: 0;
+  }
+
+  .subnav-list a {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   .site-menu-inner {
     grid-template-columns: 1fr;
   }
