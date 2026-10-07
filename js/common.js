@@ -62,7 +62,10 @@
             }
         });
         const meta = $('meta[name="theme-color"]');
-        if (meta) meta.setAttribute('content', dark ? '#0a1c1b' : '#fbf7f0');
+        if (meta) {
+            const bg = getComputedStyle(root).getPropertyValue('--bg').trim();
+            if (bg) meta.setAttribute('content', bg);
+        }
         document.dispatchEvent(new CustomEvent('themechange', { detail: { dark } }));
     }
 
