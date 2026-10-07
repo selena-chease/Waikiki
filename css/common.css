@@ -9,7 +9,6 @@
   --primary-light: #2a8c83;
   --primary-dark: #072221;
   --primary-subtle: rgba(17, 96, 91, 0.12);
-  --primary-ring: rgba(17, 96, 91, 0.25);
 
   /* Secondary */
   --secondary: #0b3b3a;
@@ -53,6 +52,12 @@
   --brazilia: #c28a29;
   --brazilia-hover: #ecc677;
 
+  /* Private page colors */
+  --private: #0a1930;
+  --intimate: #3d1520;
+  --adventure: #123f43;
+  --milestones: #0b3b3a;
+
   /* 1.2 Semantic Theme Tokens (Overridden in Night Mode) */
   --bg: var(--neutral-150);
   --surface: #fffdf9;
@@ -68,7 +73,6 @@
   --line-strong: rgba(23, 37, 36, 0.18);
   --glass: rgba(255, 253, 249, 0.72);
   --dark-bg: var(--neutral-900);
-  --darker-blue: #0A1930;
 
   /* Dark Theme Surfaces and Accents */
   --dark-surface: #112a28;
@@ -80,8 +84,6 @@
   --sun-highlight: #f8c6a8;
 
   /* Specific Section and Badge Colors */
-  --wine: #3d1520;
-  --dark-ocean: #123f43;
   --teal-alt: #0e2b29;
   --teal-abyss: #061817;
   --teal-lagoon: #0d2c2a;
@@ -150,7 +152,6 @@
   --space-3xl: 4.5rem;
 
   /* 1.5 Borders and Radius */
-  --radius-2xs: 4px;
   --radius-xs: 6px;
   --radius-sm: 12px;
   --radius-md: 18px;
@@ -172,8 +173,6 @@
   --shadow-btn: 0 12px 30px -16px rgba(11, 59, 58, 0.7);
   --shadow-btn-hover: 0 18px 40px -16px rgba(201, 90, 65, 0.7);
   --shadow-xl: 0 8px 24px rgba(11, 59, 58, 0.12), 0 60px 100px -40px rgba(11, 59, 58, 0.6);
-  --card-shadow: var(--shadow-sm);
-  --card-shadow-hover: var(--shadow-lg);
 
   /* 1.7 Blur and Filters */
   --blur-xs: 2px;
@@ -200,24 +199,28 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --dur-fast: 0.25s;
-  --dur: 0.6s;
-  --dur-slow: 1.1s;
   --duration-fast: 0.25s;
   --duration-normal: 0.4s;
   --duration-slow: 1.1s;
-  --transition-easing: var(--ease-out);
   --animation-duration: 0.8s;
-  --base-animation-delay: 0.05s;
-  --animation-delay-increment: 0.05s;
   --delay-increment: 50ms;
+  --base-delay: 0ms;
+  --progress: 0;
+  --line-progress: 0;
+  --hero-shift: 0px;
+
+  /* Interactive and Spatial Defaults */
+  --mx: 50%;
+  --my: -20%;
+  --cx: calc(100% - 4rem);
+  --cy: 2.5rem;
+  --w: 0;
 
   /* 1.10 Z-Index */
   --z-curtain: 9000;
   --z-menu: 1900;
   --z-header: 2000;
   --z-float: 1500;
-  --z-nav: var(--z-header);
 
   color-scheme: light;
 }
@@ -643,7 +646,7 @@ html.menu-open .site-header.menu-scrolled {
   letter-spacing: 0.01em;
   text-decoration: none;
   opacity: 0.86;
-  transition: opacity var(--dur-fast);
+  transition: opacity var(--duration-fast);
 }
 
 .primary-nav a::after {
@@ -710,8 +713,8 @@ html.menu-open .site-header.menu-scrolled {
   text-decoration: none;
   cursor: pointer;
   transition:
-    background-color var(--dur-fast),
-    border-color var(--dur-fast),
+    background-color var(--duration-fast),
+    border-color var(--duration-fast),
     transform 0.4s var(--ease-spring);
 }
 
@@ -786,7 +789,7 @@ html.menu-open .site-header.menu-scrolled {
   left: 0;
   width: 100%;
   height: 1.6px;
-  border-radius: var(--radius-2xs);
+  border-radius: var(--radius-xs);
   background: currentColor;
   transition:
     transform 0.5s var(--ease-out),
@@ -905,7 +908,7 @@ html.menu-open {
 
 .menu-group a:hover,
 .menu-group a[aria-current="page"] {
-  color: var(--accent-light);
+  color: var(--accent);
   transform: translateX(6px);
 }
 
@@ -1130,7 +1133,7 @@ html.menu-open .menu-aside {
   display: inline-flex;
   align-items: center;
   gap: 0.9rem;
-  color: var(--accent-light);
+  color: var(--accent);
   font: 700 0.76rem/1.4 var(--font-sans);
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -1161,7 +1164,7 @@ html.menu-open .menu-aside {
 .display em {
   font-style: italic;
   font-weight: 300;
-  color: var(--accent-light);
+  color: var(--accent);
 }
 
 .hero-lead {
@@ -1426,7 +1429,7 @@ html.menu-open .menu-aside {
   color: rgba(251, 247, 240, 0.8);
   --heading: var(--neutral-150);
   --text: rgba(251, 247, 240, 0.78);
-  --accent: var(--accent-light);
+  --accent: var(--accent);
   --line: rgba(255, 255, 255, 0.12);
   --surface: rgba(255, 255, 255, 0.04);
 }
@@ -1882,7 +1885,7 @@ html.menu-open .menu-aside {
   position: absolute;
   width: 12px;
   height: 1.6px;
-  border-radius: var(--radius-2xs);
+  border-radius: var(--radius-xs);
   background: var(--primary);
   transition:
     transform 0.5s var(--ease-out),
@@ -2267,7 +2270,7 @@ html.header-hidden .subnav {
 
 .next-eyebrow {
   grid-column: 1 / -1;
-  color: var(--accent-light);
+  color: var(--accent);
   font: 700 0.74rem/1.4 var(--font-sans);
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -2426,7 +2429,7 @@ html.header-hidden .subnav {
 }
 
 .footer-bottom a:hover {
-  color: var(--accent-light);
+  color: var(--accent);
 }
 
 /* 16. FLOATING UI ========================================================== */
@@ -2576,7 +2579,7 @@ html.header-hidden .subnav {
   --muted: var(--neutral-500);
   --line: rgba(255, 255, 255, 0.08);
   --line-strong: rgba(255, 255, 255, 0.16);
-  --accent: var(--accent-light);
+  --accent: var(--accent);
   --glass: rgba(10, 28, 27, 0.72);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px -18px rgba(0, 0, 0, 0.7);
   --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.3), 0 24px 48px -28px rgba(0, 0, 0, 0.85);

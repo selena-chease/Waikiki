@@ -179,7 +179,7 @@ h3 {
 
 .body-dark .hover-card:hover {
     box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
-    border-color: var(--accent-light) !important;
+    border-color: var(--accent) !important;
 }
 
 .body-dark .hover-card h3 {
@@ -212,7 +212,7 @@ h3 {
 .body-dark .hover-card .w-14.h-14.bg-blue-50 {
     background-color: rgba(201, 90, 65, 0.16) !important;
     border: 1px solid rgba(201, 90, 65, 0.35) !important;
-    color: var(--accent-light) !important;
+    color: var(--accent) !important;
 }
 
 /* Dark mode - Assessment modal */

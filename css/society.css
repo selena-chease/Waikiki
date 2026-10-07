@@ -61,7 +61,7 @@
 }
 
 .stat-box h3 {
-    color: var(--accent-light);
+    color: var(--accent);
     font-family: var(--font-display);
     font-size: 1.15rem;
     font-weight: 600;
@@ -611,7 +611,7 @@
 
 .body-dark .info-stat-value,
 .body-dark .admin-data-value {
-    color: var(--accent-light);
+    color: var(--accent);
 }
 
 .body-dark .city-chip {

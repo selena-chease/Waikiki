@@ -33,7 +33,7 @@
   --ill-ink: var(--tertiary);
   --ill-ink-2: var(--ill-dark-ink-2);
   --ill-ink-3: var(--ill-dark-ink-3);
-  --ill-gold: var(--accent-light);
+  --ill-gold: var(--accent);
   --ill-coral: var(--ill-sun);
   --ill-leaf: var(--amazonia);
   --ill-leaf-2: var(--amazonia-hover);
@@ -500,12 +500,12 @@
 }
 
 .body-dark .tag--coral {
-  color: var(--accent-light);
+  color: var(--accent);
   background: rgba(227, 115, 90, 0.16);
 }
 
 .body-dark .tag--gold {
-  color: var(--accent-light);
+  color: var(--accent);
   background: rgba(245, 196, 110, 0.14);
 }
 
@@ -612,7 +612,7 @@
 }
 
 .seg-solar {
-  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  background: linear-gradient(135deg, var(--accent), var(--accent));
 }
 
 .seg-fusion {

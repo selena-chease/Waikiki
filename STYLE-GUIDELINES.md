@@ -49,6 +49,12 @@ The Sovereign Nation of Waikiki digital identity is rooted in **Tropical Luxe** 
 - **Amazonia Province**: `--amazonia: #4E8B5A`, hover: `#62A56F` (Lush Amazonian emerald)
 - **Brazilia Province**: `--brazilia: #E2B65C`, hover: `#ECC677` (Warm sunlit brass)
 
+### Private Page Colors
+- **Private Section**: `--private: #0A1930` (Midnight navy base)
+- **Intimate Section**: `--intimate: #3D1520` (Deep royal wine backdrop)
+- **Adventure Section**: `--adventure: #123F43` (Deep oceanic teal)
+- **Milestones Section**: `--milestones: var(--secondary)` (`#0B3B3A` - Lagoon secondary)
+
 ---
 
 ## 3. Typography Hierarchy

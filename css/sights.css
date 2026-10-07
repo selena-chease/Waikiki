@@ -185,12 +185,12 @@
 }
 
 .body-dark .tag--coral {
-    color: var(--accent-light);
+    color: var(--accent);
     background: rgba(227, 115, 90, 0.16);
 }
 
 .body-dark .tag--gold {
-    color: var(--accent-light);
+    color: var(--accent);
     background: rgba(245, 196, 110, 0.14);
 }
 

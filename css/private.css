@@ -15,28 +15,28 @@
     background:
         radial-gradient(900px 500px at 90% 0%, rgba(227, 115, 90, 0.18), transparent 60%),
         radial-gradient(900px 600px at 0% 100%, rgba(124, 198, 188, 0.12), transparent 60%),
-        var(--darker-blue);
+        var(--private);
 }
 
 .intimate-section {
     background:
         radial-gradient(900px 520px at 10% 0%, rgba(244, 179, 155, 0.2), transparent 60%),
         radial-gradient(800px 500px at 100% 100%, rgba(194, 154, 87, 0.14), transparent 60%),
-        var(--wine);
+        var(--intimate);
 }
 
 .adventure-section {
     background:
         radial-gradient(900px 520px at 85% 10%, rgba(124, 198, 188, 0.22), transparent 60%),
         radial-gradient(800px 500px at 0% 100%, rgba(227, 115, 90, 0.1), transparent 60%),
-        var(--dark-ocean);
+        var(--adventure);
 }
 
 .milestones-section {
     background:
         radial-gradient(900px 520px at 15% 0%, rgba(194, 154, 87, 0.22), transparent 60%),
         radial-gradient(800px 500px at 100% 100%, rgba(124, 198, 188, 0.12), transparent 60%),
-        var(--secondary);
+        var(--milestones);
 }
 
 .private-container {
@@ -65,7 +65,7 @@
     width: 64px;
     height: 1.5px;
     margin: 1.4rem auto 0;
-    background: linear-gradient(90deg, var(--accent-light), var(--accent));
+    background: linear-gradient(90deg, var(--accent), var(--accent));
 }
 
 .private-intro p {
@@ -107,7 +107,7 @@
     margin-bottom: 1.4rem;
     padding-bottom: 1.1rem;
     border-bottom: 1px solid rgba(244, 179, 155, 0.25);
-    color: var(--accent-light);
+    color: var(--accent);
     font-family: var(--font-display);
     font-size: clamp(1.5rem, 2.4vw, 2rem);
     font-weight: 380;
@@ -173,7 +173,7 @@
 
 .gallery-overlay h4 {
     margin-bottom: 0.5rem;
-    color: var(--accent-light);
+    color: var(--accent);
     font-family: var(--font-display);
     font-size: 1.35rem;
     font-weight: 400;

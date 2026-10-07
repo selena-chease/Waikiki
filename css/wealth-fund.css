@@ -32,7 +32,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(180deg, var(--accent-light) 0%, var(--accent) 50%, var(--primary) 100%);
+    background: linear-gradient(180deg, var(--accent) 0%, var(--accent) 50%, var(--primary) 100%);
     transform: translateX(-50%);
     border-radius: var(--radius-pill);
     box-shadow: 0 0 12px rgba(194, 154, 87, 0.4);
@@ -165,7 +165,7 @@
 .body-dark .timeline-year {
     background: var(--surface-card);
     border-color: var(--accent);
-    color: var(--accent-light);
+    color: var(--accent);
     box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
 }
 
