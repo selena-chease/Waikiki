@@ -28,16 +28,9 @@
   /* Accent */
   --accent: #c28a29;
   --accent-hover: #c95a41;
-  --accent-light: #c28a29;
-  --accent-dark: #9e3821;
-  --accent-subtle: rgba(227, 115, 90, 0.14);
-
-  /* Gold */
-  --gold: #c29a57;
-  --gold-hover: #d4a964;
-  --gold-light: #f5c46e;
-  --gold-dark: #78531a;
-  --gold-subtle: rgba(194, 154, 87, 0.14);
+  --accent-light: #f5c46e;
+  --accent-dark: #78531a;
+  --accent-subtle: rgba(194, 154, 87, 0.14);
 
   /* Neutrals */
   --neutral-50: #ffffff;
@@ -53,11 +46,11 @@
   --neutral-900: #0a1c1b;
 
   /* Province colours */
-  --waikiki: var(--primary-light);
+  --waikiki: #2a8c83;
   --waikiki-hover: #3aa79c;
   --amazonia: #4e8b5a;
   --amazonia-hover: #62a56f;
-  --brazilia: var(--gold);
+  --brazilia: #c28a29;
   --brazilia-hover: #ecc677;
 
   /* 1.2 Semantic Theme Tokens (Overridden in Night Mode) */
@@ -90,8 +83,6 @@
   --wine: #3d1520;
   --dark-ocean: #123f43;
   --teal-alt: #0e2b29;
-  --gold-antique: #916f3b;
-  --ink-gold: #2b1f07;
   --teal-abyss: #061817;
   --teal-lagoon: #0d2c2a;
   --text-slate: #2b3f3d;
@@ -99,7 +90,6 @@
   --text-slate-soft: #4b6360;
   --status-active: #2e7d32;
   --status-active-bg: rgba(46, 125, 50, 0.15);
-  --gold-badge: #e9b872;
   --neutral-badge-light: #8a9a96;
   --neutral-badge-dark: #5f6f6b;
   --sand-badge-light: #e9dcc0;
@@ -993,7 +983,7 @@ html.menu-open .menu-aside {
   border: var(--border-width-hairline) solid rgba(227, 184, 114, 0.28);
   font: 600 0.76rem/1.2 var(--font-sans);
   letter-spacing: 0.02em;
-  color: var(--gold);
+  color: var(--accent);
 }
 
 .menu-weather .weather-icon {
@@ -2598,7 +2588,6 @@ html.header-hidden .subnav {
   --primary: var(--tertiary);
   --primary-hover: var(--tertiary-hover);
   --secondary: var(--dark-heading);
-  --gold: var(--accent-light);
 
 
   color-scheme: dark;

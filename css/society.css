@@ -17,7 +17,7 @@
 
 /* Stats Container (Editorial Deep Lagoon Band) */
 .stats-container {
-    background: linear-gradient(180deg, var(--primary-dark) 0%, var(--gold-antique) 100%);
+    background: linear-gradient(180deg, var(--primary-dark) 0%, var(--accent-dark) 100%);
     padding: clamp(60px, 8vw, 110px) clamp(1.5rem, 5vw, 4rem);
     color: var(--neutral-100);
     position: relative;
@@ -57,11 +57,11 @@
 .stat-box:hover {
     transform: translateY(-8px);
     background: rgba(255, 255, 255, 0.08);
-    border-color: var(--gold);
+    border-color: var(--accent);
 }
 
 .stat-box h3 {
-    color: var(--gold-light);
+    color: var(--accent-light);
     font-family: var(--font-display);
     font-size: 1.15rem;
     font-weight: 600;
@@ -125,7 +125,7 @@
 }
 
 .province-path.active {
-    stroke: var(--gold);
+    stroke: var(--accent);
     stroke-width: 3.5;
     filter: brightness(1.12) drop-shadow(0 0 16px rgba(201, 90, 65, 0.55));
 }
@@ -184,8 +184,8 @@
 }
 
 .capital-star {
-    fill: var(--gold);
-    stroke: var(--gold-dark);
+    fill: var(--accent);
+    stroke: var(--accent-dark);
     stroke-width: 0.6;
     filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.35));
 }
@@ -310,7 +310,7 @@
 
 .badge-brazilia {
     background: var(--brazilia);
-    color: var(--ink-gold);
+    color: var(--accent-dark);
 }
 
 .info-title {
@@ -486,7 +486,7 @@
 
 .admin-icon.icon-brazilia {
     background: var(--brazilia);
-    color: var(--ink-gold);
+    color: var(--accent-dark);
 }
 
 .admin-card h3 {

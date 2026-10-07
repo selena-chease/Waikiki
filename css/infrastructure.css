@@ -33,7 +33,7 @@
   --ill-ink: var(--tertiary);
   --ill-ink-2: var(--ill-dark-ink-2);
   --ill-ink-3: var(--ill-dark-ink-3);
-  --ill-gold: var(--gold-light);
+  --ill-gold: var(--accent-light);
   --ill-coral: var(--ill-sun);
   --ill-leaf: var(--amazonia);
   --ill-leaf-2: var(--amazonia-hover);
@@ -490,8 +490,8 @@
 }
 
 .tag--gold {
-  background: var(--gold-subtle);
-  color: var(--gold-dark);
+  background: var(--accent-subtle);
+  color: var(--accent-dark);
 }
 
 .body-dark .tag {
@@ -505,7 +505,7 @@
 }
 
 .body-dark .tag--gold {
-  color: var(--gold-light);
+  color: var(--accent-light);
   background: rgba(245, 196, 110, 0.14);
 }
 
@@ -612,7 +612,7 @@
 }
 
 .seg-solar {
-  background: linear-gradient(135deg, var(--gold-badge), var(--gold));
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
 }
 
 .seg-fusion {
@@ -717,8 +717,8 @@
   height: 18px;
   border-radius: 50%;
   background: var(--surface);
-  border: 3px solid var(--gold);
-  box-shadow: 0 0 0 6px var(--gold-subtle);
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-subtle);
 }
 
 .milestones .year {

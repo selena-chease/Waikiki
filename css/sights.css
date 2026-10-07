@@ -175,8 +175,8 @@
 }
 
 .tag--gold {
-    background: var(--gold-subtle);
-    color: var(--gold-dark);
+    background: var(--accent-subtle);
+    color: var(--accent-dark);
 }
 
 .body-dark .tag {
@@ -190,7 +190,7 @@
 }
 
 .body-dark .tag--gold {
-    color: var(--gold-light);
+    color: var(--accent-light);
     background: rgba(245, 196, 110, 0.14);
 }
 

@@ -28,10 +28,10 @@ The Sovereign Nation of Waikiki digital identity is rooted in **Tropical Luxe** 
 | `--teal-800` | `#11605B` | Interactive elements, active links, primary buttons |
 | `--teal-500` | `#2A8C83` | Vibrant aqua-teal, province tone, success states |
 | `--teal-300` | `#7CC6BC` | Soft aqua glow, dark mode accents |
-| `--coral-500` | `#C95A41` | Dynamic accent coral, active states, callouts |
-| `--coral-400` | `#E3735A` | Coral hover state, radiant highlights |
-| `--gold` | `#C29A57` | Royal insignia, stars, timeline nodes, brass accents |
-| `--gold-light` | `#DFBA76` | Illuminated gold accents, night mode badges |
+| `--accent` | `#C29A57` | Accent gold, royal insignia, stars, timeline nodes, brass accents |
+| `--accent-hover` | `#C95A41` | Dynamic accent coral/amber, active states, callouts |
+| `--accent-light` | `#F5C46E` | Illuminated gold accents, night mode badges |
+| `--accent-dark` | `#78531A` | Deep antique gold, high contrast brass text |
 
 ### Lagoon Night Palette (Dark Mode)
 | Token | Value | Semantic Role |

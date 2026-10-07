@@ -33,7 +33,7 @@
   --ill-ink: var(--tertiary);
   --ill-ink-2: var(--ill-dark-ink-2);
   --ill-ink-3: var(--ill-dark-ink-3);
-  --ill-gold: var(--gold-light);
+  --ill-gold: var(--accent-light);
   --ill-coral: var(--ill-sun);
   --ill-leaf: var(--amazonia);
   --ill-leaf-2: var(--amazonia-hover);
@@ -417,8 +417,8 @@
 }
 
 .tag--gold {
-  background: var(--gold-subtle);
-  color: var(--gold-dark);
+  background: var(--accent-subtle);
+  color: var(--accent-dark);
 }
 
 .body-dark .tag {
@@ -432,7 +432,7 @@
 }
 
 .body-dark .tag--gold {
-  color: var(--gold-light);
+  color: var(--accent-light);
   background: rgba(245, 196, 110, 0.14);
 }
 
@@ -934,14 +934,14 @@
 }
 
 .hotel-stars {
-  color: var(--gold);
+  color: var(--accent);
   font-size: 0.8rem;
   letter-spacing: 0.1em;
   font-weight: 700;
 }
 
 .body-dark .hotel-stars {
-  color: var(--gold-light);
+  color: var(--accent-light);
 }
 
 .hotel h3 {

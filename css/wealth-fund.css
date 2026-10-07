@@ -32,7 +32,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(180deg, var(--gold) 0%, var(--accent) 50%, var(--primary) 100%);
+    background: linear-gradient(180deg, var(--accent-light) 0%, var(--accent) 50%, var(--primary) 100%);
     transform: translateX(-50%);
     border-radius: var(--radius-pill);
     box-shadow: 0 0 12px rgba(194, 154, 87, 0.4);
@@ -65,9 +65,9 @@
     font-family: var(--font-display);
     font-size: 1.45rem;
     font-weight: 700;
-    color: var(--gold-dark);
+    color: var(--accent-dark);
     background: var(--neutral-100);
-    border: 3px solid var(--gold);
+    border: 3px solid var(--accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -164,8 +164,8 @@
 
 .body-dark .timeline-year {
     background: var(--surface-card);
-    border-color: var(--gold);
-    color: var(--gold-light);
+    border-color: var(--accent);
+    color: var(--accent-light);
     box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
 }
 
