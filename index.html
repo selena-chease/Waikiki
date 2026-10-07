@@ -14,26 +14,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400..800&display=swap" />
     <style>
         :root {
-            --ivory: #fbf7f0;
-            --sand-100: #f5ede1;
-            --sand-200: #eadfcc;
-            --teal-950: #072221;
-            --teal-900: #0b3b3a;
-            --teal-800: #0e4d4a;
-            --teal-700: #11605b;
-            --teal-500: #2a8c83;
-            --aqua: #7cc6bc;
-            --coral: #e3735a;
-            --coral-deep: #c95a41;
-            --coral-soft: #f4b39b;
-            --brass: #c29a57;
-            --ink: #172524;
-            --ink-soft: #4a5957;
-            --bg: var(--ivory);
+            --primary: #11605b;
+            --primary-hover: #0e4d4a;
+            --primary-light: #2a8c83;
+            --primary-dark: #072221;
+            --secondary: #0b3b3a;
+            --tertiary: #7cc6bc;
+            --accent: #e3735a;
+            --accent-hover: #c95a41;
+            --accent-light: #f4b39b;
+            --gold: #c29a57;
+            --neutral-150: #fbf7f0;
+            --neutral-200: #f5ede1;
+            --neutral-300: #eadfcc;
+            --neutral-700: #4a5957;
+            --neutral-800: #172524;
+            --bg: var(--neutral-150);
             --surface: #fffdf9;
-            --surface-2: var(--sand-100);
-            --heading: var(--ink);
-            --text: var(--ink-soft);
+            --surface-2: var(--neutral-200);
+            --heading: var(--neutral-800);
+            --text: var(--neutral-700);
             --muted: #6d7a77;
             --line: rgba(23, 37, 36, 0.1);
             --line-strong: rgba(23, 37, 36, 0.18);
@@ -171,7 +171,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.6rem;
-            color: var(--coral-deep);
+            color: var(--accent-hover);
             font-size: 0.76rem;
             font-weight: 800;
             letter-spacing: 0.24em;
@@ -196,7 +196,7 @@
         }
         h1 em {
             font-style: italic;
-            color: var(--coral-deep);
+            color: var(--accent-hover);
         }
         .welcome-lead p {
             max-width: 620px;
@@ -232,7 +232,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--teal-500), var(--coral));
+            background: linear-gradient(90deg, var(--primary-light), var(--accent));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s var(--ease-out);
@@ -269,7 +269,7 @@
             font-weight: 800;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            color: var(--teal-700);
+            color: var(--primary);
             padding: 0.35rem 0.8rem;
             border-radius: 999px;
             background: rgba(42, 140, 131, 0.12);
@@ -293,7 +293,7 @@
             justify-content: space-between;
             font-weight: 700;
             font-size: 0.9rem;
-            color: var(--coral-deep);
+            color: var(--accent-hover);
             padding-top: 1rem;
             border-top: 1px solid var(--line);
         }
@@ -307,9 +307,9 @@
             transition: background 0.4s, color 0.4s, transform 0.5s var(--ease-spring);
         }
         .choice-card:hover .choice-arrow {
-            background: var(--coral);
+            background: var(--accent);
             color: #fff;
-            border-color: var(--coral);
+            border-color: var(--accent);
             transform: translateX(4px);
         }
         .stats-bar {
@@ -325,7 +325,7 @@
             font-family: "Fraunces", serif;
             font-size: 1.8rem;
             font-weight: 350;
-            color: var(--coral-deep);
+            color: var(--accent-hover);
             line-height: 1;
             margin-bottom: 0.3rem;
         }

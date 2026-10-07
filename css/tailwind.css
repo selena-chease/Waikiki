@@ -17,8 +17,8 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: var(--coral);
-    color: #fff;
+    background: var(--accent);
+    color: var(--neutral-50);
     font-size: 30px;
     cursor: pointer;
     box-shadow: 0 18px 40px -16px rgba(201, 90, 65, 0.8);
@@ -50,8 +50,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background: var(--teal-900);
-    color: var(--ivory);
+    background: var(--secondary);
+    color: var(--neutral-150);
 }
 
 .chat-body {
@@ -74,7 +74,7 @@
 
 .bot-msg {
     align-self: flex-start;
-    border-left: 3px solid var(--coral);
+    border-left: 3px solid var(--accent);
     background: var(--surface);
     color: var(--text);
 }

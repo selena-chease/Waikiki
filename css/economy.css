@@ -44,7 +44,7 @@
 .data-viz-container h3,
 .data-viz-container-half h3 {
     font-family: var(--font-display);
-    color: var(--teal-950);
+    color: var(--primary-dark);
     font-size: clamp(1.4rem, 2.5vw, 1.85rem);
     margin-bottom: 2rem;
     text-align: center;
@@ -60,7 +60,7 @@
 .comparison-label {
     font-family: var(--font-sans);
     font-weight: 600;
-    color: var(--teal-950);
+    color: var(--primary-dark);
     margin-bottom: 0.6rem;
     font-size: 1rem;
     display: flex;
@@ -69,7 +69,7 @@
 }
 
 .comparison-bar-track {
-    background: var(--sand-200);
+    background: var(--neutral-300);
     border-radius: var(--radius-pill);
     overflow: hidden;
     height: 44px;
@@ -83,12 +83,12 @@
     align-items: center;
     justify-content: flex-end;
     padding-right: 1.25rem;
-    color: var(--white);
+    color: var(--neutral-50);
     font-weight: 700;
     font-size: 1rem;
     font-family: var(--font-display);
     border-radius: var(--radius-pill);
-    background: linear-gradient(90deg, var(--teal-600) 0%, var(--teal-500) 70%, var(--coral-500) 100%);
+    background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 70%, var(--accent) 100%);
     box-shadow: 0 4px 12px -2px rgba(17, 96, 91, 0.35);
     transition: width 1.2s var(--ease-out),
                 transform var(--duration-fast) var(--ease-out),
@@ -175,11 +175,11 @@
 
 .body-dark .data-viz-container h3,
 .body-dark .data-viz-container-half h3 {
-    color: var(--teal-300);
+    color: var(--tertiary-light);
 }
 
 .body-dark .comparison-label {
-    color: var(--sand-50);
+    color: var(--neutral-100);
 }
 
 .body-dark .comparison-bar-track {
@@ -187,7 +187,7 @@
 }
 
 .body-dark .legend-text {
-    color: var(--sand-200);
+    color: var(--neutral-300);
 }
 
 .body-dark .legend-item:hover {

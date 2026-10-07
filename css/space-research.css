@@ -64,8 +64,8 @@
 }
 
 .status-active {
-    background: rgba(46, 125, 50, 0.15);
-    color: #2e7d32;
+    background: var(--status-active-bg);
+    color: var(--status-active);
 }
 
 .body-dark .status-active {

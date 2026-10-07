@@ -62,7 +62,7 @@
     left: 0;
     width: 56px;
     height: 3px;
-    background: var(--coral);
+    background: var(--accent);
     border-radius: 2px;
 }
 
@@ -93,7 +93,7 @@
     content: '→';
     position: absolute;
     left: 0;
-    color: var(--coral);
+    color: var(--accent);
     font-weight: 700;
 }
 
@@ -223,11 +223,11 @@
 .filter-chip[aria-pressed="true"] {
     background: var(--primary);
     border-color: var(--primary);
-    color: var(--ivory);
+    color: var(--neutral-150);
 }
 
 .body-dark .filter-chip[aria-pressed="true"] {
-    color: #0a1c1b;
+    color: var(--neutral-900);
 }
 
 .filter-chip .count {

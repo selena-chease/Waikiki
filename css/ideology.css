@@ -53,14 +53,14 @@
     overflow: hidden;
     background:
         radial-gradient(900px 500px at 90% 0%, rgba(227, 115, 90, 0.14), transparent 60%),
-        var(--teal-950);
+        var(--primary-dark);
 }
 
 .detail-section.alt {
     flex-direction: row-reverse;
     background:
         radial-gradient(900px 500px at 10% 100%, rgba(124, 198, 188, 0.14), transparent 60%),
-        #0e2b29;
+        var(--teal-alt);
 }
 
 .detail-text {
@@ -69,7 +69,7 @@
 
 .detail-text h3 {
     margin-bottom: 1.5rem;
-    color: var(--ivory);
+    color: var(--neutral-150);
     font-size: clamp(2rem, 3.6vw, 2.9rem);
     font-weight: 330;
     letter-spacing: -0.02em;
@@ -114,7 +114,7 @@
 }
 
 .visual-content h4 {
-    color: var(--coral-soft);
+    color: var(--accent-light);
     font-family: var(--font-sans);
     font-size: 0.95rem;
     font-weight: 700;

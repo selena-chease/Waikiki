@@ -14,7 +14,7 @@
     max-width: var(--maxw);
     margin: auto;
     font-family: var(--font-display);
-    color: var(--teal-950);
+    color: var(--primary-dark);
 }
 
 /* Timeline Styles */
@@ -32,7 +32,7 @@
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(180deg, var(--gold) 0%, var(--coral-500) 50%, var(--teal-600) 100%);
+    background: linear-gradient(180deg, var(--gold) 0%, var(--accent) 50%, var(--primary) 100%);
     transform: translateX(-50%);
     border-radius: var(--radius-pill);
     box-shadow: 0 0 12px rgba(194, 154, 87, 0.4);
@@ -66,7 +66,7 @@
     font-size: 1.45rem;
     font-weight: 700;
     color: var(--gold-dark);
-    background: var(--sand-50);
+    background: var(--neutral-100);
     border: 3px solid var(--gold);
     border-radius: 50%;
     display: flex;
@@ -82,8 +82,8 @@
 
 .timeline-item:hover .timeline-year {
     transform: scale(1.08);
-    border-color: var(--coral-500);
-    color: var(--coral-500);
+    border-color: var(--accent);
+    color: var(--accent);
     box-shadow: 0 12px 28px -4px rgba(201, 90, 65, 0.45);
 }
 
@@ -95,14 +95,14 @@
     border: 1px solid var(--border-subtle);
     box-shadow: var(--shadow-md);
     margin: 0 2.5rem;
-    border-left: 5px solid var(--teal-600);
+    border-left: 5px solid var(--primary);
     transition: transform var(--duration-normal) var(--ease-out),
                 box-shadow var(--duration-normal) var(--ease-out);
 }
 
 .timeline-item:nth-child(even) .timeline-content {
     border-left: 1px solid var(--border-subtle);
-    border-right: 5px solid var(--teal-600);
+    border-right: 5px solid var(--primary);
 }
 
 .timeline-content:hover {
@@ -112,7 +112,7 @@
 
 .timeline-content h4 {
     font-family: var(--font-display);
-    color: var(--teal-950);
+    color: var(--primary-dark);
     margin-bottom: 0.65rem;
     font-size: 1.3rem;
     font-weight: 700;
@@ -151,7 +151,7 @@
     .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
         margin: 0 0 0 1.5rem;
-        border-left: 4px solid var(--teal-600);
+        border-left: 4px solid var(--primary);
         border-right: 1px solid var(--border-subtle);
         padding: 1.25rem 1.5rem;
     }
@@ -159,7 +159,7 @@
 
 /* Lagoon Night (Dark Mode) */
 .body-dark .chart-title {
-    color: var(--sand-50);
+    color: var(--neutral-100);
 }
 
 .body-dark .timeline-year {
@@ -176,9 +176,9 @@
 }
 
 .body-dark .timeline-content h4 {
-    color: var(--teal-300);
+    color: var(--tertiary-light);
 }
 
 .body-dark .timeline-content p {
-    color: var(--sand-200);
+    color: var(--neutral-300);
 }

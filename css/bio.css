@@ -3,7 +3,7 @@
 /* Narrative Container */
 #narrative {
     padding: clamp(60px, 8vw, 100px) clamp(1.5rem, 5vw, 4rem);
-    background: var(--sand-50);
+    background: var(--neutral-100);
     transition: background-color var(--duration-normal) var(--ease-out);
 }
 
@@ -15,7 +15,7 @@
     text-align: center;
     line-height: 1.8;
     margin: 0 auto clamp(2.5rem, 5vw, 4rem);
-    color: var(--coral-600);
+    color: var(--accent-hover);
     letter-spacing: 0.04em;
     padding: 1.25rem 2rem;
     background: var(--surface-card);
@@ -49,7 +49,7 @@
     font-family: var(--font-display);
     font-size: clamp(1.6rem, 3vw, 2.2rem);
     font-weight: 700;
-    color: var(--teal-950);
+    color: var(--primary-dark);
     margin-top: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1.25rem;
     letter-spacing: -0.01em;
@@ -64,7 +64,7 @@
     left: 0;
     width: 48px;
     height: 3px;
-    background: linear-gradient(90deg, var(--coral-500), var(--gold));
+    background: linear-gradient(90deg, var(--accent), var(--gold));
     border-radius: var(--radius-pill);
 }
 
@@ -84,7 +84,7 @@
     font-size: clamp(1.25rem, 2.2vw, 1.6rem) !important;
     line-height: 1.6 !important;
     text-align: center;
-    color: var(--teal-950) !important;
+    color: var(--primary-dark) !important;
     margin: clamp(3rem, 6vw, 5rem) auto 1rem !important;
     padding: clamp(2rem, 4vw, 3rem) clamp(2rem, 5vw, 3.5rem);
     background: var(--surface-card);
@@ -97,27 +97,27 @@
 
 /* Lagoon Night (Dark Mode) */
 .body-dark #narrative {
-    background: var(--sand-950);
+    background: var(--neutral-900);
 }
 
 .body-dark .bio-summary {
     background: var(--surface-card);
     border-color: rgba(124, 198, 188, 0.18);
-    color: var(--coral-light);
+    color: var(--accent-light);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
 .body-dark #narrative .section-title {
-    color: var(--sand-50);
+    color: var(--neutral-100);
 }
 
 .body-dark #narrative .narrative-text {
-    color: var(--sand-200);
+    color: var(--neutral-300);
 }
 
 .body-dark .bio-quote {
     background: var(--surface-card);
     border-color: rgba(124, 198, 188, 0.18);
-    color: var(--sand-50) !important;
+    color: var(--neutral-100) !important;
     box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.6);
 }
