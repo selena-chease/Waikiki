@@ -127,9 +127,10 @@
 
   /* 1.3 Layout and Sizing */
   --maxw: 2560px;
-  --maxw-text: 1000px;
+  --maxw-wide: 1800px;
   --maxw-timeline: 1400px;
   --maxw-narrative: 1200px;
+  --maxw-text: 1000px;
   --header-h: 84px;
   --header-h-compact: 68px;
   --subnav-h: 58px;
@@ -1631,7 +1632,7 @@ html.menu-open .menu-aside {
 }
 
 .narrative-content-wide {
-  max-width: var(--maxw);
+  max-width: var(--maxw-wide);
 }
 
 .narrative-content-wide>.narrative-text,
