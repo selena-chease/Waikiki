@@ -59,7 +59,8 @@ GROUPS = [
         ("wealth-fund", {"en": "Wealth Fund", "hu": "Vagyonalap"}),
         ("citizenship", {"en": "Citizenship", "hu": "Állampolgárság"}),
         ("infrastructure", {"en": "Infrastructure", "hu": "Infrastruktúra"}),
-        ("plane", {"en": "Diplomatic Fleet", "hu": "Diplomáciai Flotta"}),
+        ("space-research", {"en": "Space Research", "hu": "Űrkutatás"}),
+        ("banking-system", {"en": "Banking System", "hu": "Bankrendszer"}),
     ]),
     ("royal", {"en": "Royal Family", "hu": "Királyi Család"}, [
         ("dynasty", {"en": "The Dynasty", "hu": "A Dinasztia"}),
@@ -425,6 +426,8 @@ def build_subnav(page: Page) -> str:
 TARGET_NEXT_IMAGES = {
     "overview": "UniversalUpscaler_Pro_Precise_2_1f1c19d5-4a8a-6240-8c96-a28f543c898c.jpg",
     "infrastructure": "UniversalUpscaler_Pro_Precise_2_1f1c1a29-2ad2-6700-ba29-0886f847836a.jpg",
+    "space-research": "space_research_hero.jpg",
+    "banking-system": "banking_system_hero.jpg",
     "constitution": "UniversalUpscaler_Pro_Precise_2_1f1c1a2a-3682-6450-b953-3cd17cf5a1a7.jpg",
     "travel-guide": "UniversalUpscaler_Pro_Precise_2_1f1c1a3a-8488-6130-962d-09f15cdbb0eb.jpg",
     "faq": "faq.jpg",
