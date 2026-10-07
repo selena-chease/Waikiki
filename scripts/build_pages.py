@@ -139,8 +139,8 @@ T = {
         "hu": "Jólét, stabilitás és haladás, a Karib-tengertől az Amazonasig.",
     },
     "about": {
-        "en": "The official portal of the Sovereign Nation of Waikiki. Founded 10 March 1999 · Nova Aurelia. This site was generated with AI, any resemblance to real people, countries or institutions is just a coincidence.",
-        "hu": "Waikiki Szuverén Állam hivatalos portálja. Alapítva 1999. március 10-én · Nova Aurelia. Ez az oldal mesterséges intelligenciával készült, bármilyen hasonlóság valós személyekhez, országokhoz vagy intézményekhez pusztán a véletlen műve.",
+        "en": "The official portal of the Nation of Waikiki. Founded 10 March 1999 · Nova Aurelia. This site was generated with AI, any resemblance to real people, countries or institutions is just a coincidence.",
+        "hu": "Waikiki Állam hivatalos portálja. Alapítva 1999. március 10-én · Nova Aurelia. Ez az oldal mesterséges intelligenciával készült, bármilyen hasonlóság valós személyekhez, országokhoz vagy intézményekhez pusztán a véletlen műve.",
     },
     "rights": {
         "en": "© 2026 The Sovereign Nation of Waikiki. All rights reserved.",
@@ -744,7 +744,7 @@ def create_empty_page(
         default_title = "Üres Oldal" if slug == "empty" else slug.split("/")[-1].replace("-", " ").capitalize()
         page_title = title or default_title
         eyebrow = f"{group_label(group, 'hu')} · Sablon"
-        lead = "Kezdő sablonoldal Waikiki Szuverén Állam hivatalos portáljához."
+        lead = "Kezdő sablonoldal Waikiki Állam hivatalos portáljához."
         sec1_title = "Áttekintés"
         sec1_intro = "Ez a szakasz készen áll a tartalomra és követi az oldal stílusirányelveit."
         sec2_title = "Részletek és Jellemzők"
