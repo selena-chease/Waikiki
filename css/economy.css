@@ -89,7 +89,7 @@
     font-family: var(--font-display);
     border-radius: var(--radius-pill);
     background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 70%, var(--accent) 100%);
-    box-shadow: 0 4px 12px -2px rgba(17, 96, 91, 0.35);
+    box-shadow: 0 4px 12px -2px rgba(0, 51, 102, 0.35);
     transition: width 1.2s var(--ease-out),
                 transform var(--duration-fast) var(--ease-out),
                 box-shadow var(--duration-fast) var(--ease-out);
@@ -118,7 +118,7 @@
 }
 
 .legend-item:hover {
-    background: rgba(17, 96, 91, 0.05);
+    background: rgba(0, 51, 102, 0.05);
 }
 
 .legend-color {

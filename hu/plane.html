@@ -33,7 +33,7 @@
     <link rel="preload" as="image" href="../images/UniversalUpscaler_e27ff905-734a-449b-8963-c47ba25ba5de.jpg" fetchpriority="high" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="page-plane group-prosperity">
+<body class="page-plane group-nation">
     <!-- @chrome:header -->
     <div class="page-curtain" aria-hidden="true"><img class="brand-mark" src="../icons/logo.svg" alt="Waikiki" width="64" height="64" loading="eager" decoding="async" /></div>
     <div class="scroll-progress" aria-hidden="true"></div>
@@ -101,7 +101,8 @@
                     <li><a href="wealth-fund.html">Vagyonalap</a></li>
                     <li><a href="citizenship.html">Állampolgárság</a></li>
                     <li><a href="infrastructure.html">Infrastruktúra</a></li>
-                    <li><a href="plane.html" aria-current="page">Diplomáciai Flotta</a></li>
+                    <li><a href="space-research.html">Űrkutatás</a></li>
+                    <li><a href="banking-system.html">Bankrendszer</a></li>
                 </ul>
             </div>
             <div class="menu-group">
@@ -131,7 +132,7 @@
         <div class="min-h-screen">
             <section class="relative h-screen flex items-center justify-center overflow-hidden">
                 <div class="absolute inset-0 z-0">
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#072221]/90 to-[#11605B]/40 z-10"></div><img src="../images/UniversalUpscaler_e27ff905-734a-449b-8963-c47ba25ba5de.jpg" class="w-full h-full object-cover" />
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#001830]/90 to-[#003366]/40 z-10"></div><img src="../images/UniversalUpscaler_e27ff905-734a-449b-8963-c47ba25ba5de.jpg" class="w-full h-full object-cover" />
                 </div>
                 <div class="container mx-auto px-6 z-20 relative text-center pt-20">
                     <div class="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold tracking-widest uppercase mb-6 animate-fade-up">Waikiki Királyi Légiszárny</div>
@@ -169,24 +170,24 @@
                                 </div>
                                 <div class="p-8 pt-6 flex-grow bg-gray-50/30">
                                     <div class="tab-content space-y-1" data-content="specs">
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hajtóművek</span><span class="text-sm font-bold text-gray-800 font-mono">6 Rolls-Royce Titan XWB</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hossz</span><span class="text-sm font-bold text-gray-800 font-mono">102 m</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Szárnyfesztávolság</span><span class="text-sm font-bold text-gray-800 font-mono">94 m</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hatótáv</span><span class="text-sm font-bold text-gray-800 font-mono">16 400 km (légi utántöltéssel)</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Max. sebesség</span><span class="text-sm font-bold text-gray-800 font-mono">1000 km/h</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Kifutópálya</span><span class="text-sm font-bold text-gray-800 font-mono">3500 m (megerősített)</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hajtóművek</span><span class="text-sm font-bold text-gray-800 font-mono">6 Rolls-Royce Titan XWB</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hossz</span><span class="text-sm font-bold text-gray-800 font-mono">102 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Szárnyfesztávolság</span><span class="text-sm font-bold text-gray-800 font-mono">94 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hatótáv</span><span class="text-sm font-bold text-gray-800 font-mono">16 400 km (légi utántöltéssel)</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Max. sebesség</span><span class="text-sm font-bold text-gray-800 font-mono">1000 km/h</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Kifutópálya</span><span class="text-sm font-bold text-gray-800 font-mono">3500 m (megerősített)</span></div>
                                     </div>
                                     <div class="tab-content hidden grid grid-cols-1 gap-1" data-content="interior">
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Kétszintes fedélzet</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Kétszintes fedélzet</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">500 m² lakóterület két szinten luxus belső kialakítással, két teljes méretű hálószobával, nappalival és zuhanyozós fürdőszobákkal.</p>
                                         </div>
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Diplomáciai helyiségek</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Diplomáciai helyiségek</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">Hivatalos fogadóterem 12 személyes bankett asztallal és mahágóni burkolással, bárokkal és luxus társalgókkal, valamint videokonferencia teremmel.</p>
                                         </div>
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Utasterek</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Utasterek</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">További 24 ülés kormánytagok és sajtómunkatársak számára, kényelemre és funkcionalitásra tervezve hosszú repülésekhez.</p>
                                         </div>
                                     </div>
@@ -219,24 +220,24 @@
                                 </div>
                                 <div class="p-8 pt-6 flex-grow bg-gray-50/30">
                                     <div class="tab-content space-y-1" data-content="specs">
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hajtóművek</span><span class="text-sm font-bold text-gray-800 font-mono">4 Rolls-Royce Olympus 1000</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hossz</span><span class="text-sm font-bold text-gray-800 font-mono">64 m</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Szárnyfesztávolság</span><span class="text-sm font-bold text-gray-800 font-mono">26 m</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hatótáv</span><span class="text-sm font-bold text-gray-800 font-mono">8800 km</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Max. sebesség</span><span class="text-sm font-bold text-gray-800 font-mono">2400 km/h</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Kifutópálya</span><span class="text-sm font-bold text-gray-800 font-mono">3400 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hajtóművek</span><span class="text-sm font-bold text-gray-800 font-mono">4 Rolls-Royce Olympus 1000</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hossz</span><span class="text-sm font-bold text-gray-800 font-mono">64 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Szárnyfesztávolság</span><span class="text-sm font-bold text-gray-800 font-mono">26 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hatótáv</span><span class="text-sm font-bold text-gray-800 font-mono">8800 km</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Max. sebesség</span><span class="text-sm font-bold text-gray-800 font-mono">2400 km/h</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Kifutópálya</span><span class="text-sm font-bold text-gray-800 font-mono">3400 m</span></div>
                                     </div>
                                     <div class="tab-content hidden grid grid-cols-1 gap-1" data-content="interior">
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Exkluzív kabin</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Exkluzív kabin</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">A maximális kényelemre és eleganciára tervezett kabin nyugodt környezetet kínál pihenéshez és munkához, étkezőasztallal és zuhanyozós fürdőszobával.</p>
                                         </div>
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Digitális kommunikáció</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Digitális kommunikáció</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">A kabin a legmodernebb videokonferencia szabványokat, gyors internet-hozzáférést és biztonságos kommunikációs protokollokat kínál.</p>
                                         </div>
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Gasztronómia</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Gasztronómia</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">Molekuláris konyha, optimalizálva a nagy magasságú ízélményhez, teljes méretű étkezőasztalnál, miközben hangsebesség felett repülünk.</p>
                                         </div>
                                     </div>
@@ -269,24 +270,24 @@
                                 </div>
                                 <div class="p-8 pt-6 flex-grow bg-gray-50/30">
                                     <div class="tab-content space-y-1" data-content="specs">
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hajtóművek</span><span class="text-sm font-bold text-gray-800 font-mono">4 General Electric GEnx-2B67</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hossz</span><span class="text-sm font-bold text-gray-800 font-mono">76 m</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Szárnyfesztávolság</span><span class="text-sm font-bold text-gray-800 font-mono">68 m</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hatótáv</span><span class="text-sm font-bold text-gray-800 font-mono">15 000 km</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Max. sebesség</span><span class="text-sm font-bold text-gray-800 font-mono">988 km/h</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Kifutópálya</span><span class="text-sm font-bold text-gray-800 font-mono">2800 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hajtóművek</span><span class="text-sm font-bold text-gray-800 font-mono">4 General Electric GEnx-2B67</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hossz</span><span class="text-sm font-bold text-gray-800 font-mono">76 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Szárnyfesztávolság</span><span class="text-sm font-bold text-gray-800 font-mono">68 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hatótáv</span><span class="text-sm font-bold text-gray-800 font-mono">15 000 km</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Max. sebesség</span><span class="text-sm font-bold text-gray-800 font-mono">988 km/h</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Kifutópálya</span><span class="text-sm font-bold text-gray-800 font-mono">2800 m</span></div>
                                     </div>
                                     <div class="tab-content hidden grid grid-cols-1 gap-1" data-content="interior">
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Ovális iroda</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Ovális iroda</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">Hangszigetelt, biztonságos tárgyalóterem az orr-részben, a legmodernebb biztonságos kommunikációs szabványokkal és elsőbbségi vonalakkal a világvezetőkhöz.</p>
                                         </div>
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Helyzetelemző terem</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Helyzetelemző terem</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">Globális megfigyelő központ valós idejű műholdas képekkel, teljesen felszerelt katonai parancsnoki központ légi válságkezeléshez.</p>
                                         </div>
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Médiaközpont</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Médiaközpont</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">Sajtótájékoztató terem legfeljebb 10 újságíró vagy médiamunkatárs számára. Valós idejű tudósítást biztosít Waikiki diplomáciai eredményeiről.</p>
                                         </div>
                                     </div>
@@ -296,7 +297,7 @@
                     </div>
                     <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-500 w-full relative group hover:-translate-y-2 hover:shadow-2xl tab-container">
                         <div class="flex flex-col md:flex-row h-full min-h-[450px]">
-                            <div class="md:w-5/12 p-8 relative overflow-hidden flex flex-col justify-between" style="background-color: #0B3B3A;">
+                            <div class="md:w-5/12 p-8 relative overflow-hidden flex flex-col justify-between" style="background-color: var(--secondary);">
                                 <div class="absolute inset-0 opacity-10" style="background: radial-gradient(circle at top right, white, transparent);"></div>
                                 <div class="relative z-10 text-white">
                                     <div class="flex items-center gap-2 mb-4 opacity-90"><img src="https://api.iconify.design/mdi/family.svg?color=%23FFFFFF&width=20&height=20" class="w-5 h-5" /><span class="text-xs font-bold tracking-widest uppercase">Családi Repülőgép</span></div>
@@ -319,24 +320,24 @@
                                 </div>
                                 <div class="p-8 pt-6 flex-grow bg-gray-50/30">
                                     <div class="tab-content space-y-1" data-content="specs">
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hajtóművek</span><span class="text-sm font-bold text-gray-800 font-mono">2 General Electric GE90</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hossz</span><span class="text-sm font-bold text-gray-800 font-mono">64 m</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Szárnyfesztávolság</span><span class="text-sm font-bold text-gray-800 font-mono">61 m</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Hatótáv</span><span class="text-sm font-bold text-gray-800 font-mono">14 300 km</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Max. sebesség</span><span class="text-sm font-bold text-gray-800 font-mono">950 km/h</span></div>
-                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#0B3B3A] transition-colors">Kifutópálya</span><span class="text-sm font-bold text-gray-800 font-mono">2700 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hajtóművek</span><span class="text-sm font-bold text-gray-800 font-mono">2 General Electric GE90</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hossz</span><span class="text-sm font-bold text-gray-800 font-mono">64 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Szárnyfesztávolság</span><span class="text-sm font-bold text-gray-800 font-mono">61 m</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Hatótáv</span><span class="text-sm font-bold text-gray-800 font-mono">14 300 km</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Max. sebesség</span><span class="text-sm font-bold text-gray-800 font-mono">950 km/h</span></div>
+                                        <div class="flex justify-between items-center py-3 border-b border-gray-100 px-2"><span class="text-sm font-medium text-[#002244] transition-colors">Kifutópálya</span><span class="text-sm font-bold text-gray-800 font-mono">2700 m</span></div>
                                     </div>
                                     <div class="tab-content hidden grid grid-cols-1 gap-1" data-content="interior">
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Felhő apartman</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Felhő apartman</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">Központi lakosztály nappalival és esőzuhanyos fürdőszobával. Panoráma ablakok megszakítás nélküli óceáni kilátást nyújtanak, az automatizált klímarendszer pedig tökéletes kényelmet biztosít.</p>
                                         </div>
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Étkező és bár</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Étkező és bár</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">Privát étkező teljes körű konyhával és válogatott menükkel állami bankettekhez. A fedélzeti kiszolgálószemélyzet a diplomáciai preferenciákhoz és protokollhoz igazodik.</p>
                                         </div>
                                         <div class="mb-2 p-3 border border-transparent hover:border-gray-100 hover:bg-gray-50 rounded-lg transition-all">
-                                            <h4 class="text-[#0B3B3A] font-bold text-sm mb-1">Vendégszárny</h4>
+                                            <h4 class="text-[#002244] font-bold text-sm mb-1">Vendégszárny</h4>
                                             <p class="text-gray-500 text-xs leading-relaxed">10 üzleti osztályú mini-lakosztály. Minden lakosztály hangszigetelt és összecsukható munkaállomásokkal, valamint biztonságos kommunikációval van felszerelve a látogató tisztviselők számára.</p>
                                         </div>
                                     </div>
@@ -347,10 +348,7 @@
                 </div>
             </main>
         </div>
-        <!-- @chrome:next -->
-        <section class="next-chapter"><a class="next-card" href="dynasty.html">
-                <div class="next-media"><img src="../images/UniversalUpscaler_e38222ed-70b3-4c90-9777-c114aa60d527-U.jpg" alt="" loading="lazy" decoding="async" /></div><span class="next-body"><span class="next-eyebrow">Folytassa az utazást · Királyi Család</span><span class="next-title">A Dinasztia</span><span class="next-arrow" aria-hidden="true">→</span></span>
-            </a></section><!-- /@chrome:next -->
+        <!-- @chrome:next --><!-- /@chrome:next -->
     </main>
     <!-- @chrome:footer -->
     <footer class="site-footer">
@@ -393,7 +391,8 @@
                         <li><a href="wealth-fund.html">Vagyonalap</a></li>
                         <li><a href="citizenship.html">Állampolgárság</a></li>
                         <li><a href="infrastructure.html">Infrastruktúra</a></li>
-                        <li><a href="plane.html">Diplomáciai Flotta</a></li>
+                        <li><a href="space-research.html">Űrkutatás</a></li>
+                        <li><a href="banking-system.html">Bankrendszer</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">

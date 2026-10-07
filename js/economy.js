@@ -7,8 +7,8 @@ Chart.defaults.color = '#4A5957';
 
 // Color constants
 const COLORS = {
-    primary: '#11605B',
-    secondary: '#0B3B3A',
+    primary: '#003366',
+    secondary: '#002244',
     tertiary: '#4FB3A9',
     gold: '#C95A41',
     error: '#AD1A24',
@@ -37,7 +37,7 @@ const commonOptions = {
             }
         },
         tooltip: {
-            backgroundColor: 'rgba(11, 59, 58, 0.95)',
+            backgroundColor: 'rgba(0, 34, 68, 0.95)',
             padding: 12,
             titleFont: {
                 size: 14,
@@ -423,11 +423,11 @@ function initEconomyCharts() {
                 datasets: [{
                     data: [22.4, 18.1, 13.9, 11, 10.4, 9, 7.7, 7.5],
                     backgroundColor: [
-                        '#11605B',  // Steel Blue
-                        '#7CC6BC',  // Lime Green
+                        '#003366',  // Steel Blue
+                        '#6BA4D9',  // Lime Green
                         '#E3735A',  // Orange
                         '#E9B872',  // Yellow
-                        '#2A8C83',  // Light Blue
+                        '#1A528F',  // Light Blue
                         '#B5523B',  // Red
                         '#8A6F9E',  // Purple
                         '#C29A57'   // Olive
@@ -474,11 +474,11 @@ function initEconomyCharts() {
                     label: 'Budget Share',
                     data: [34, 23, 11, 7, 7, 5, 4, 4, 2],
                     backgroundColor: [
-                        '#11605B',  // Steel Blue
-                        '#7CC6BC',  // Lime Green
+                        '#003366',  // Steel Blue
+                        '#6BA4D9',  // Lime Green
                         '#E3735A',  // Orange
                         '#E9B872',  // Yellow
-                        '#2A8C83',  // Light Blue
+                        '#1A528F',  // Light Blue
                         '#B5523B',  // Red
                         '#8A6F9E',  // Purple
                         '#C29A57',  // Olive
@@ -543,11 +543,11 @@ function initEconomyCharts() {
                     label: 'Wealth Share',
                     data: [1.5, 2.0, 3.5, 4.7, 6.7, 9.4, 12.6, 17.0, 42.7],
                     backgroundColor: [
-                        '#11605B',  // Steel Blue
-                        '#7CC6BC',  // Lime Green
+                        '#003366',  // Steel Blue
+                        '#6BA4D9',  // Lime Green
                         '#E3735A',  // Orange
                         '#E9B872',  // Yellow
-                        '#2A8C83',  // Light Blue
+                        '#1A528F',  // Light Blue
                         '#B5523B',  // Red
                         '#8A6F9E',  // Purple
                         '#C29A57',  // Olive
@@ -643,7 +643,7 @@ function initEconomyCharts() {
                     label: 'Savings Rate',
                     data: [16, 19, 22, 26, 28, 32],
                     borderColor: COLORS.primary,
-                    backgroundColor: 'rgba(17, 96, 91, 0.15)',
+                    backgroundColor: 'rgba(0, 51, 102, 0.15)',
                     borderWidth: 3,
                     fill: true,
                     tension: 0.4,

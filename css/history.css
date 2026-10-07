@@ -113,7 +113,7 @@
 
 .event-content:hover {
   transform: translateX(8px);
-  border-color: rgba(42, 140, 131, 0.3);
+  border-color: rgba(26, 82, 143, 0.3);
   box-shadow: var(--shadow-md);
 }
 

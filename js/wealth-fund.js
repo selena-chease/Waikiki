@@ -42,14 +42,14 @@ function initFundGrowthChart() {
                 {
                     label: 'Fund Assets (Trillion USD)',
                     data: [0.03, 0.61, 4.93, 13.13, 21.39, 25.58],
-                    borderColor: '#11605B',
-                    backgroundColor: 'rgba(17, 96, 91, 0.1)',
+                    borderColor: '#003366',
+                    backgroundColor: 'rgba(0, 51, 102, 0.1)',
                     borderWidth: 3,
                     tension: 0.4,
                     fill: true,
                     pointRadius: 6,
                     pointHoverRadius: 8,
-                    pointBackgroundColor: '#11605B',
+                    pointBackgroundColor: '#003366',
                     pointBorderColor: '#fff',
                     pointBorderWidth: 2
                 }
@@ -154,20 +154,20 @@ function initGDPRatioChart() {
                 label: 'Fund as % of GDP',
                 data: [2, 11, 35, 48, 61, 61],
                 backgroundColor: [
-                    'rgba(17, 96, 91, 0.8)',
-                    'rgba(11, 59, 58, 0.8)',
+                    'rgba(0, 51, 102, 0.8)',
+                    'rgba(0, 34, 68, 0.8)',
                     'rgba(79, 179, 169, 0.8)',
                     'rgba(201, 90, 65, 0.8)',
-                    'rgba(17, 96, 91, 0.8)',
-                    'rgba(11, 59, 58, 0.8)'
+                    'rgba(0, 51, 102, 0.8)',
+                    'rgba(0, 34, 68, 0.8)'
                 ],
                 borderColor: [
-                    '#11605B',
-                    '#0B3B3A',
+                    '#003366',
+                    '#002244',
                     '#4FB3A9',
                     '#C95A41',
-                    '#11605B',
-                    '#0B3B3A'
+                    '#003366',
+                    '#002244'
                 ],
                 borderWidth: 2,
                 borderRadius: 8,

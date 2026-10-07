@@ -59,7 +59,7 @@
 .detail-section.alt {
     flex-direction: row-reverse;
     background:
-        radial-gradient(900px 500px at 10% 100%, rgba(124, 198, 188, 0.14), transparent 60%),
+        radial-gradient(900px 500px at 10% 100%, rgba(107, 164, 217, 0.14), transparent 60%),
         var(--teal-alt);
 }
 
@@ -94,7 +94,7 @@
     border-radius: var(--radius-lg);
     background:
         radial-gradient(circle at 70% 30%, rgba(227, 115, 90, 0.28), transparent 55%),
-        radial-gradient(circle at 20% 80%, rgba(124, 198, 188, 0.22), transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(107, 164, 217, 0.22), transparent 55%),
         rgba(255, 255, 255, 0.03);
 }
 

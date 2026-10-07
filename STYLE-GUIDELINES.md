@@ -8,52 +8,52 @@
 
 The Sovereign Nation of Waikiki digital identity is rooted in **Tropical Luxe** — an editorial, sovereign, warm, and highly kinetic design language inspired by the Caribbean seas, the lush Amazonian rainforest, warm sunlit sands, and royal heritage.
 
-- **Warm & Sovereign**: Replacing generic corporate blues with warm ivory sands (`#FBF7F0`), deep lagoon teals (`#0B3B3A`), vibrant coral/terracotta (`#C95A41`), soft aqua (`#7CC6BC`), and regal brass/gold (`#C29A57`).
-- **Kinetic & Atmospheric**: Scroll-driven storytelling, word-split headline reveals, pointer-reactive spotlight glow cards, smooth page transit curtains, and an interactive back-to-top progress ring.
+- **Warm and Sovereign**: Replacing generic corporate colors with warm ivory sands (`#FBF7F0`), sovereign navy (`#003366`), deep midnight navy (`#002244`), luminous azure (`#6BA4D9`), vibrant coral/terracotta (`#C95A41`), and regal brass/gold (`#C28A29`).
+- **Kinetic and Atmospheric**: Scroll-driven storytelling, word-split headline reveals, pointer-reactive spotlight glow cards, smooth page transit curtains, and an interactive back-to-top progress ring.
 - **Editorial Typography**: A dual-type pairing featuring `Fraunces` (high-contrast display optical serif) and `Manrope` (clean, contemporary geometric grotesque).
-- **Dual Sovereign Modes**: Default *Tropical Luxe Light* and *Lagoon Night* dark mode with seamless preference persistence (`localStorage.isDarkMode`).
+- **Dual Sovereign Modes**: Default *Tropical Luxe Light* and *Midnight Sovereign* dark mode with seamless preference persistence (`localStorage.isDarkMode`).
 
 ---
 
-## 2. Color Palette & Design Tokens
+## 2. Color Palette and Design Tokens
 
-### Primary Palette (Tropical Luxe Light)
+### Primary Palette (Sovereign Navy and Tropical Sands)
 | Token | Value | Semantic Role |
 | :--- | :--- | :--- |
 | `--sand-50` | `#FBF7F0` | Primary page canvas, warm ivory backdrop |
 | `--sand-100` | `#F5EDE1` | Secondary surface, subtle contrast bands |
 | `--sand-200` | `#E8DCB8` | Warm border accents, subtle dividers |
-| `--teal-950` | `#072221` | Deepest brand tone, headers, high-contrast text |
-| `--teal-900` | `#0B3B3A` | Primary brand lagoon teal, hero veils, badges |
-| `--teal-800` | `#11605B` | Interactive elements, active links, primary buttons |
-| `--teal-500` | `#2A8C83` | Vibrant aqua-teal, province tone, success states |
-| `--teal-300` | `#7CC6BC` | Soft aqua glow, dark mode accents |
-| `--accent` | `#C29A57` | Accent gold, royal insignia, stars, timeline nodes, brass accents |
+| `--primary-dark` | `#001830` | Deepest brand tone, midnight headers, high-contrast text |
+| `--secondary` | `#002244` | Secondary midnight navy, hero veils, badges, button backdrops |
+| `--primary` | `#003366` | Primary sovereign navy, interactive elements, active links |
+| `--primary-light` | `#1A528F` | Vibrant royal blue, province tone, success states |
+| `--tertiary` | `#6BA4D9` | Soft azure glow, luminous indicators, dark mode primary |
+| `--accent` | `#C28A29` | Accent gold, royal insignia, stars, timeline nodes, brass accents |
 | `--accent-hover` | `#C95A41` | Dynamic accent coral/amber, active states, callouts |
 | `--accent-light` | `#F5C46E` | Illuminated gold accents, night mode badges |
 | `--accent-dark` | `#78531A` | Deep antique gold, high contrast brass text |
 
-### Lagoon Night Palette (Dark Mode)
+### Midnight Sovereign Palette (Dark Mode)
 | Token | Value | Semantic Role |
 | :--- | :--- | :--- |
-| Canvas | `#0A1C1B` | Deep abyssal lagoon background |
-| Surface Card | `#112A28` | Glassmorphic floating surfaces with 1px aqua border |
-| Surface Subtle | `#0E2423` | Secondary dark surface, header backdrop |
+| Canvas | `#0A1420` | Deep midnight sovereign background |
+| Surface Card | `#0E2035` | Glassmorphic floating surfaces with 1px azure border |
+| Surface Subtle | `#091626` | Secondary dark surface, header backdrop |
 | Text Primary | `#FBF7F0` | High-contrast ivory text |
-| Text Secondary | `#CAD7D5` | Muted lagoon body text |
-| Accent Glow | `#7CC6BC` | Soft aqua luminous indicators |
+| Text Secondary | `#C2CDD8` | Muted cool slate body text |
+| Accent Glow | `#6BA4D9` | Soft azure luminous indicators |
 | Accent Coral | `#E3735A` | Vivid nocturnal highlight |
 
 ### Province Identity Colors
-- **Waikiki Province**: `--waikiki: #2A8C83`, hover: `#3AA79C` (Deep Caribbean turquoise)
+- **Waikiki Province**: `--waikiki: #1A528F`, hover: `#296BB3` (Deep sovereign azure)
 - **Amazonia Province**: `--amazonia: #4E8B5A`, hover: `#62A56F` (Lush Amazonian emerald)
-- **Brazilia Province**: `--brazilia: #E2B65C`, hover: `#ECC677` (Warm sunlit brass)
+- **Brazilia Province**: `--brazilia: #C28A29`, hover: `#ECC677` (Warm sunlit brass)
 
 ### Private Page Colors
 - **Private Section**: `--private: #0A1930` (Midnight navy base)
 - **Intimate Section**: `--intimate: #3D1520` (Deep royal wine backdrop)
 - **Adventure Section**: `--adventure: #123F43` (Deep oceanic teal)
-- **Milestones Section**: `--milestones: var(--secondary)` (`#0B3B3A` - Lagoon secondary)
+- **Milestones Section**: `--milestones: var(--secondary)` (`#002244` - Midnight navy secondary)
 
 ---
 
