@@ -1,26 +1,5 @@
 /* Travel Guide - Sovereign Nation of Waikiki - Tropical Luxe and Lagoon Night Edition */
 
-:root {
-  --ill-sky: var(--ill-sky);
-  --ill-sky-2: var(--ill-sky-2);
-  --ill-sun: var(--ill-sun);
-  --ill-sun-2: var(--ill-sun-2);
-  --ill-sea: var(--ill-sea);
-  --ill-sea-2: var(--ill-sea-2);
-  --ill-sea-3: var(--ill-sea-3);
-  --ill-sand: var(--ill-sand);
-  --ill-ink: var(--ill-ink);
-  --ill-ink-2: var(--ill-ink-2);
-  --ill-ink-3: var(--ill-ink-3);
-  --ill-gold: var(--ill-gold);
-  --ill-coral: var(--ill-coral);
-  --ill-leaf: var(--ill-leaf);
-  --ill-leaf-2: var(--ill-leaf-2);
-  --ill-glass: var(--ill-glass);
-  --ill-white: var(--ill-white);
-  --ill-line: var(--ill-line);
-}
-
 .body-dark {
   --ill-sky: var(--ill-dark-sky);
   --ill-sky-2: var(--dark-surface-2);
