@@ -2070,7 +2070,8 @@ html.menu-open .menu-aside {
 
 /* 12. MEDIA ================================================================ */
 .video-wrapper {
-  max-width: min(100%, var(--maxw));
+  width: calc(100% - 2 * (var(--section-pad) - var(--gutter)));
+  max-width: var(--maxw);
   margin: 3rem auto 0;
   overflow: hidden;
   border-radius: var(--radius-lg);
@@ -2801,7 +2802,12 @@ html.header-hidden .subnav {
   }
 
   .next-chapter {
-    padding: 30px;
+    padding: 30px var(--gutter);
+  }
+
+  .video-wrapper {
+    width: 100%;
+    margin-top: 2.5rem;
   }
 }
 

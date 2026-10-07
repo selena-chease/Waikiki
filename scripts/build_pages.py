@@ -426,11 +426,11 @@ def build_subnav(page: Page) -> str:
 TARGET_NEXT_IMAGES = {
     "overview": "UniversalUpscaler_Pro_Precise_2_1f1c19d5-4a8a-6240-8c96-a28f543c898c.jpg",
     "infrastructure": "UniversalUpscaler_Pro_Precise_2_1f1c1a29-2ad2-6700-ba29-0886f847836a.jpg",
-    "space-research": "space_research_hero.jpg",
-    "banking-system": "banking_system_hero.jpg",
+    "space-research": "UniversalUpscaler_Pro_Precise_2_1f1c2357-5be5-6860-9aa6-0dca8e8888b7.jpg",
+    "banking-system": "UniversalUpscaler_Pro_Precise_2_1f1c235a-8739-6b80-818f-9814e906014a.jpg",
     "constitution": "UniversalUpscaler_Pro_Precise_2_1f1c1a2a-3682-6450-b953-3cd17cf5a1a7.jpg",
     "travel-guide": "UniversalUpscaler_Pro_Precise_2_1f1c1a3a-8488-6130-962d-09f15cdbb0eb.jpg",
-    "faq": "faq.jpg",
+    "faq": "UniversalUpscaler_82625004-8a28-4ed6-9515-e204957d9457.jpg",
 }
 
 
