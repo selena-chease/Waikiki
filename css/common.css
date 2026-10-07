@@ -374,7 +374,6 @@ html {
 }
 
 .js [data-reveal="image"] img {
-  transform: scale(1.25);
   transition: transform 1.8s var(--ease-out);
   transition-delay: inherit;
 }
@@ -391,10 +390,6 @@ html {
 
 .js [data-reveal="image"].is-in {
   clip-path: inset(0 0 0 0 round var(--radius));
-}
-
-.js [data-reveal="image"].is-in img {
-  transform: scale(1);
 }
 
 /* Turning off .js [data-reveal] effects via .no-reveal */
