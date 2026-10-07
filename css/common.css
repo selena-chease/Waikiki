@@ -1,6 +1,6 @@
 /* Waikiki Tropical Luxe Design System - Shared styles for every page */
 
-/* 1. TOKENS ================================================================ */
+/* 1. TOKENS */
 :root {
   /* 1.1 Color Palette (Primary, Secondary, Tertiary, Accent, Gold, Neutrals) */
   /* Primary */
@@ -225,7 +225,7 @@
   color-scheme: light;
 }
 
-/* 2. RESET AND BASE ========================================================== */
+/* 2. RESET AND BASE */
 *,
 *::before,
 *::after {
@@ -337,7 +337,7 @@ html {
   scrollbar-width: thin;
 }
 
-/* 3. MOTION PRIMITIVES ===================================================== */
+/* 3. MOTION PRIMITIVES */
 /* Content is only hidden when JS is running (html.js), so nothing is lost without it. */
 .js [data-reveal] {
   opacity: 0;
@@ -467,7 +467,7 @@ html.no-reveal .page-curtain {
   transform: none;
 }
 
-/* 4. PAGE CURTAIN ========================================================== */
+/* 4. PAGE CURTAIN */
 .page-curtain {
   position: fixed;
   inset: 0;
@@ -521,7 +521,7 @@ html.is-leaving .page-curtain .brand-mark {
   pointer-events: none;
 }
 
-/* 5. HEADER ================================================================ */
+/* 5. HEADER */
 .site-header {
   position: fixed;
   inset: 0 0 auto 0;
@@ -833,7 +833,7 @@ html.menu-open .menu-label-close {
   display: inline;
 }
 
-/* 6. OVERLAY MENU ========================================================== */
+/* 6. OVERLAY MENU */
 .site-menu {
   position: fixed;
   inset: 0;
@@ -1076,7 +1076,7 @@ html.menu-open .menu-aside {
 }
 
 
-/* 7. HERO AND SECTIONS ======================================================= */
+/* 7. HERO AND SECTIONS */
 .hero {
   position: relative;
   isolation: isolate;
@@ -1434,7 +1434,7 @@ html.menu-open .menu-aside {
   --surface: rgba(255, 255, 255, 0.04);
 }
 
-/* 8. CARDS AND STATS ========================================================= */
+/* 8. CARDS AND STATS */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
@@ -1624,7 +1624,7 @@ html.menu-open .menu-aside {
   margin-bottom: 0;
 }
 
-/* 9. NARRATIVE AND TABLES ==================================================== */
+/* 9. NARRATIVE AND TABLES */
 .narrative-content {
   max-width: var(--maxw-narrative);
   margin: 0 auto;
@@ -1776,7 +1776,7 @@ html.menu-open .menu-aside {
   }
 }
 
-/* 10. FAQ ================================================================== */
+/* 10. FAQ */
 .faq-container {
   max-width: min(100%, var(--maxw-timeline));
   margin: 0 auto;
@@ -1969,7 +1969,7 @@ html.menu-open .menu-aside {
   line-height: 1.8;
 }
 
-/* 11. BUTTONS AND LINKS ====================================================== */
+/* 11. BUTTONS AND LINKS */
 .btn,
 .section-link-btn,
 .menu-btn,
@@ -2087,7 +2087,7 @@ html.menu-open .menu-aside {
   background-size: 100% 1.5px;
 }
 
-/* 12. MEDIA ================================================================ */
+/* 12. MEDIA */
 .video-wrapper {
   width: calc(100% - 2 * (var(--section-pad) - var(--gutter)));
   max-width: var(--maxw);
@@ -2151,7 +2151,7 @@ video {
   font-style: normal;
 }
 
-/* 13. SUB-NAVIGATION (royal couple pages) ================================== */
+/* 13. SUB-NAVIGATION (royal couple pages) */
 .subnav {
   position: sticky;
   top: var(--header-h-compact);
@@ -2209,7 +2209,7 @@ html.header-hidden .subnav {
   box-shadow: var(--shadow-sm);
 }
 
-/* 14. NEXT CHAPTER ========================================================= */
+/* 14. NEXT CHAPTER */
 .next-chapter {
   padding: var(--gutter) var(--section-pad);
 }
@@ -2303,7 +2303,7 @@ html.header-hidden .subnav {
   border-color: var(--accent);
 }
 
-/* 15. FOOTER =============================================================== */
+/* 15. FOOTER */
 .site-footer {
   position: relative;
   margin-top: 90px;
@@ -2432,7 +2432,7 @@ html.header-hidden .subnav {
   color: var(--accent);
 }
 
-/* 16. FLOATING UI ========================================================== */
+/* 16. FLOATING UI */
 .section-rail {
   position: fixed;
   right: clamp(0.75rem, 1.6vw, 1.75rem);
@@ -2569,7 +2569,7 @@ html.header-hidden .subnav {
   transform: translateY(-3px);
 }
 
-/* 17. NIGHT MODE ("Lagoon Night") ========================================= */
+/* 17. NIGHT MODE ("Lagoon Night") */
 .body-dark {
   --bg: var(--neutral-900);
   --surface: var(--dark-surface);
@@ -2669,7 +2669,7 @@ html.header-hidden .subnav {
   border-color: var(--line);
 }
 
-/* 18. RESPONSIVE =========================================================== */
+/* 18. RESPONSIVE */
 @media (max-width: 1280px) {
   .primary-nav {
     display: none;
@@ -2838,7 +2838,7 @@ html.header-hidden .subnav {
   }
 }
 
-/* 19. REDUCED MOTION ======================================================= */
+/* 19. REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
 
   *,
@@ -2862,7 +2862,7 @@ html.header-hidden .subnav {
   }
 }
 
-/* 20. KEYFRAMES ============================================================ */
+/* 20. KEYFRAMES */
 @keyframes curtainOut {
   from {
     transform: translate3d(0, 0, 0);
