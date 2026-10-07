@@ -307,7 +307,7 @@
 }
 
 .hero-art .ill {
-  filter: drop-shadow(0 40px 60px rgba(11, 59, 58, 0.18));
+  filter: drop-shadow(0 40px 60px rgba(0, 34, 68, 0.18));
 }
 
 .hero--art .stat-number {
@@ -369,7 +369,7 @@
   border: var(--border-width) solid var(--line);
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(600px 300px at 0% 0%, rgba(124, 198, 188, 0.16), transparent 60%),
+    radial-gradient(600px 300px at 0% 0%, rgba(107, 164, 217, 0.16), transparent 60%),
     radial-gradient(500px 300px at 100% 100%, rgba(227, 115, 90, 0.1), transparent 60%),
     var(--surface);
   box-shadow: var(--shadow-md);
@@ -423,7 +423,7 @@
 
 .body-dark .tag {
   color: var(--tertiary);
-  background: rgba(124, 198, 188, 0.12);
+  background: rgba(107, 164, 217, 0.12);
 }
 
 .body-dark .tag--coral {
@@ -591,7 +591,7 @@
   background: linear-gradient(140deg, var(--primary-light), var(--primary));
   color: var(--neutral-50);
   font: 600 1.15rem/1 var(--font-display);
-  box-shadow: 0 10px 24px -10px rgba(17, 96, 91, 0.7);
+  box-shadow: 0 10px 24px -10px rgba(0, 51, 102, 0.7);
 }
 
 .steps h3 {
@@ -657,7 +657,7 @@
 }
 
 .s-wet {
-  background: repeating-linear-gradient(135deg, rgba(42, 111, 115, 0.28) 0 6px, rgba(42, 111, 115, 0.12) 6px 12px);
+  background: repeating-linear-gradient(135deg, rgba(26, 82, 143, 0.28) 0 6px, rgba(26, 82, 143, 0.12) 6px 12px);
 }
 
 .body-dark .s-fair {

@@ -31,7 +31,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: radial-gradient(400px circle at var(--mx, 50%) var(--my, -20%), rgba(124, 198, 188, 0.22), transparent 50%);
+  background: radial-gradient(400px circle at var(--mx, 50%) var(--my, -20%), rgba(107, 164, 217, 0.22), transparent 50%);
   opacity: 0;
   transition: opacity 0.5s;
 }
@@ -51,7 +51,7 @@
 
 .economy-stat:hover {
   transform: translateY(-6px);
-  border-color: rgba(42, 140, 131, 0.35);
+  border-color: rgba(26, 82, 143, 0.35);
   box-shadow: var(--shadow-lg);
 }
 
@@ -154,7 +154,7 @@
 
 .timeline-content:hover {
   transform: translateY(-6px);
-  border-color: rgba(42, 140, 131, 0.35);
+  border-color: rgba(26, 82, 143, 0.35);
   box-shadow: var(--shadow-md);
 }
 

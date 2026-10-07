@@ -121,7 +121,7 @@
 .province-path:hover {
     stroke: var(--neutral-100);
     stroke-width: 3;
-    filter: brightness(1.15) drop-shadow(0 0 14px rgba(17, 96, 91, 0.45));
+    filter: brightness(1.15) drop-shadow(0 0 14px rgba(0, 51, 102, 0.45));
 }
 
 .province-path.active {
@@ -221,7 +221,7 @@
 }
 
 .legend-item:hover {
-    background: rgba(17, 96, 91, 0.08);
+    background: rgba(0, 51, 102, 0.08);
     color: var(--primary-hover);
     transform: translateY(-2px);
 }
@@ -229,7 +229,7 @@
 .legend-item.active {
     background: var(--primary-hover);
     color: var(--neutral-100);
-    box-shadow: 0 4px 12px -2px rgba(11, 59, 58, 0.3);
+    box-shadow: 0 4px 12px -2px rgba(0, 34, 68, 0.3);
 }
 
 .legend-color {
@@ -402,7 +402,7 @@
 }
 
 .city-chip:hover {
-    background: rgba(17, 96, 91, 0.08);
+    background: rgba(0, 51, 102, 0.08);
     border-color: var(--primary-light);
     transform: translateX(4px);
     color: var(--primary-hover);
@@ -578,7 +578,7 @@
 }
 
 .body-dark .province-path {
-    stroke: rgba(10, 28, 27, 0.95);
+    stroke: rgba(10, 20, 32, 0.95);
 }
 
 .body-dark .map-legend,
@@ -594,7 +594,7 @@
 }
 
 .body-dark .legend-item:hover {
-    background: rgba(124, 198, 188, 0.12);
+    background: rgba(107, 164, 217, 0.12);
     color: var(--neutral-100);
 }
 
@@ -630,7 +630,7 @@
 }
 
 .body-dark .city-label-bg {
-    fill: rgba(10, 28, 27, 0.9);
+    fill: rgba(10, 20, 32, 0.9);
 }
 
 /* Ocean Map Night Gradient */

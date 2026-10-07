@@ -172,13 +172,13 @@ const questionsData = [
 // --- COMPONENTS ---
 
 const colors = {
-    primary: '#11605B',
-    secondary: '#0B3B3A',
+    primary: '#003366',
+    secondary: '#002244',
     tertiary: '#4FB3A9',
     gold: '#C95A41',
     silver: '#9CA3AF',
     bronze: '#B45309',
-    dark: '#072221',
+    dark: '#001830',
     light: '#F5EDE1',
     white: '#FFFFFF',
     danger: '#DC2626'
