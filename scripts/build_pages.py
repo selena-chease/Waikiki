@@ -56,11 +56,11 @@ GROUPS = [
     ]),
     ("prosperity", {"en": "Prosperity", "hu": "Jólét"}, [
         ("economy", {"en": "Economy", "hu": "Gazdaság"}),
+        ("banking-system", {"en": "Banking System", "hu": "Bankrendszer"}),
         ("wealth-fund", {"en": "Wealth Fund", "hu": "Vagyonalap"}),
         ("citizenship", {"en": "Citizenship", "hu": "Állampolgárság"}),
         ("infrastructure", {"en": "Infrastructure", "hu": "Infrastruktúra"}),
         ("space-research", {"en": "Space Research", "hu": "Űrkutatás"}),
-        ("banking-system", {"en": "Banking System", "hu": "Bankrendszer"}),
     ]),
     ("royal", {"en": "Royal Family", "hu": "Királyi Család"}, [
         ("dynasty", {"en": "The Dynasty", "hu": "A Dinasztia"}),
