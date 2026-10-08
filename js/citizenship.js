@@ -290,7 +290,7 @@ const AssessmentForm = ({ onClose }) => {
                 title = 'GOLD TIER: Stratégiai Vagyontárgy';
                 desc = 'Azonnali állampolgárság. Ön a tökéletes jelölt. Nincs várakozási idő, nincs ingatlanminimum, VIP ügyintézés.';
                 icon = 'fas fa-crown';
-                bgClass = 'bg-gradient-to-b from-yellow-50 to-white border-yellow-400';
+                bgClass = 'border-yellow-400';
                 btnText = 'Hivatalos Kérelem ($5,000)';
                 badge = '90+ PONT';
                 break;
@@ -298,7 +298,7 @@ const AssessmentForm = ({ onClose }) => {
                 title = 'SILVER TIER: Kiemelt Befektető';
                 desc = 'Gyorsított eljárás. Állampolgárság 1 év után, feltéve, hogy teljesíti a $1M kötvényvásárlást és az ingatlanbefektetést.';
                 icon = 'fas fa-medal';
-                bgClass = 'bg-gray-50 border-gray-400';
+                bgClass = 'border-gray-400';
                 btnText = 'Befektetési Terv Indítása';
                 badge = '75-89 PONT';
                 break;
@@ -306,7 +306,7 @@ const AssessmentForm = ({ onClose }) => {
                 title = 'BRONZE TIER: Szakképzett Rezidens';
                 desc = 'Letelepedési engedély (Residency). Állampolgárság 5 év után kérvényezhető. Biztonsági letét ($100k) és igazolt munkaviszony szükséges.';
                 icon = 'fas fa-user-shield';
-                bgClass = 'bg-orange-50 border-orange-300';
+                bgClass = 'border-orange-300';
                 btnText = 'Letelepedési Kérelem';
                 badge = '60-74 PONT';
                 break;
@@ -314,7 +314,7 @@ const AssessmentForm = ({ onClose }) => {
                 title = 'BLUE TIER: Talent / Nomad Vízum';
                 desc = 'Ideiglenes munkavállalói státusz. Fiatal tehetségeknek, akik nem rendelkeznek nagy vagyonnal, de kritikus tudással igen. 10 éves út az állampolgárságig.';
                 icon = 'fas fa-laptop-code';
-                bgClass = 'bg-blue-50 border-blue-300';
+                bgClass = 'border-blue-300';
                 btnText = 'Talent Program Jelentkezés';
                 badge = '45-59 PONT';
                 break;
@@ -322,7 +322,7 @@ const AssessmentForm = ({ onClose }) => {
                 title = 'ELUTASÍTVA: High Risk';
                 desc = isFatal ? 'A rendszer KIZÁRÓ OKOT (Red Flag) azonosított. Kérelmét elutasítottuk.' : 'Pontszáma (45 alatt) nem éri el a minimális belépési küszöböt.';
                 icon = 'fas fa-ban';
-                bgClass = 'bg-red-50 border-red-200';
+                bgClass = 'border-red-200';
                 btnText = 'Bezárás';
                 badge = 'ELÉGTELEN';
         }

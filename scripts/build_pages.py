@@ -10,8 +10,6 @@ What it does for each page in en/, hu/, en/bio/ and hu/bio/:
   * subnav    tab bar between the four pages of each royal couple
   * next      "continue the journey" banner linking to the next page
   * footer    grouped site map, motto, legal line
-  * colours   maps the legacy blue palette to the Tropical Luxe palette in
-              HTML, page CSS and page JS (idempotent)
 
 Generated regions are wrapped in <!-- @chrome:NAME --> markers so the script can
 be re-run safely after menu or copy changes:
@@ -88,12 +86,14 @@ PRIMARY_NAV = [
 ]
 
 COUPLES = ["chease-and-jessica", "raimondo-and-selena", "angelina-and-taylor", "jennifer-and-tyler"]
+
 COUPLE_TABS = [
     ("", {"en": "Overview", "hu": "Áttekintés"}),
     ("-detailed", {"en": "Story", "hu": "Történet"}),
     ("-gallery", {"en": "Gallery", "hu": "Galéria"}),
     ("-private", {"en": "Private Life", "hu": "Magánélet"}),
 ]
+
 BIOS = ["bio/raimondo", "bio/selena", "bio/angelina", "bio/taylor"]
 
 # Reading order used for the "next chapter" banner.
@@ -127,8 +127,6 @@ COMPACT_LEADS = {
 }
 
 T = {
-    "skip": {"en": "Skip to content", "hu": "Ugrás a tartalomra"},
-    "tagline": {"en": "Sovereign Nation", "hu": "Szuverén Állam"},
     "home": {"en": "Waikiki home", "hu": "Waikiki főoldal"},
     "primary": {"en": "Primary", "hu": "Fő navigáció"},
     "menu": {"en": "Menu", "hu": "Menü"},
@@ -156,59 +154,8 @@ T = {
     "continue": {"en": "Continue the journey", "hu": "Folytassa az utazást"},
     "royal_nav": {"en": "Royal couple pages", "hu": "A királyi pár oldalai"},
     "lang_name": {"en": "English", "hu": "Magyar"},
-    "animate": {"en": "Toggle animations", "hu": "Animációk ki-/bekapcsolása"},
     "animate_chip": {"en": "Animate", "hu": "Animáció"},
-    "animate_label": {"en": "Animate", "hu": "Animáció"},
 }
-
-LEGACY_COLOURS = {
-    "0071BC": "003366",
-    "0E308E": "002244",
-    "00B0C3": "1A528F",
-    "BC9200": "C95A41",
-    "0A1930": "001830",
-    "F5F9FC": "F5EDE1",
-    "555555": "455668",
-    "2E75B6": "003366",
-    "8BC34A": "6BA4D9",
-    "F39C12": "E3735A",
-    "F1C40F": "E9B872",
-    "5DADE2": "1A528F",
-    "C0392B": "B5523B",
-    "9B59B6": "8A6F9E",
-    "7D6608": "C29A57",
-    "27AE60": "5E8C61",
-    "0F2442": "091626",
-    "0D1F3A": "091626",
-    "0D2238": "091626",
-    "11243A": "0E2035",
-    "0D1B2C": "0A1420",
-    "8FD3FF": "6BA4D9",
-    "11605B": "003366",
-    "0B3B3A": "002244",
-    "7CC6BC": "6BA4D9",
-    "072221": "001830",
-    "2A8C83": "1A528F",
-}
-LEGACY_RGB = {
-    "0, 113, 188": "0, 51, 102",
-    "0, 113, 187": "0, 51, 102",
-    "14, 48, 142": "0, 34, 68",
-    "188, 146, 0": "201, 90, 65",
-    "195, 176, 0": "201, 90, 65",
-    "10, 25, 48": "0, 24, 48",
-    "0, 176, 195": "26, 82, 143",
-    "2, 8, 20": "4, 12, 22",
-    "143, 211, 255": "107, 164, 217",
-    "16, 33, 53": "14, 32, 53",
-    "17, 96, 91": "0, 51, 102",
-    "11, 59, 58": "0, 34, 68",
-    "124, 198, 188": "107, 164, 217",
-    "42, 140, 131": "26, 82, 143",
-    "7, 34, 33": "0, 24, 48",
-}
-
-LOGO_FILE = "icons/logo.svg"
 
 GLOBE_ICON = (
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">'
@@ -224,11 +171,6 @@ THEME_ICON = (
     "</g></svg>"
 )
 
-ANIMATE_ICON = (
-    '<svg class="animate-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
-    '<polygon points="6 4 18 12 6 20 6 4" fill="currentColor"/>'
-    "</svg>"
-)
 
 FOOTER_WAVE = (
     '<svg class="footer-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">'
@@ -317,13 +259,11 @@ class Page:
 # --------------------------------------------------------------------------- #
 # Chrome builders
 # --------------------------------------------------------------------------- #
-def build_head(page: Page, description: str) -> str:
+def build_head(page: Page) -> str:
     other = "hu" if page.locale == "en" else "en"
     lines = [
         "<!-- @chrome:head -->",
-        f'<meta name="description" content="{esc(description)}" />' if description else "",
         '<meta name="theme-color" content="#fbf7f0" />',
-        f'<link rel="alternate" hreflang="{page.locale}" href="{page.slug.split("/")[-1]}.html" />',
         f'<link rel="alternate" hreflang="{other}" href="{page.other_locale_href()}" />',
         '<link rel="preconnect" href="https://fonts.googleapis.com" />',
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />',
@@ -587,14 +527,6 @@ def replace_block(text: str, name: str, content: str) -> str:
     return text
 
 
-def map_colours(text: str) -> str:
-    for old, new in LEGACY_COLOURS.items():
-        text = re.sub(rf"(#|%23){old}\b", lambda m: m.group(1) + new, text, flags=re.I)
-    for old, new in LEGACY_RGB.items():
-        channels = old.replace(", ", r",\s*")
-        text = re.sub(r"(rgba?)\(\s*" + channels + r"(?=\s*[,)])", lambda m, n=new: m.group(1) + "(" + n, text)
-    return text
-
 
 def convert_legacy(page: Page, text: str) -> str:
     """Turn a page with the old nav/hamburger/footer markup into the marker layout."""
@@ -664,11 +596,6 @@ def page_meta(text: str) -> dict:
     }
 
 
-def describe(lead: str) -> str:
-    if len(lead) <= 158:
-        return lead
-    cut = lead[:155].rsplit(" ", 1)[0].rstrip(",;:")
-    return cut + "…"
 
 
 # --------------------------------------------------------------------------- #
@@ -710,10 +637,6 @@ def process(path: Path, meta: dict) -> str:
     if "<!-- @chrome:header -->" not in text:
         text = convert_legacy(page, text)
 
-    info = meta.get(f"{page.locale}/{page.slug}") or page_meta(text)
-    outside_chrome = re.sub(r"<!-- @chrome:head -->.*?<!-- /@chrome:head -->", "", text, flags=re.S)
-    has_own_description = re.search(r'<meta name="description"', outside_chrome) is not None
-    description = "" if has_own_description else describe(info["lead"] or info["title"])
 
     # Body hooks used by CSS/JS.
     body_classes = f"page-{page.slug.replace('/', '-')} group-{page.group}"
@@ -722,12 +645,11 @@ def process(path: Path, meta: dict) -> str:
     # Legacy single-letter logo / font imports / liquid stats are obsolete.
     text = text.replace(' class="stat-item liquid"', ' class="stat-item"')
 
-    text = replace_block(text, "head", build_head(page, description))
+    text = replace_block(text, "head", build_head(page))
     text = replace_block(text, "header", build_header(page))
     text = replace_block(text, "subnav", build_subnav(page))
     text = replace_block(text, "next", build_next(page, meta))
     text = replace_block(text, "footer", build_footer(page))
-    text = map_colours(text)
     text = format_and_clean_html(text)
     return text
 
@@ -866,17 +788,6 @@ def main() -> int:
                 print(f"would update {path.relative_to(ROOT)}")
             else:
                 path.write_text(new_text, encoding="utf-8")
-
-    # Page-level stylesheets and scripts share the legacy palette too.
-    if not args.check:
-        for asset in list((ROOT / "css").glob("*.css")) + [ROOT / "js" / n for n in ("economy.js", "wealth-fund.js", "citizenship.js", "dynasty.js", "gallery.js")]:
-            if asset.name in ("common.css",) or not asset.exists():
-                continue
-            original = asset.read_text(encoding="utf-8")
-            mapped = map_colours(original)
-            if mapped != original:
-                asset.write_text(mapped, encoding="utf-8")
-                print(f"recoloured {asset.relative_to(ROOT)}")
 
     print(f"{'Would update' if args.check else 'Updated'} {changed} of {len(paths)} pages")
     return 0
