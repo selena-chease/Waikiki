@@ -822,7 +822,7 @@
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: clamp(1rem, 1.25vw, 1.35rem);
-  max-width: min(1760px, 100%);
+  max-width: var(--maxw-wide);
   margin: 0 auto;
 }
 

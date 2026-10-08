@@ -384,16 +384,16 @@
 
 #megaprojects .ill-panel,
 #digital-space .ill-panel {
-  max-width: 1400px;
+  max-width: var(--maxw-wide);
   width: 100%;
   margin: 0 auto 2.5rem;
 }
 
 #megaprojects .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(1rem, 1.4vw, 1.5rem);
-  max-width: 1400px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1rem, 1.25vw, 1.35rem);
+  max-width: var(--maxw-wide);
   margin: 0 auto;
 }
 
@@ -757,7 +757,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
   gap: 1.5rem;
-  max-width: 1320px;
+  max-width: var(--maxw-wide);
   margin: 0 auto;
   list-style: none;
 }
