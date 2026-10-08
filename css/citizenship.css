@@ -66,6 +66,39 @@ h3 {
     animation: fadeInUp 0.8s var(--ease-out) forwards;
 }
 
+/* Hero Assessment CTA Button */
+.open-assessment,
+button.open-assessment,
+.page-citizenship .open-assessment,
+.page-citizenship button.open-assessment {
+    background-color: var(--primary, #003366) !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition: background-color var(--duration-normal, 0.3s) var(--ease-out),
+                transform var(--duration-normal, 0.3s) var(--ease-spring),
+                box-shadow var(--duration-normal, 0.3s) var(--ease-out);
+}
+
+.open-assessment:hover,
+button.open-assessment:hover,
+.page-citizenship .open-assessment:hover,
+.page-citizenship button.open-assessment:hover {
+    background-color: var(--accent-hover, #c95a41) !important;
+    background-image: none !important;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px -8px rgba(201, 90, 65, 0.45), 0 8px 16px -4px rgba(0, 0, 0, 0.2);
+}
+
+.open-assessment:active,
+button.open-assessment:active,
+.page-citizenship .open-assessment:active,
+.page-citizenship button.open-assessment:active {
+    transform: translateY(0);
+}
+
 /* Section Containers */
 .screening-tiers-section,
 .naturalization-section {
