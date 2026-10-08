@@ -44,8 +44,17 @@
   fill: var(--ill-sand);
   stroke: var(--ill-line);
   stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
   cursor: pointer;
   transition: fill 0.25s var(--ease-out, ease), stroke 0.25s var(--ease-out, ease);
+}
+
+.ill .florida-path {
+  fill: var(--ill-sand);
+  stroke: var(--ill-sand);
+  stroke-width: 0.6;
+  cursor: pointer;
+  transition: fill 0.25s var(--ease-out, ease);
 }
 
 .ill .province-path:hover {
@@ -110,9 +119,10 @@
   stroke: var(--ill-coral);
 }
 
-.ill .k-sea {
+.ill .k-sea,
+.ill .k-maritime {
   fill: none;
-  stroke: var(--ill-sea);
+  stroke: var(--ill-maritime, #7c3aed);
 }
 
 .ill .k-sea2 {
@@ -366,7 +376,12 @@
 }
 
 /* Feature list (numbered rows beside or beneath an illustration) */
-#mobility .ill-panel,
+#mobility .ill-panel {
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto 2.5rem;
+}
+
 #megaprojects .ill-panel,
 #digital-space .ill-panel {
   max-width: 1400px;
@@ -383,9 +398,9 @@
 .feature-list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 680px), 1fr));
   gap: 1.1rem;
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 0 auto;
   counter-reset: feat;
 }

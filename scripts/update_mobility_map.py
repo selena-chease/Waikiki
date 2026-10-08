@@ -1,14 +1,472 @@
 import re
 import xml.etree.ElementTree as ET
 import sys
+import os
+import math
+
+# ==============================================================================
+# CONST ARRAY OF CITIES
+# Position (x, y px), Name, Type ('Capital', 'Large', 'Small')
+# ==============================================================================
+CITIES = [
+    {
+        "name": "Nova Aurelia",
+        "pos": (412, 330),
+        "type": "Capital",
+        "label": {"anchor": "middle", "offset": (0, 30), "size": 14, "weight": 700}
+    },
+    {
+        "name": "Miami",
+        "pos": (451, 105),
+        "type": "Large",
+        "label": {"anchor": "start", "offset": (15, 0), "size": 12, "weight": 600}
+    },
+    {
+        "name": "Key West",
+        "pos": (412, 160),
+        "type": "Small",
+        "label": {"anchor": "end", "offset": (-10, 5), "size": 10, "weight": 400}
+    },
+    {
+        "name": "Havana",
+        "pos": (396, 260),
+        "type": "Large",
+        "label": {"anchor": "end", "offset": (-10, 0), "size": 12, "weight": 600}
+    },
+    {
+        "name": "Mega Pyramid City",
+        "pos": (456, 288),
+        "type": "Small",
+        "has_pyramid": True,
+        "label": {"anchor": "start", "offset": (15, -5), "size": 10, "weight": 400}
+    },
+    {
+        "name": "Morón",
+        "pos": (658, 348),
+        "type": "Large",
+        "label": {"anchor": "middle", "offset": (0, -15), "size": 12, "weight": 600}
+    },
+    {
+        "name": "Port Royal",
+        "pos": (742, 397),
+        "type": "Small",
+        "label": {"anchor": "start", "offset": (15, -5), "size": 10, "weight": 400}
+    },
+    {
+        "name": "Santiago",
+        "pos": (824, 508),
+        "type": "Large",
+        "label": {"anchor": "end", "offset": (-15, 15), "size": 12, "weight": 600}
+    },
+    {
+        "name": "Carib City",
+        "pos": (980, 510),
+        "type": "Small",
+        "label": {"anchor": "middle", "offset": (0, -20), "size": 10, "weight": 400}
+    },
+    {
+        "name": "Blue Bay",
+        "pos": (1000, 540),
+        "type": "Small",
+        "label": {"anchor": "middle", "offset": (0, 20), "size": 10, "weight": 400}
+    },
+    {
+        "name": "Cap-Haïtien",
+        "pos": (1123, 448),
+        "type": "Large",
+        "label": {"anchor": "middle", "offset": (0, -12), "size": 12, "weight": 600}
+    },
+    {
+        "name": "Port-au-Prince",
+        "pos": (1115, 540),
+        "type": "Large",
+        "label": {"anchor": "start", "offset": (14, 4), "size": 12, "weight": 600}
+    },
+    {
+        "name": "Kingston",
+        "pos": (860, 605),
+        "type": "Large",
+        "label": {"anchor": "start", "offset": (12, 13), "size": 10.5, "weight": 600}
+    },
+    {
+        "name": "Montego Bay",
+        "pos": (786, 578),
+        "type": "Small",
+        "label": {"anchor": "end", "offset": (-8, -6), "size": 9.5, "weight": 600}
+    }
+]
+
+# ==============================================================================
+# CONST ARRAY OF CONNECTIONS
+# From, To, Type ('Maglev', 'Hyperloop', 'Tunnel', 'Main Line', 'Maritime', 'Elevated')
+# ==============================================================================
+CONNECTIONS = [
+    {
+        "from": "Miami",
+        "to": "Key West",
+        "type": "Tunnel",
+        "bend": 0.15,
+        "dur": "2.5s"
+    },
+    {
+        "from": "Key West",
+        "to": "Havana",
+        "type": "Tunnel",
+        "bend": 0.1,
+        "dur": "4.0s"
+    },
+    {
+        "from": "Havana",
+        "to": "Nova Aurelia",
+        "type": "Main Line",
+        "bend": -0.1,
+        "dur": "2.5s"
+    },
+    {
+        "from": "Nova Aurelia",
+        "to": "Morón",
+        "type": "Maglev",
+        "bend": 0.08,
+        "dur": "4.5s"
+    },
+    {
+        "from": "Nova Aurelia",
+        "to": "Mega Pyramid City",
+        "type": "Hyperloop",
+        "bend": 0.0,
+        "dur": "1.8s"
+    },
+    {
+        "from": "Morón",
+        "to": "Port Royal",
+        "type": "Maglev",
+        "bend": -0.1,
+        "dur": "2.2s"
+    },
+    {
+        "from": "Port Royal",
+        "to": "Santiago",
+        "type": "Maglev",
+        "bend": 0.04,
+        "dur": "2.0s"
+    },
+    {
+        "from": "Santiago",
+        "to": "Carib City",
+        "type": "Maglev",
+        "bend": -0.08,
+        "dur": "5.5s"
+    },
+    {
+        "from": "Carib City",
+        "to": "Blue Bay",
+        "type": "Tunnel",
+        "bend": -0.08,
+        "dur": "0.5s"
+    },
+    {
+        "from": "Blue Bay",
+        "to": "Port-au-Prince",
+        "type": "Maglev",
+        "bend": -0.08,
+        "dur": "5.5s"
+    },
+    {
+        "from": "Port-au-Prince",
+        "to": "Cap-Haïtien",
+        "type": "Main Line",
+        "bend": -0.8,
+        "dur": "3.6s"
+    },
+    {
+        "from": "Santiago",
+        "to": "Kingston",
+        "type": "Maritime",
+        "bend": -0.06,
+        "animated": False
+    },
+    {
+        "from": "Kingston",
+        "to": "Blue Bay",
+        "type": "Maritime",
+        "bend": -0.2,
+        "animated": False
+    },
+    {
+        "from": "Nova Aurelia",
+        "to": "Montego Bay",
+        "type": "Maritime",
+        "bend": -0.15,
+        "animated": False
+    }
+]
+
+CITY_BY_NAME = {c["name"].upper(): c for c in CITIES}
+
+def get_city_pos(name_or_point):
+    """Returns (x, y) coordinates for a city name or a direct (x, y) tuple."""
+    if isinstance(name_or_point, (tuple, list)):
+        return name_or_point
+    key = str(name_or_point).upper()
+    if key in CITY_BY_NAME:
+        return CITY_BY_NAME[key]["pos"]
+    raise KeyError(f"City '{name_or_point}' not found in CITIES")
+
+def get_connection_style(conn_type):
+    """Returns the SVG styling attributes and animation parameters for each connection type."""
+    t = conn_type.strip().lower()
+    if "maglev" in t:
+        return {
+            "attrs": 'class="k-coral" stroke-width="5.5" stroke-linecap="round"',
+            "dot_r": 5.0,
+            "default_dur": "4.5s"
+        }
+    elif "hyperloop" in t:
+        return {
+            "attrs": 'class="k-gold" stroke-width="5.5" stroke-linecap="round"',
+            "dot_r": 4.0,
+            "default_dur": "1.8s"
+        }
+    elif "tunnel" in t:
+        return {
+            "attrs": 'class="k-ink" stroke-width="4.5" stroke-dasharray="2 7" stroke-linecap="round"',
+            "dot_r": 4.5,
+            "default_dur": "2.5s"
+        }
+    elif "main" in t:
+        return {
+            "attrs": 'class="k-ink2" stroke-width="4.5" stroke-linecap="round"',
+            "dot_r": 5.0,
+            "default_dur": "4.0s"
+        }
+    elif "maritime" in t or "sea" in t:
+        return {
+            "attrs": 'class="k-sea" stroke-width="3.5" stroke-dasharray="6 4" stroke-linecap="round"',
+            "dot_r": 4.0,
+            "default_dur": "6.0s"
+        }
+    elif "elevated" in t:
+        return {
+            "attrs": 'class="k-ink2" stroke-width="2.8" stroke-dasharray="4 4" stroke-linecap="round"',
+            "dot_r": 0,
+            "default_dur": "4.0s"
+        }
+    else:
+        return {
+            "attrs": 'class="k-ink" stroke-width="3.5" stroke-linecap="round"',
+            "dot_r": 4.0,
+            "default_dur": "4.0s"
+        }
+
+def make_curved_path(p1, p2, bend=0.0):
+    """
+    Dynamically generates an SVG path (straight or cubic Bezier) between two positions.
+    bend: relative deflection perpendicular to travel direction.
+    Positive deflects to the right, negative deflects to the left.
+    """
+    x1, y1 = get_city_pos(p1)
+    x2, y2 = get_city_pos(p2)
+    dx = x2 - x1
+    dy = y2 - y1
+    dist = math.hypot(dx, dy)
+
+    if dist < 1e-4 or abs(bend) < 1e-4:
+        return f"M{x1:.0f} {y1:.0f} L{x2:.0f} {y2:.0f}"
+
+    # Right-hand normal (dy/dist, -dx/dist)
+    nx = dy / dist
+    ny = -dx / dist
+    offset = bend * dist
+
+    cx1 = x1 + dx * 0.35 + nx * offset
+    cy1 = y1 + dy * 0.35 + ny * offset
+    cx2 = x1 + dx * 0.65 + nx * offset
+    cy2 = y1 + dy * 0.65 + ny * offset
+
+    return f"M{x1:.0f} {y1:.0f} C{cx1:.0f} {cy1:.0f}, {cx2:.0f} {cy2:.0f}, {x2:.0f} {y2:.0f}"
 
 def get_cuba_group():
     with open('en/infrastructure.html', 'r', encoding='utf-8') as f:
         content = f.read()
-    m = re.search(r'(<g class="cuba-archipelago" transform="translate\(75, 228\) scale\(0.82\)">.*?</g>)', content, re.DOTALL)
+    m = re.search(r'<g class="cuba-archipelago"[^>]*>(.*?)</g>\s*<!-- Cuban Cays', content, re.DOTALL)
     if not m:
-        raise ValueError("Could not find cuba-archipelago in en/infrastructure.html")
-    return m.group(1)
+        m = re.search(r'(<g class="cuba-archipelago".*?</g>)', content, re.DOTALL)
+        if not m:
+            raise ValueError("Could not find cuba-archipelago in en/infrastructure.html")
+        return m.group(1)
+    inner = m.group(1).strip()
+    return f'<g class="cuba-archipelago" transform="translate(90, 240) scale(1.15)">\n{inner}\n                        </g>'
+
+def get_florida_group(is_hu=False):
+    tree = ET.parse('content/Maps/usa-fl.svg')
+    ns = {'svg': 'http://www.w3.org/2000/svg'}
+    paths = tree.findall('.//svg:path', ns) or tree.findall('.//path')
+    lines = []
+    for p in paths:
+        cid = p.attrib.get('id', '')
+        d = p.attrib.get('d', '')
+        title_base = cid.replace(' FL', '')
+        title = f'Florida · {title_base}'
+        # Use florida-path (no internal borders)
+        lines.append(f'                            <path class="f-sand florida-path" d="{d}" id="FL-{cid}" title="{title}" />')
+    return '                        <!-- ==================== FLORIDA (REAL-SCALE COASTLINE) ==================== -->\n' + \
+           '                        <g id="florida-regions" transform="translate(88, -157.4) scale(4.0)">\n' + \
+           '\n'.join(lines) + '\n' + \
+           '                        </g>'
+
+def get_jamaica_group(is_hu=False):
+    tree = ET.parse('content/Maps/jamaica.svg')
+    ns = {'svg': 'http://www.w3.org/2000/svg'}
+    paths = tree.findall('.//svg:path', ns) or tree.findall('.//path')
+    lines = []
+    for p in paths:
+        cid = p.attrib.get('id', '')
+        title_base = p.attrib.get('title', '')
+        title = f'Jamaica · {title_base}' if is_hu else f'Jamaica · {title_base} Parish'
+        d = p.attrib.get('d', '')
+        lines.append(f'                            <path class="f-sand province-path" vector-effect="non-scaling-stroke" d="{d}" id="{cid}" title="{title}" />')
+    return '                        <!-- ==================== JAMAICA (DETAILED PARISHES) ==================== -->\n' + \
+           '                        <g id="jamaica-regions" transform="translate(752.5, 566.3) scale(0.1915)">\n' + \
+           '\n'.join(lines) + '\n' + \
+           '                        </g>'
+
+def get_hispaniola_group(is_hu=False):
+    tree_ht = ET.parse('content/Maps/haiti.svg')
+    tree_do = ET.parse('content/Maps/dominican-republic.svg')
+    ns = {'svg': 'http://www.w3.org/2000/svg'}
+    
+    ht_lines = []
+    for p in tree_ht.findall('.//svg:path', ns) or tree_ht.findall('.//path'):
+        cid = p.attrib.get('id', '')
+        title_base = p.attrib.get('title', '')
+        title = f'Haiti · {title_base}'
+        d = p.attrib.get('d', '')
+        ht_lines.append(f'                                <path class="f-sand province-path" vector-effect="non-scaling-stroke" d="{d}" id="{cid}" title="{title}" />')
+        
+    do_lines = []
+    for p in tree_do.findall('.//svg:path', ns) or tree_do.findall('.//path'):
+        cid = p.attrib.get('id', '')
+        title_base = p.attrib.get('title', '')
+        if cid == 'DO-15 Monte' and title_base == 'Cristi':
+            cid = 'DO-15'
+            title_base = 'Monte Cristi'
+        title = f'Dominikai Köztársaság · {title_base}' if is_hu else f'Dominican Republic · {title_base}'
+        d = p.attrib.get('d', '')
+        do_lines.append(f'                                <path class="f-sand province-path" vector-effect="non-scaling-stroke" d="{d}" id="{cid}" title="{title}" />')
+        
+    xml = f'''                        <!-- ==================== HISPANIOLA (DETAILED HAITI AND DOMINICAN REP.) ==================== -->
+                        <g id="hispaniola-regions" transform="translate(1000, 425) scale(0.247)">
+                            <g id="haiti-departments">
+{chr(10).join(ht_lines)}
+                            </g>
+                            <g id="dominican-republic-provinces" transform="translate(670.97, 45.06) scale(1.25826, 1.26938)">
+{chr(10).join(do_lines)}
+                            </g>
+                        </g>'''
+    return xml
+
+def generate_transport_corridors():
+    """Generates all transport corridor lines and animated traffic dots solely based on CONNECTIONS."""
+    line_paths = []
+    anim_dots = []
+
+    for conn in CONNECTIONS:
+        if isinstance(conn, (tuple, list)):
+            c_from = conn[0]
+            c_to = conn[1]
+            c_type = conn[2]
+            bend = conn[3] if len(conn) > 3 else 0.0
+            anim = True
+            dur = None
+        else:
+            c_from = conn["from"]
+            c_to = conn["to"]
+            c_type = conn["type"]
+            bend = conn.get("bend", 0.0)
+            anim = conn.get("animated", True)
+            dur = conn.get("dur")
+
+        path_d = make_curved_path(c_from, c_to, bend=bend)
+        style = get_connection_style(c_type)
+
+        line_paths.append(f'                        <!-- {c_type}: {c_from} to {c_to} -->\n                        <path d="{path_d}" {style["attrs"]} />')
+
+        if anim and style.get("dot_r", 0) > 0:
+            anim_dur = dur or style.get("default_dur", "4.0s")
+            dot_r = style["dot_r"]
+            anim_dots.append(f'''                        <circle r="{dot_r}" class="f-white">
+                            <animateMotion dur="{anim_dur}" repeatCount="indefinite" path="{path_d}" />
+                        </circle>''')
+
+    return (
+        "                        <!-- ==================== TRANSPORT CORRIDORS ==================== -->\n"
+        + "\n".join(line_paths)
+        + "\n                        <!-- Animated Traffic Dots -->\n"
+        + "\n".join(anim_dots)
+    )
+
+def generate_cities_xml(g_florida, g_bahamas, g_jamaica):
+    """Generates capital markers, station nodes, white inner dots and labels dynamically from CITIES."""
+    capital_xml = []
+    ink_nodes = []
+    white_dots = []
+    pyramid_xml = []
+    labels = []
+    
+    for c in CITIES:
+        if c.get("hide_marker") and c.get("hide_label"):
+            continue
+            
+        x, y = c["pos"]
+        ctype = c["type"]
+        name = c["name"].upper()
+        lbl = c.get("label", {})
+        dx, dy = lbl.get("offset", (0, 0))
+        anchor = lbl.get("anchor", "start")
+        size = lbl.get("size", 11)
+        weight = lbl.get("weight", 400)
+        
+        if not c.get("hide_label"):
+            anchor_attr = f' text-anchor="{anchor}"' if anchor != "start" else ""
+            labels.append(f'                            <text x="{x + dx}" y="{y + dy}" font-size="{size}" font-weight="{weight}"{anchor_attr}>{name}</text>')
+        
+        if not c.get("hide_marker"):
+            if ctype == "Capital":
+                capital_xml.append(f'''                        <!-- Capital City Marker: {c['name']} -->
+                        <g>
+                            <circle cx="{x}" cy="{y}" r="16" class="f-coral pulse" />
+                            <circle cx="{x}" cy="{y}" r="11" class="f-coral" />
+                            <path d="M{x} {y-7} l2 4.2 4.6.6 -3.4 3.2 .9 4.5 -4.1 -2.2 -4.1 2.2 .9 -4.5 -3.4 -3.2 4.6 -.6 z" class="f-white" />
+                        </g>''')
+            else:
+                r_ink = 7 if ctype == "Large" else (6 if c.get("has_pyramid") else 5.5)
+                r_white = 2.8 if ctype == "Large" else (2.4 if name == "KINGSTON" else 2.2)
+                ink_nodes.append(f'                            <circle cx="{x}" cy="{y}" r="{r_ink}" />')
+                white_dots.append(f'                            <circle cx="{x}" cy="{y}" r="{r_white}" />')
+                if c.get("has_pyramid"):
+                    pyramid_xml.append(f'''                        <!-- Mega Pyramid Mark -->
+                        <path d="M{x} {y-9} l4 7 h-8 z" class="f-gold" />''')
+                
+    territory_labels = f'''                            <!-- Major Territories -->
+                            <text x="350" y="45" font-size="13" font-weight="600" opacity=".6" letter-spacing=".15em">{g_florida}</text>
+                            <text x="530" y="70" font-size="11" font-weight="600" opacity=".45" letter-spacing=".15em">{g_bahamas}</text>
+                            <text x="825" y="600" font-size="11" opacity=".55" letter-spacing=".15em" text-anchor="middle">{g_jamaica}</text>'''
+
+    return f'''                        <!-- ==================== CAPITAL AND STATIONS ==================== -->
+{chr(10).join(capital_xml)}
+                        <!-- Station Network Nodes -->
+                        <g class="f-ink">
+{chr(10).join(ink_nodes)}
+                        </g>
+{chr(10).join(pyramid_xml)}
+                        <g class="f-white">
+{chr(10).join(white_dots)}
+                        </g>
+                        <!-- ==================== TYPOGRAPHY AND LABELS ==================== -->
+                        <g font-size="11.5">
+{chr(10).join(labels)}
+{territory_labels}
+                        </g>'''
 
 def build_svg(lang="en", cuba_xml=""):
     is_hu = (lang == "hu")
@@ -19,43 +477,9 @@ def build_svg(lang="en", cuba_xml=""):
         "Schematic map of Waikiki transport corridors connecting Florida, Cuba, and Haiti"
     )
     
-    # Florida titles
-    t_fl_pan = "Florida Panhandle és Északnyugat" if is_hu else "Florida Panhandle"
-    t_fl_north = "Észak-Florida és First Coast" if is_hu else "North Florida and First Coast"
-    t_fl_central = "Közép-Florida és Űr-partvidék" if is_hu else "Central Florida and Space Coast"
-    t_fl_west = "Tampa-öböl és Napsugár-part" if is_hu else "Tampa Bay and Suncoast"
-    t_fl_south = "Dél-Florida és Miami" if is_hu else "South Florida and Miami"
-    t_fl_glades = "Everglades és Florida-öböl" if is_hu else "Everglades and Florida Bay"
-    
-    # Keys titles
-    t_k_largo = "Key Largo és Felső-szigetek" if is_hu else "Key Largo and Upper Keys"
-    t_k_islamorada = "Islamorada és Középső-szigetek" if is_hu else "Islamorada and Middle Keys"
-    t_k_marathon = "Marathon és Hétmérföldes ív" if is_hu else "Marathon and Seven Mile Arc"
-    t_k_bigpine = "Big Pine és Alsó-szigetek" if is_hu else "Big Pine Key and Lower Keys"
-    t_k_west = "Key West"
-    t_k_marquesas = "Marquesas-szigetek" if is_hu else "Marquesas Keys"
-    t_k_tortugas = "Dry Tortugas"
-    
-    # Haiti & Hispaniola titles
-    t_ht_nw = "Haiti · Északnyugati megye (Môle Saint-Nicolas)" if is_hu else "Haiti · Nord-Ouest (Môle Saint-Nicolas)"
-    t_ht_nord = "Haiti · Északi és Északkeleti megye (Cap-Haïtien)" if is_hu else "Haiti · Nord and Nord-Est (Cap-Haïtien)"
-    t_ht_art = "Haiti · Artibonite és Központi-fennsík" if is_hu else "Haiti · Artibonite and Centre"
-    t_ht_ouest = "Haiti · Nyugati megye és Port-au-Prince" if is_hu else "Haiti · Ouest and Port-au-Prince"
-    t_ht_sud = "Haiti · Déli megye és Tiburon-félsziget" if is_hu else "Haiti · Sud and Tiburon Peninsula"
-    t_ht_gonave = "Gonâve-sziget" if is_hu else "Île de la Gonâve"
-    t_ht_tortuga = "Tortuga-sziget (Teknős-sziget)" if is_hu else "Île de la Tortue (Tortuga)"
-    t_ht_vache = "Tehén-sziget (Île-à-Vache)" if is_hu else "Île-à-Vache"
-    
-    t_do_cibao = "Dominikai Köztársaság · Cibao és Északi partvidék" if is_hu else "Dominican Republic · Cibao and North Coast"
-    t_do_sur = "Dominikai Köztársaság · Santo Domingo és Déli partvidék" if is_hu else "Dominican Republic · Santo Domingo and South Coast"
-    t_do_saona = "Saona-sziget" if is_hu else "Isla Saona"
-    
-    # Jamaica titles
-    t_jm_cornwall = "Jamaica · Cornwall megye (Montego Bay és Negril)" if is_hu else "Jamaica · Cornwall County (Montego Bay and Negril)"
-    t_jm_middlesex = "Jamaica · Middlesex megye (Ocho Rios és Portland Point)" if is_hu else "Jamaica · Middlesex County (Ocho Rios and Portland Point)"
-    t_jm_surrey = "Jamaica · Surrey megye (Kingston és Kék-hegység)" if is_hu else "Jamaica · Surrey County (Kingston and Blue Mountains)"
-    t_jm_palisadoes = "Port Royal és a Palisadoes-turzás" if is_hu else "Port Royal and The Palisadoes"
-    t_jm_pedro = "Pedro-zátonyok" if is_hu else "Pedro Cays"
+    fl_xml = get_florida_group(is_hu)
+    jm_xml = get_jamaica_group(is_hu)
+    hi_xml = get_hispaniola_group(is_hu)
     
     # Legend labels
     lbl_maglev = "MAGLEV"
@@ -67,56 +491,33 @@ def build_svg(lang="en", cuba_xml=""):
     # Geographic labels
     g_florida = "FLORIDA"
     g_bahamas = "BAHAMA-SZIGETEK" if is_hu else "BAHAMAS"
-    g_cuba = "KUBA" if is_hu else "CUBA"
-    g_haiti = "HAITI"
-    g_domrep = "DOMINIKAI KÖZTÁRSASÁG" if is_hu else "DOMINICAN REP."
     g_jamaica = "JAMAICA"
-    g_islands = "PÁLMA · VILÁG · KAMÉLEON" if is_hu else "PALM · WORLD · CHAMELEON"
-    g_corridor = "TENGERALATTI FOLYOSÓ" if is_hu else "UNDERSEA CORRIDOR"
-    g_passage = "SZÉL FELŐLI ÁTJÁRÓ LINK" if is_hu else "WINDWARD PASSAGE LINK"
+
+    # Corridors and nodes generated dynamically
+    corridors_xml = generate_transport_corridors()
+    cities_xml = generate_cities_xml(g_florida, g_bahamas, g_jamaica)
+
+    # Artificial islands position dynamically aligned with Nova Aurelia
+    na_x, na_y = get_city_pos("Nova Aurelia")
+    art_tx = na_x - 255
+    art_ty = na_y - 292
 
     # Assemble SVG text
-    svg = f'''<svg class="ill" viewBox="0 0 1160 540" role="img" aria-label="{aria_label}">
+    svg = f'''<svg class="ill" viewBox="0 0 1800 650" role="img" aria-label="{aria_label}">
                     <defs>
                         <clipPath id="rm-clip">
-                            <rect width="1160" height="540" rx="28" />
+                            <rect width="1800" height="650" rx="28" />
                         </clipPath>
                     </defs>
                     <g clip-path="url(#rm-clip)">
-                        <rect width="1160" height="540" class="f-sea3" />
+                        <rect width="1800" height="650" class="f-sea3" />
                         <!-- Geographic Coordinate Grid -->
                         <g class="k-white" stroke-width="1" opacity=".3">
-                            <path d="M0 135h1160M0 270h1160M0 405h1160M290 0v540M580 0v540M870 0v540" />
+                            <path d="M0 130h1800M0 260h1800M0 390h1800M0 520h1800M300 0v650M600 0v650M900 0v650M1200 0v650M1500 0v650" />
                         </g>
-                        <!-- ==================== FLORIDA REGIONS ==================== -->
-                        <g id="florida-mainland">
-                            <!-- FL-PAN: Panhandle -->
-                            <path class="f-sand province-path" d="M 20,0 L 168,0 C 168,16 167,32 166,48 C 162,50 156,54 150,56 C 142,59 135,66 128,67 C 120,68 112,65 104,61 C 96,57 88,54 78,51 C 66,48 52,44 38,40 C 28,37 22,35 20,34 Z" id="FL-PAN" title="{t_fl_pan}" />
-                            <!-- FL-NORTH: North Florida and First Coast -->
-                            <path class="f-sand province-path" d="M 168,0 L 248,0 C 251,12 253,24 255,36 C 257,44 260,52 263,60 C 264,64 263,67 260,70 C 250,71 236,71 222,72 C 210,73 198,75 188,76 C 183,71 178,63 174,56 C 170,51 168,49 166,48 C 167,32 168,16 168,0 Z" id="FL-NORTH" title="{t_fl_north}" />
-                            <!-- FL-CENTRAL: Central Florida and Space Coast -->
-                            <path class="f-sand province-path" d="M 188,76 C 198,75 210,73 222,72 C 236,71 250,71 260,70 C 263,67 264,64 263,60 C 266,66 272,74 276,80 C 278,84 278,88 276,94 C 274,102 272,112 271,122 C 262,125 252,129 242,134 C 238,131 232,126 226,122 C 218,117 210,111 204,104 C 198,96 193,87 188,76 Z" id="FL-CENTRAL" title="{t_fl_central}" />
-                            <!-- FL-WEST: Tampa Bay and Suncoast -->
-                            <path class="f-sand province-path" d="M 188,76 C 193,87 198,96 204,104 C 210,111 218,117 226,122 C 220,128 214,136 210,144 C 206,152 204,160 206,168 C 208,174 212,178 216,182 C 212,176 208,166 204,154 C 200,142 196,130 195,122 C 194,114 192,106 189,96 C 187,88 187,82 188,76 Z" id="FL-WEST" title="{t_fl_west}" />
-                            <!-- FL-SOUTH: South Florida and Miami Gold Coast -->
-                            <path class="f-sand province-path" d="M 271,122 C 270,132 268,144 267,156 C 266,166 265,174 264,180 C 262,186 258,192 254,195 C 251,192 249,186 248,180 C 247,172 248,164 249,154 C 250,146 251,138 252,130 C 258,127 265,124 271,122 Z" id="FL-SOUTH" title="{t_fl_south}" />
-                            <!-- FL-GLADES: Everglades and Florida Bay -->
-                            <path class="f-sand province-path" d="M 226,122 C 232,126 238,131 242,134 C 247,132 250,129 252,130 C 251,138 250,146 249,154 C 248,164 247,172 248,180 C 249,186 251,192 254,195 C 248,198 240,199 232,197 C 224,195 218,190 216,182 C 212,178 208,174 206,168 C 204,160 206,152 210,144 C 214,136 220,128 226,122 Z" id="FL-GLADES" title="{t_fl_glades}" />
-                            <!-- Lake Okeechobee Freshwater Basin -->
-                            <path class="f-sea3" d="M 238,138 C 244,134 250,136 252,141 C 254,146 251,152 247,155 C 242,157 236,155 234,149 C 233,144 235,140 238,138 Z" />
-                        </g>
-                        <!-- ==================== FLORIDA KEYS ==================== -->
-                        <g id="florida-keys">
-                            <path class="f-sand province-path" d="M 258,194 C 262,196 266,200 264,204 C 262,207 257,206 255,202 C 254,198 255,195 258,194 Z" id="FL-KEY-LARGO" title="{t_k_largo}" />
-                            <path class="f-sand province-path" d="M 248,205 C 252,207 253,211 250,214 C 247,215 244,213 243,210 C 243,207 245,205 248,205 Z" id="FL-KEY-ISLAMORADA" title="{t_k_islamorada}" />
-                            <path class="f-sand province-path" d="M 233,213 C 237,215 238,218 235,221 C 231,223 227,220 226,217 C 226,214 229,213 233,213 Z" id="FL-KEY-MARATHON" title="{t_k_marathon}" />
-                            <path class="f-sand province-path" d="M 218,219 C 222,221 222,224 219,227 C 216,228 213,226 212,223 C 212,220 215,219 218,219 Z" id="FL-KEY-BIGPINE" title="{t_k_bigpine}" />
-                            <path class="f-sand province-path" d="M 204,223 C 207,224 207,227 204,229 C 201,230 198,228 198,226 C 198,224 201,223 204,223 Z" id="FL-KEY-WEST" title="{t_k_west}" />
-                            <path class="f-sand province-path" d="M 188,226 C 191,227 191,229 189,230 C 186,231 184,229 185,227 C 185,226 187,226 188,226 Z" id="FL-KEY-MARQUESAS" title="{t_k_marquesas}" />
-                            <path class="f-sand province-path" d="M 174,227 C 176,227 176,229 174,230 C 172,230 171,229 171,228 C 171,227 173,227 174,227 Z" id="FL-KEY-TORTUGAS" title="{t_k_tortugas}" />
-                        </g>
+{fl_xml}
                         <!-- ==================== BAHAMAS ARCHIPELAGO ==================== -->
-                        <g class="f-sand" opacity=".88">
+                        <g class="f-sand" opacity=".88" transform="translate(200, -45) scale(1.15)">
                             <path d="M294 72 c16 -5 36 -6 49 -2 c4 2 2 6 -3 7 c-16 3 -36 2 -48 -2 c-4 -1 -2 -5 2 -5 z" />
                             <path d="M352 62 c8 2 13 10 11 18 c-2 9 -10 15 -14 12 c-3 -2 -1 -7 2 -12 c3 -5 3 -14 1 -18 z" />
                             <ellipse cx="292" cy="154" rx="4.5" ry="2.8" />
@@ -129,7 +530,7 @@ def build_svg(lang="en", cuba_xml=""):
                         <!-- ==================== CUBA ARCHIPELAGO (DETAILED) ==================== -->
                         {cuba_xml}
                         <!-- Cuban Cays and Surrounding Archipelagos -->
-                        <g class="f-sand" opacity=".92">
+                        <g class="f-sand" opacity=".92" transform="translate(-15.2, -79.8) scale(1.4024)">
                             <!-- Jardines del Rey (North Coast Cays) -->
                             <path d="M370 248 a5 2.5 0 1 0 10 0 a5 2.5 0 1 0 -10 0" />
                             <path d="M424 256 a5 2.5 0 1 0 10 0 a5 2.5 0 1 0 -10 0" />
@@ -143,172 +544,25 @@ def build_svg(lang="en", cuba_xml=""):
                             <path d="M475 375 c12 6 24 12 36 16 c-10 -2 -22 -7 -36 -16 z" />
                         </g>
                         <!-- Cayman Islands (South of Cuba) -->
-                        <g class="f-sand" opacity=".85">
+                        <g class="f-sand" opacity=".85" transform="translate(-15.2, -79.8) scale(1.4024)">
                             <!-- Grand Cayman -->
                             <path d="M320 405 c6 -2 14 0 18 3 c-3 2 -11 2 -16 -1 z" />
                             <!-- Little Cayman and Cayman Brac -->
                             <circle cx="362" cy="392" r="2" />
                             <ellipse cx="376" cy="388" rx="3.5" ry="1.6" />
                         </g>
-                        <!-- Waikiki Artificial Archipelagos (Palm, World, Chameleon) -->
-                        <g class="f-sand">
-                            <!-- The Palm Island -->
-                            <path d="M226 276 c-4 -6 6 -9 11 -6 c5 3 4 8 -2 9 c-3 1 -6 -1 -7 -2 z" />
-                            <circle cx="230" cy="272" r="3.2" />
-                            <circle cx="224" cy="272" r="2.8" />
-                            <!-- The World Archipelago -->
-                            <circle cx="210" cy="290" r="2.4" />
-                            <circle cx="216" cy="289" r="2.2" />
-                            <circle cx="212" cy="295" r="2.6" />
-                            <circle cx="218" cy="294" r="2.2" />
-                            <circle cx="215" cy="298" r="1.8" />
-                            <!-- Chameleon Island -->
-                            <path d="M232 296 c3 -3 8 -3 11 0 c2 2 3 5 1 7 c-2 2 -6 2 -8 1 c-3 -1 -4 3 -2 4 c2 1 5 0 6 -1 c-1 3 -4 4 -6 3 c-3 -2 -4 -6 -2 -8 c1 -2 0 -4 -1 -5 z" />
-                            <circle cx="240" cy="297" r="1.2" class="f-white" />
-                        </g>
-                        <!-- ==================== JAMAICA (DETAILED COUNTIES) ==================== -->
-                        <g id="jamaica-regions">
-                            <!-- JM-CORNWALL: Cornwall County (West) -->
-                            <path class="f-sand province-path" d="M 526,488 C 530,482 538,477 548,474 C 556,472 562,475 566,480 L 568,498 C 560,501 550,501 540,498 C 532,495 526,492 526,488 Z" id="JM-CORNWALL" title="{t_jm_cornwall}" />
-                            <!-- JM-MIDDLESEX: Middlesex County (Central) -->
-                            <path class="f-sand province-path" d="M 566,480 C 574,475 586,474 600,475 C 610,476 618,479 622,484 L 624,502 C 614,506 606,514 596,512 C 586,510 578,504 568,498 L 566,480 Z" id="JM-MIDDLESEX" title="{t_jm_middlesex}" />
-                            <!-- JM-SURREY: Surrey County (East and Kingston) -->
-                            <path class="f-sand province-path" d="M 622,484 C 628,480 638,480 648,483 C 658,487 664,491 664,494 C 660,499 652,501 642,502 C 632,502 626,501 624,502 L 622,484 Z" id="JM-SURREY" title="{t_jm_surrey}" />
-                            <!-- Port Royal and The Palisadoes Spit -->
-                            <path class="f-sand province-path" d="M 622,501 C 628,502 636,503 640,501 C 641,500 638,498 632,498 C 626,499 622,500 622,501 Z" id="JM-PALISADOES" title="{t_jm_palisadoes}" />
-                            <!-- Pedro Cays -->
-                            <path class="f-sand province-path" d="M 584,528 C 588,527 592,528 594,530 C 592,532 588,531 584,528 Z" id="JM-PEDRO" title="{t_jm_pedro}" />
-                        </g>
-                        <!-- ==================== HISPANIOLA (HAITI AND DOMINICAN REP. DETAILED) ==================== -->
-                        <g id="hispaniola-regions">
-                            <!-- HT-NW: Nord-Ouest -->
-                            <path class="f-sand province-path" d="M 752,338 C 762,334 778,332 796,330 C 804,337 810,346 816,354 C 820,360 822,364 818,366 C 804,367 790,364 776,358 C 764,352 754,344 752,338 Z" id="HT-NW" title="{t_ht_nw}" />
-                            <!-- HT-NORD: Nord and Nord-Est (Cap-Haïtien) -->
-                            <path class="f-sand province-path" d="M 796,330 C 818,328 842,332 864,338 C 884,336 902,335 918,336 C 916,346 912,356 908,366 C 892,365 874,364 856,362 C 836,360 824,358 816,354 C 810,346 804,337 796,330 Z" id="HT-NORD" title="{t_ht_nord}" />
-                            <!-- HT-ART: Artibonite and Centre -->
-                            <path class="f-sand province-path" d="M 818,366 C 822,364 820,360 816,354 C 824,358 836,360 856,362 C 874,364 892,365 908,366 C 910,378 914,392 918,406 C 904,408 888,409 874,408 C 864,398 854,386 842,378 C 832,372 824,368 818,366 Z" id="HT-ART" title="{t_ht_art}" />
-                            <!-- HT-OUEST: Ouest and Port-au-Prince -->
-                            <path class="f-sand province-path" d="M 874,408 C 888,409 904,408 918,406 C 922,418 924,430 926,442 C 914,444 898,443 884,440 C 876,432 872,422 870,416 C 871,412 873,410 874,408 Z" id="HT-OUEST" title="{t_ht_ouest}" />
-                            <!-- HT-SUD: Sud, Grand'Anse and Nippes (Tiburon Peninsula) -->
-                            <path class="f-sand province-path" d="M 744,438 C 758,432 776,430 798,430 C 820,430 844,432 866,435 C 870,437 876,440 884,440 C 898,443 914,444 926,442 C 926,448 924,452 920,454 C 900,453 876,450 852,448 C 824,452 796,455 776,453 C 760,450 748,446 744,438 Z" id="HT-SUD" title="{t_ht_sud}" />
-                            <!-- HT-GONAVE: Île de la Gonâve -->
-                            <path class="f-sand province-path" d="M 826,410 C 838,404 854,405 864,411 C 869,415 867,421 860,424 C 848,427 834,425 826,419 C 822,415 822,412 826,410 Z" id="HT-GONAVE" title="{t_ht_gonave}" />
-                            <!-- HT-TORTUGA: Île de la Tortue (Tortuga) -->
-                            <path class="f-sand province-path" d="M 810,324 C 822,320 836,321 846,325 C 850,328 848,332 842,333 C 830,335 818,334 810,329 C 807,327 807,325 810,324 Z" id="HT-TORTUGA" title="{t_ht_tortuga}" />
-                            <!-- HT-VACHE: Île-à-Vache -->
-                            <path class="f-sand province-path" d="M 778,455 C 782,453 787,454 789,457 C 789,459 786,461 782,460 C 778,459 776,457 778,455 Z" id="HT-VACHE" title="{t_ht_vache}" />
-                            <!-- DO-CIBAO: Dominican Republic · North and Cibao -->
-                            <path class="f-sand province-path" d="M 918,336 C 946,334 984,332 1024,334 C 1068,336 1114,340 1160,346 L 1160,392 C 1118,390 1072,388 1028,386 C 980,384 942,386 918,388 C 914,374 910,360 908,366 C 912,356 916,346 918,336 Z" id="DO-CIBAO" title="{t_do_cibao}" />
-                            <!-- DO-SUR: Dominican Republic · South and Santo Domingo -->
-                            <path class="f-sand province-path" d="M 918,388 C 942,386 980,384 1028,386 C 1072,388 1118,390 1160,392 L 1160,446 C 1120,444 1074,440 1028,438 C 984,438 950,444 926,442 C 924,430 922,418 918,406 C 914,392 910,378 918,388 Z" id="DO-SUR" title="{t_do_sur}" />
-                            <!-- DO-SAONA: Isla Saona -->
-                            <path class="f-sand province-path" d="M 1128,450 C 1135,448 1142,450 1145,453 C 1145,456 1139,458 1133,456 C 1128,454 1126,451 1128,450 Z" id="DO-SAONA" title="{t_do_saona}" />
-                        </g>
-                        <!-- ==================== TRANSPORT CORRIDORS ==================== -->
-                        <!-- Florida Undersea Corridor: Miami to Nova Aurelia via Keys -->
-                        <path d="M265 178 C255 198, 235 218, 202 225 C186 248, 214 274, 255 292" class="k-ink" stroke-width="4.5" stroke-dasharray="2 7" stroke-linecap="round" />
-                        <!-- Trans-Cuba Main Line: Nova Aurelia to Morón -->
-                        <path d="M255 292 C285 272, 360 266, 458 273" class="k-ink2" stroke-width="4.5" stroke-linecap="round" />
-                        <!-- Hyperloop: Nova Aurelia to Mega Pyramid City -->
-                        <path d="M255 292 L290 264" class="k-gold" stroke-width="5.5" stroke-linecap="round" />
-                        <!-- High-Speed Maglev: Morón to Port Royal and Santiago -->
-                        <path d="M458 273 C500 295, 525 320, 540 340 C560 365, 580 395, 598 419" class="k-coral" stroke-width="5.5" stroke-linecap="round" />
-                        <!-- Windward Passage Link: Santiago to Cap-Haïtien and Port-au-Prince -->
-                        <path d="M598 419 C645 428, 690 422, 730 395 C780 360, 820 345, 862 340" class="k-coral" stroke-width="5.5" stroke-linecap="round" />
-                        <path d="M862 340 C882 370, 895 400, 908 432" class="k-coral" stroke-width="5.5" stroke-linecap="round" />
-                        <!-- Jamaica Maritime Express Link: Santiago to Kingston and Montego Bay -->
-                        <path d="M598 419 C610 445, 622 470, 630 498" class="k-sea" stroke-width="3.5" stroke-dasharray="3 6" stroke-linecap="round" />
-                        <path d="M255 292 C320 370, 440 435, 556 474" class="k-sea" stroke-width="2.8" stroke-dasharray="3 6" stroke-linecap="round" opacity=".75" />
-                        <!-- Island Elevated Link to Artificial Islands -->
-                        <path d="M255 292 C245 294, 235 296, 226 288" class="k-ink2" stroke-width="2.8" stroke-dasharray="4 4" />
-                        <!-- Animated Traffic Dots -->
-                        <circle r="5" class="f-white">
-                            <animateMotion dur="5.5s" repeatCount="indefinite" path="M265 178 C255 198, 235 218, 202 225 C186 248, 214 274, 255 292" />
-                        </circle>
-                        <circle r="4.5" class="f-white">
-                            <animateMotion dur="4.5s" repeatCount="indefinite" path="M255 292 C285 272, 360 266, 458 273" />
-                        </circle>
-                        <circle r="4" class="f-white">
-                            <animateMotion dur="1.8s" repeatCount="indefinite" path="M255 292 L290 264" />
-                        </circle>
-                        <circle r="5" class="f-white">
-                            <animateMotion dur="4.2s" repeatCount="indefinite" path="M458 273 C500 295, 525 320, 540 340 C560 365, 580 395, 598 419" />
-                        </circle>
-                        <circle r="5" class="f-white">
-                            <animateMotion dur="5.5s" repeatCount="indefinite" path="M598 419 C645 428, 690 422, 730 395 C780 360, 820 345, 862 340" />
-                        </circle>
-                        <circle r="4.5" class="f-white">
-                            <animateMotion dur="3.6s" repeatCount="indefinite" path="M862 340 C882 370, 895 400, 908 432" />
-                        </circle>
-                        <circle r="4" class="f-white">
-                            <animateMotion dur="6.0s" repeatCount="indefinite" path="M598 419 C610 445, 622 470, 630 498" />
-                        </circle>
-                        <!-- ==================== CAPITAL AND STATIONS ==================== -->
-                        <!-- Capital City Marker: Nova Aurelia (Southern shores of Waikiki) -->
-                        <g>
-                            <circle cx="255" cy="292" r="16" class="f-coral pulse" />
-                            <circle cx="255" cy="292" r="11" class="f-coral" />
-                            <path d="M255 285 l2 4.2 4.6.6 -3.4 3.2 .9 4.5 -4.1 -2.2 -4.1 2.2 .9 -4.5 -3.4 -3.2 4.6 -.6 z" class="f-white" />
-                        </g>
-                        <!-- Station Network Nodes -->
-                        <g class="f-ink">
-                            <circle cx="265" cy="178" r="7" />
-                            <circle cx="202" cy="225" r="5.5" />
-                            <circle cx="290" cy="264" r="6" />
-                            <circle cx="458" cy="273" r="7" />
-                            <circle cx="540" cy="340" r="5.5" />
-                            <circle cx="598" cy="419" r="7" />
-                            <circle cx="862" cy="340" r="7" />
-                            <circle cx="908" cy="432" r="7" />
-                            <circle cx="630" cy="498" r="6" />
-                            <circle cx="556" cy="474" r="5.5" />
-                        </g>
-                        <!-- Mega Pyramid Mark -->
-                        <path d="M290 255 l4 7 h-8 z" class="f-gold" />
-                        <g class="f-white">
-                            <circle cx="265" cy="178" r="2.8" />
-                            <circle cx="202" cy="225" r="2.2" />
-                            <circle cx="290" cy="264" r="2.2" />
-                            <circle cx="458" cy="273" r="2.8" />
-                            <circle cx="540" cy="340" r="2.2" />
-                            <circle cx="598" cy="419" r="2.8" />
-                            <circle cx="862" cy="340" r="2.8" />
-                            <circle cx="908" cy="432" r="2.8" />
-                            <circle cx="630" cy="498" r="2.4" />
-                            <circle cx="556" cy="474" r="2.2" />
-                        </g>
-                        <!-- ==================== TYPOGRAPHY AND LABELS ==================== -->
-                        <g font-size="11.5">
-                            <text x="255" y="322" text-anchor="middle" font-size="13.5" font-weight="700">NOVA AURELIA</text>
-                            <text x="278" y="178" font-size="12" font-weight="600">MIAMI</text>
-                            <text x="195" y="238" font-size="9.5" text-anchor="end">KEY WEST</text>
-                            <text x="302" y="260" font-size="10.5" font-weight="600">MEGA PYRAMID CITY</text>
-                            <text x="458" y="260" text-anchor="middle" font-size="12" font-weight="600">MORÓN</text>
-                            <text x="552" y="340" font-size="10">PORT ROYAL</text>
-                            <text x="598" y="438" text-anchor="middle" font-size="12" font-weight="600">SANTIAGO</text>
-                            <text x="862" y="328" text-anchor="middle" font-size="12" font-weight="600">CAP-HAÏTIEN</text>
-                            <text x="922" y="436" font-size="12" font-weight="600">PORT-AU-PRINCE</text>
-                            <text x="642" y="512" font-size="10.5" font-weight="600">KINGSTON</text>
-                            <text x="548" y="468" font-size="9.5" font-weight="600" text-anchor="end">MONTEGO BAY</text>
-                            <!-- Major Territories -->
-                            <text x="210" y="70" font-size="13" font-weight="600" opacity=".6" letter-spacing=".15em">{g_florida}</text>
-                            <text x="365" y="115" font-size="11" font-weight="600" opacity=".45" letter-spacing=".15em">{g_bahamas}</text>
-                            <text x="360" y="306" font-size="15" font-weight="600" opacity=".5" letter-spacing=".22em">{g_cuba}</text>
-                            <text x="825" y="380" font-size="14" font-weight="600" opacity=".5" letter-spacing=".22em">{g_haiti}</text>
-                            <text x="980" y="365" font-size="12" font-weight="600" opacity=".4" letter-spacing=".18em">{g_domrep}</text>
-                            <text x="595" y="492" font-size="11" opacity=".55" letter-spacing=".15em" text-anchor="middle">{g_jamaica}</text>
-                            <text x="145" y="298" font-size="9" text-anchor="middle">{g_islands}</text>
-                            <text x="210" y="246" font-size="9" opacity=".8" font-weight="600" transform="rotate(58 210 246)">{g_corridor}</text>
-                            <text x="760" y="378" font-size="9.5" opacity=".8" font-weight="600" transform="rotate(-24 760 378)">{g_passage}</text>
-                        </g>
+{jm_xml}
+{hi_xml}
+{corridors_xml}
+{cities_xml}
                         <!-- ==================== MAP LEGEND BOX ==================== -->
-                        <g transform="translate(810 448)" font-size="10">
+                        <g transform="translate(1460 550)" font-size="10">
                             <rect x="-14" y="-12" width="314" height="70" rx="12" class="f-white" opacity=".92" />
                             <path d="M0 2h26" class="k-coral" stroke-width="5" stroke-linecap="round" /><text x="34" y="5.5" font-weight="600">{lbl_maglev}</text>
                             <path d="M125 2h26" class="k-gold" stroke-width="5" stroke-linecap="round" /><text x="159" y="5.5" font-weight="600">{lbl_hyperloop}</text>
                             <path d="M0 26h26" class="k-ink" stroke-width="4" stroke-dasharray="2 7" stroke-linecap="round" /><text x="34" y="29.5" font-weight="600">{lbl_tunnel}</text>
                             <path d="M125 26h26" class="k-ink2" stroke-width="4" stroke-linecap="round" /><text x="159" y="29.5" font-weight="600">{lbl_mainline}</text>
-                            <path d="M0 46h26" class="k-sea" stroke-width="3" stroke-dasharray="3 6" stroke-linecap="round" /><text x="34" y="49.5" font-weight="600">{lbl_maritime}</text>
+                            <path d="M0 46h26" class="k-sea" stroke-width="3.5" stroke-dasharray="5 3" stroke-linecap="round" /><text x="34" y="49.5" font-weight="600">{lbl_maritime}</text>
                         </g>
                     </g>
                 </svg>'''
