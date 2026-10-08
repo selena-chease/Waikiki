@@ -234,3 +234,33 @@
     0% { transform: scaleY(0.3); transform-origin: bottom; }
     100% { transform: scaleY(1.0); transform-origin: bottom; }
 }
+
+/* Digital State & Orbital Reach section */
+#digital-space .ill-panel {
+    max-width: var(--maxw-narrative, 1160px);
+    width: 100%;
+    margin: 2.5rem auto;
+}
+
+#digital-space .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    gap: var(--card-gap, 1.5rem);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+#digital-space .card-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--primary);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.body-dark #digital-space .card-icon svg {
+    stroke: var(--tertiary);
+}
+

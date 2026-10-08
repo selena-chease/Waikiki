@@ -382,8 +382,7 @@
   margin: 0 auto 2.5rem;
 }
 
-#megaprojects .ill-panel,
-#digital-space .ill-panel {
+#megaprojects .ill-panel {
   max-width: var(--maxw-wide);
   width: 100%;
   margin: 0 auto 2.5rem;
@@ -407,11 +406,6 @@
   #megaprojects .card-grid {
     grid-template-columns: 1fr;
   }
-}
-
-#digital-space .card-grid {
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
 #megaprojects .card {
