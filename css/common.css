@@ -52,6 +52,17 @@
   --brazilia: #c28a29;
   --brazilia-hover: #ecc677;
 
+  /* Chart colours */
+  --chart-1: #2E75B6;
+  --chart-2: #8BC34A;
+  --chart-3: #F39C12;
+  --chart-4: #F1C40F;
+  --chart-5: #5DADE2;
+  --chart-6: #C0392B;
+  --chart-7: #9B59B6;
+  --chart-8: #7D6608;
+  --chart-9: #27AE60;
+
   /* Private page colors */
   --private: #0a1930;
   --intimate: #3d1520;

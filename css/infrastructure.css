@@ -585,27 +585,27 @@
 }
 
 .seg-solar {
-  background-color: var(--accent);
+  background-color: var(--chart-1);
 }
 
 .seg-fusion {
-  background: linear-gradient(135deg, var(--ill-sun), var(--accent-hover));
+  background-color: var(--chart-2);
 }
 
 .seg-wind {
-  background: linear-gradient(135deg, var(--tertiary), var(--primary-light));
+  background-color: var(--chart-3);
 }
 
 .seg-nuclear {
-  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  background-color: var(--chart-4);
 }
 
 .seg-hydro {
-  background: linear-gradient(135deg, var(--amazonia-hover), var(--amazonia));
+  background-color: var(--chart-5);
 }
 
 .seg-fossil {
-  background: linear-gradient(135deg, var(--neutral-badge-light), var(--neutral-badge-dark));
+  background-color: var(--chart-6);
 }
 
 .energy-legend {
