@@ -31,11 +31,11 @@ CITIES = [
         "name": "Havana",
         "pos": (396, 260),
         "type": "Large",
-        "label": {"anchor": "end", "offset": (-10, 0), "size": 12, "weight": 600}
+        "label": {"anchor": "end", "offset": (-10, -10), "size": 12, "weight": 600}
     },
     {
         "name": "Mega Pyramid City",
-        "pos": (456, 288),
+        "pos": (446, 294),
         "type": "Small",
         "has_pyramid": True,
         "label": {"anchor": "start", "offset": (15, -5), "size": 10, "weight": 400}
@@ -74,25 +74,49 @@ CITIES = [
         "name": "Cap-Haïtien",
         "pos": (1123, 448),
         "type": "Large",
-        "label": {"anchor": "middle", "offset": (0, -12), "size": 12, "weight": 600}
+        "label": {"anchor": "middle", "offset": (0, -15), "size": 12, "weight": 600}
     },
     {
         "name": "Port-au-Prince",
         "pos": (1115, 540),
         "type": "Large",
-        "label": {"anchor": "start", "offset": (14, 4), "size": 12, "weight": 600}
+        "label": {"anchor": "middle", "offset": (0, 25), "size": 12, "weight": 600}
     },
     {
         "name": "Kingston",
         "pos": (860, 605),
         "type": "Large",
-        "label": {"anchor": "start", "offset": (12, 13), "size": 10.5, "weight": 600}
+        "label": {"anchor": "start", "offset": (15, 15), "size": 12, "weight": 600}
     },
     {
         "name": "Montego Bay",
         "pos": (786, 578),
         "type": "Small",
-        "label": {"anchor": "end", "offset": (-8, -6), "size": 9.5, "weight": 600}
+        "label": {"anchor": "end", "offset": (-10, -5), "size": 10, "weight": 400}
+    },
+    {
+        "name": "Pinar del Río",
+        "pos": (220, 310),
+        "type": "Small",
+        "label": {"anchor": "end", "offset": (-10, 0), "size": 10, "weight": 400}
+    },
+    {
+        "name": "Santo Domingo",
+        "pos": (1304, 540),
+        "type": "Large",
+        "label": {"anchor": "middle", "offset": (0, 25), "size": 12, "weight": 600}
+    },
+    {
+        "name": "Punta Cana",
+        "pos": (1410, 532),
+        "type": "Small",
+        "label": {"anchor": "middle", "offset": (0, -14), "size": 10, "weight": 400}
+    },
+    {
+        "name": "Santa Cruz del Sur",
+        "pos": (634, 448),
+        "type": "Small",
+        "label": {"anchor": "middle", "offset": (0, 20), "size": 10, "weight": 400}
     }
 ]
 
@@ -101,6 +125,34 @@ CITIES = [
 # From, To, Type ('Maglev', 'Hyperloop', 'Tunnel', 'Main Line', 'Maritime', 'Elevated')
 # ==============================================================================
 CONNECTIONS = [
+    {
+        "from": "Morón",
+        "to": "Santa Cruz del Sur",
+        "type": "Main Line",
+        "bend": 0.05,
+        "dur": "3.0s"
+    },
+    {
+        "from": "Havana",
+        "to": "Pinar del Río",
+        "type": "Main Line",
+        "bend": -0.1,
+        "dur": "3.5s"
+    },
+    {
+        "from": "Port-au-Prince",
+        "to": "Santo Domingo",
+        "type": "Main Line",
+        "bend": 0.05,
+        "dur": "3.5s"
+    },
+    {
+        "from": "Santo Domingo",
+        "to": "Punta Cana",
+        "type": "Main Line",
+        "bend": 0.05,
+        "dur": "2.2s"
+    },
     {
         "from": "Miami",
         "to": "Key West",
@@ -529,28 +581,6 @@ def build_svg(lang="en", cuba_xml=""):
                         </g>
                         <!-- ==================== CUBA ARCHIPELAGO (DETAILED) ==================== -->
                         {cuba_xml}
-                        <!-- Cuban Cays and Surrounding Archipelagos -->
-                        <g class="f-sand" opacity=".92" transform="translate(-15.2, -79.8) scale(1.4024)">
-                            <!-- Jardines del Rey (North Coast Cays) -->
-                            <path d="M370 248 a5 2.5 0 1 0 10 0 a5 2.5 0 1 0 -10 0" />
-                            <path d="M424 256 a5 2.5 0 1 0 10 0 a5 2.5 0 1 0 -10 0" />
-                            <path d="M448 259 c6 -2 14 -1 18 2 c-4 3 -12 2 -18 -2 z" />
-                            <path d="M488 268 c8 -2 18 0 22 4 c-5 3 -15 2 -22 -4 z" />
-                            <path d="M536 284 a7 3 0 1 0 14 0 a7 3 0 1 0 -14 0" />
-                            <!-- Los Canarreos and Jardines de la Reina (South Coast Cays) -->
-                            <path d="M262 346 c8 -2 18 1 20 5 c-6 3 -16 1 -20 -5 z" />
-                            <ellipse cx="236" cy="342" rx="4" ry="2.5" />
-                            <path d="M430 355 c12 6 26 14 38 18 c-10 -2 -24 -8 -38 -18 z" />
-                            <path d="M475 375 c12 6 24 12 36 16 c-10 -2 -22 -7 -36 -16 z" />
-                        </g>
-                        <!-- Cayman Islands (South of Cuba) -->
-                        <g class="f-sand" opacity=".85" transform="translate(-15.2, -79.8) scale(1.4024)">
-                            <!-- Grand Cayman -->
-                            <path d="M320 405 c6 -2 14 0 18 3 c-3 2 -11 2 -16 -1 z" />
-                            <!-- Little Cayman and Cayman Brac -->
-                            <circle cx="362" cy="392" r="2" />
-                            <ellipse cx="376" cy="388" rx="3.5" ry="1.6" />
-                        </g>
 {jm_xml}
 {hi_xml}
 {corridors_xml}
