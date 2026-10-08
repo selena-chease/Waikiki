@@ -349,14 +349,62 @@ def get_cuba_group():
     inner = m.group(1).strip()
     return f'<g class="cuba-archipelago" transform="translate(90, 240) scale(1.15)">\n{inner}\n                        </g>'
 
+def is_florida_county_visible(d, tx=88, ty=-157.4, scale=4.0, vw=1800, vh=650):
+    tokens = re.findall(r'([a-zA-Z])|([-+]?(?:\d*\.\d+|\d+))', d)
+    cmd = None
+    cur_x, cur_y = 0.0, 0.0
+    start_x, start_y = 0.0, 0.0
+    min_x = min_y = float('inf')
+    max_x = max_y = float('-inf')
+    i = 0
+    while i < len(tokens):
+        t = tokens[i]
+        if t[0]:
+            cmd = t[0]; i += 1; continue
+        if not cmd:
+            i += 1; continue
+        if cmd in ['m', 'M']:
+            if cmd == 'm':
+                cur_x += float(t[1]); i += 1
+                cur_y += float(tokens[i][1]); i += 1
+            else:
+                cur_x = float(t[1]); i += 1
+                cur_y += float(tokens[i][1]); i += 1
+            start_x, start_y = cur_x, cur_y
+            cmd = 'l' if cmd == 'm' else 'L'
+        elif cmd == 'l':
+            cur_x += float(t[1]); i += 1
+            cur_y += float(tokens[i][1]); i += 1
+        elif cmd == 'L':
+            cur_x = float(t[1]); i += 1
+            cur_y += float(tokens[i][1]); i += 1
+        elif cmd == 'c':
+            coords = [float(tokens[i+k][1]) for k in range(6)]
+            i += 6
+            cur_x += coords[4]
+            cur_y += coords[5]
+        elif cmd in ['z', 'Z']:
+            cur_x, cur_y = start_x, start_y
+        else:
+            i += 1
+        gx = tx + cur_x * scale
+        gy = ty + cur_y * scale
+        if gx < min_x: min_x = gx
+        if gx > max_x: max_x = gx
+        if gy < min_y: min_y = gy
+        if gy > max_y: max_y = gy
+    return max_x >= 0 and min_x <= vw and max_y >= 0 and min_y <= vh
+
 def get_florida_group(is_hu=False):
     tree = ET.parse('content/Maps/usa-fl.svg')
     ns = {'svg': 'http://www.w3.org/2000/svg'}
     paths = tree.findall('.//svg:path', ns) or tree.findall('.//path')
     lines = []
     for p in paths:
-        cid = p.attrib.get('id', '')
         d = p.attrib.get('d', '')
+        if not is_florida_county_visible(d):
+            continue
+        cid = p.attrib.get('id', '')
         title_base = cid.replace(' FL', '')
         title = f'Florida · {title_base}'
         # Use florida-path (no internal borders)
@@ -500,7 +548,7 @@ def generate_cities_xml(g_florida, g_bahamas, g_jamaica):
                         <path d="M{x} {y-9} l4 7 h-8 z" class="f-gold" />''')
                 
     territory_labels = f'''                            <!-- Major Territories -->
-                            <text x="350" y="45" font-size="13" font-weight="600" opacity=".6" letter-spacing=".15em">{g_florida}</text>
+                            <text x="380" y="45" font-size="13" font-weight="600" opacity=".6" letter-spacing=".15em">{g_florida}</text>
                             <text x="530" y="70" font-size="11" font-weight="600" opacity=".45" letter-spacing=".15em">{g_bahamas}</text>
                             <text x="825" y="600" font-size="11" opacity=".55" letter-spacing=".15em" text-anchor="middle">{g_jamaica}</text>'''
 

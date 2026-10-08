@@ -585,7 +585,7 @@
 }
 
 .seg-solar {
-  background: linear-gradient(135deg, var(--accent), var(--accent));
+  background-color: var(--accent);
 }
 
 .seg-fusion {
