@@ -25,8 +25,7 @@ The Sovereign Nation of Waikiki web portal is engineered as a high-performance, 
 │   ├── common.css          # Master design system: tokens, typography, header, footer, animations
 │   ├── index.css           # Landing & portal specific layouts
 │   ├── society.css         # Interactive province SVG map, city markers, administrative cards
-│   ├── economy.css         # Chart containers, comparison bars, financial data cards
-│   ├── wealth-fund.css     # Sovereign wealth fund timeline, asset distribution styles
+│   ├── economy.css         # Economy and sovereign wealth fund charts, comparison bars, milestones timeline
 │   ├── citizenship.css     # Immigration screening tier cards, assessment modal
 │   ├── bio.css             # Royal biography typography, quote blocks, narrative styling
 │   ├── detailed.css        # Detailed ministerial profile cards, portfolio galleries

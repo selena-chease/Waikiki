@@ -2231,7 +2231,7 @@ html.header-hidden .subnav {
   display: flex;
   align-items: flex-end;
   min-height: clamp(400px, 50vw, 800px);
-  max-width: var(--width-full);
+  max-width: var(--width-xl);
   margin: 0 auto;
   padding: clamp(1.75rem, 4vw, 3.5rem);
   border-radius: var(--radius-lg);
