@@ -14,7 +14,7 @@
 }
 
 .mission p {
-    max-width: 1000px;
+    max-width: var(--width-xs);
     margin: 0 auto 1.25rem;
     color: var(--text);
     font-size: clamp(1.05rem, 1.3vw, 1.18rem);

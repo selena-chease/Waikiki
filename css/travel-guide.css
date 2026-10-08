@@ -250,7 +250,7 @@
 }
 
 .hero--art .hero-content> :not(.hero-stats) {
-  max-width: min(1000px, 100%);
+  max-width: min(var(--width-xs), 100%);
 }
 
 .hero-art {
@@ -566,7 +566,7 @@
 
 /* Season Strip (When to Visit) */
 .season {
-  max-width: 1200px;
+  max-width: var(--width-s);
   margin: 0 auto;
 }
 
@@ -672,7 +672,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: var(--card-gap);
-  max-width: 1400px;
+  max-width: var(--width-m);
   margin: 0 auto;
 }
 

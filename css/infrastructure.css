@@ -270,7 +270,7 @@
 }
 
 .hero--art .hero-content> :not(.hero-stats) {
-  max-width: min(1000px, 100%);
+  max-width: min(var(--width-xs), 100%);
 }
 
 .hero-art {
@@ -484,7 +484,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 680px), 1fr));
   gap: 1.1rem;
-  max-width: 1800px;
+  max-width: var(--width-l);
   margin: 0 auto;
   counter-reset: feat;
 }

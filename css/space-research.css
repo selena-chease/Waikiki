@@ -246,7 +246,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
     gap: var(--card-gap, 1.5rem);
-    max-width: 1400px;
+    max-width: var(--width-m);
     margin: 0 auto;
 }
 
