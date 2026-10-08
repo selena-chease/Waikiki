@@ -40,7 +40,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     gap: var(--card-gap);
-    max-width: var(--maxw);
+    max-width: var(--width-full);
     margin: 0 auto;
 }
 
@@ -49,7 +49,7 @@
     align-items: center;
     justify-content: space-between;
     gap: clamp(2.5rem, 6vw, 5rem);
-    padding: var(--section-pad) max(var(--gutter), calc((100% - var(--maxw)) / 2));
+    padding: var(--section-pad) max(var(--gutter), calc((100% - var(--width-full)) / 2));
     overflow: hidden;
     background:
         radial-gradient(900px 500px at 90% 0%, rgba(227, 115, 90, 0.14), transparent 60%),

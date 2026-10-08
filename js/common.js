@@ -16,6 +16,7 @@
      progress     Scroll progress bar + back-to-top ring
      timeline     Scroll-drawn timeline line
      faq          Smooth accordion expansion and collapse
+     filter       Filter chips for landmark and hotel grids
    ========================================================================== */
 
 (function () {
@@ -707,6 +708,53 @@
         });
     }
 
+    /* ---------------------------------------------------------------- filter */
+    function initFilterBar(bar) {
+        const grid = document.getElementById(bar.dataset.filterFor);
+        if (!grid) return;
+        const items = $$('[data-filter-item]', grid);
+        const chips = $$('[data-filter]', bar);
+
+        // Show how many entries each chip reveals.
+        chips.forEach((chip) => {
+            const key = chip.dataset.filter;
+            const total = key === 'all'
+                ? items.length
+                : items.filter((item) => (item.dataset.cat || '').split(/\s+/).includes(key)).length;
+            const count = document.createElement('span');
+            count.className = 'count';
+            count.textContent = total;
+            chip.appendChild(count);
+        });
+
+        bar.addEventListener('click', (event) => {
+            const chip = event.target.closest('[data-filter]');
+            if (!chip || chip.getAttribute('aria-pressed') === 'true') return;
+            const key = chip.dataset.filter;
+
+            chips.forEach((other) => other.setAttribute('aria-pressed', String(other === chip)));
+
+            items.forEach((item, index) => {
+                const match = key === 'all' || (item.dataset.cat || '').split(/\s+/).includes(key);
+                item.classList.remove('is-filtering-in');
+                item.hidden = !match;
+                if (match) {
+                    // Filtered cards must be visible even if the scroll reveal has not fired yet.
+                    item.classList.add('is-in');
+                    item.style.animationDelay = `${Math.min(index, 8) * 45}ms`;
+                    void item.offsetWidth; // restart the entrance animation
+                    item.classList.add('is-filtering-in');
+                }
+            });
+        });
+    }
+
+    window.initFilterBar = initFilterBar;
+
+    function initFilterBars() {
+        $$('.filter-bar[data-filter-for]').forEach(initFilterBar);
+    }
+
     /* ----------------------------------------------------------------- boot */
     function init() {
         initTheme();
@@ -723,6 +771,7 @@
         initProgress();
         initTimelines();
         initFaqAccordion();
+        initFilterBars();
     }
 
     if (document.readyState === 'loading') {

@@ -2,7 +2,7 @@
 
 .timeline-expanded {
   position: relative;
-  max-width: var(--maxw-timeline);
+  max-width: var(--width-m);
   margin: 0 auto;
 }
 

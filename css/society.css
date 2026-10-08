@@ -89,7 +89,7 @@
 /* Interactive Map Container */
 .map-container {
     position: relative;
-    max-width: var(--maxw);
+    max-width: var(--width-full);
     margin: 2rem auto 0;
     background: var(--neutral-100);
     border-radius: var(--radius-xl);

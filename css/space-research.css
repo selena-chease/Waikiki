@@ -81,7 +81,7 @@
 /* Illustrated Panels */
 .ill-panel {
     margin: 2.5rem auto;
-    max-width: var(--maxw-narrative, 1160px);
+    max-width: var(--width-s, 1160px);
     width: 100%;
     border-radius: var(--radius);
     overflow: hidden;
@@ -237,7 +237,7 @@
 
 /* Digital State & Orbital Reach section */
 #digital-space .ill-panel {
-    max-width: var(--maxw-narrative, 1160px);
+    max-width: var(--width-s, 1160px);
     width: 100%;
     margin: 2.5rem auto;
 }

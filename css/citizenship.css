@@ -12,7 +12,7 @@ h3 {
 
 .text-gray-600 {
     color: var(--text-slate);
-    max-width: var(--maxw);
+    max-width: var(--width-full);
     margin: auto;
 }
 

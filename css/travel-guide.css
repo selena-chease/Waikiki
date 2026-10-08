@@ -256,7 +256,7 @@
 .hero-art {
   position: absolute;
   z-index: 0;
-  right: max(var(--gutter), calc((100vw - var(--maxw)) / 2 + var(--gutter)));
+  right: max(var(--gutter), calc((100vw - var(--width-full)) / 2 + var(--gutter)));
   top: 50%;
   width: min(46vw, 720px);
   transform: translateY(-46%);
@@ -822,7 +822,7 @@
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: clamp(1rem, 1.25vw, 1.35rem);
-  max-width: var(--maxw-wide);
+  max-width: var(--width-l);
   margin: 0 auto;
 }
 

@@ -5,13 +5,13 @@
     position: relative;
     width: 100%;
     height: 340px;
-    max-width: var(--maxw);
+    max-width: var(--width-full);
     margin: 0 auto;
     padding: 1rem 0;
 }
 
 .chart-title {
-    max-width: var(--maxw);
+    max-width: var(--width-full);
     margin: auto;
     font-family: var(--font-display);
     color: var(--primary-dark);
