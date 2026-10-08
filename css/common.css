@@ -251,11 +251,14 @@
   border: none;
 }
 
+/* Thin, warm scrollbar */
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-h-compact) + 1rem);
   background: var(--bg);
+  scrollbar-color: var(--primary-light) var(--surface-2);
+  scrollbar-width: thin;
 }
 
 body {
@@ -330,10 +333,6 @@ main {
   margin-top: 1rem;
 }
 
-.mt-2 {
-  margin-top: 2rem;
-}
-
 .visually-hidden {
   position: absolute !important;
   width: 1px;
@@ -341,16 +340,6 @@ main {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
-}
-
-.skip-link {
-  display: none !important;
-}
-
-/* Thin, warm scrollbar */
-html {
-  scrollbar-color: var(--primary-light) var(--surface-2);
-  scrollbar-width: thin;
 }
 
 /* 3. MOTION PRIMITIVES */
@@ -393,11 +382,7 @@ html {
   transition-delay: inherit;
 }
 
-.js [data-reveal="split"] {
-  opacity: 1;
-  transform: none;
-}
-
+.js [data-reveal="split"],
 .js [data-reveal].is-in {
   opacity: 1;
   transform: none;
@@ -832,10 +817,7 @@ html.menu-open .menu-lines::after {
   transform: rotate(-45deg);
 }
 
-.menu-label-close {
-  display: none;
-}
-
+.menu-label-close,
 html.menu-open .menu-label-open {
   display: none;
 }
@@ -1432,19 +1414,6 @@ html.menu-open .menu-aside {
     var(--surface-2);
 }
 
-.section-dark {
-  background:
-    radial-gradient(900px 500px at 90% 0%, rgba(227, 115, 90, 0.16), transparent 60%),
-    radial-gradient(900px 600px at 0% 100%, rgba(107, 164, 217, 0.14), transparent 60%),
-    var(--primary-dark);
-  color: rgba(251, 247, 240, 0.8);
-  --heading: var(--neutral-150);
-  --text: rgba(251, 247, 240, 0.78);
-  --accent: var(--accent);
-  --line: rgba(255, 255, 255, 0.12);
-  --surface: rgba(255, 255, 255, 0.04);
-}
-
 /* 8. CARDS AND STATS */
 .card-grid {
   display: grid;
@@ -1983,8 +1952,6 @@ html.menu-open .menu-aside {
 /* 11. BUTTONS AND LINKS */
 .btn,
 .section-link-btn,
-.menu-btn,
-.cta-btn,
 .hero-btn {
   position: relative;
   isolation: isolate;
@@ -2011,8 +1978,6 @@ html.menu-open .menu-aside {
 
 .btn::before,
 .section-link-btn::before,
-.menu-btn::before,
-.cta-btn::before,
 .hero-btn::before {
   content: "";
   position: absolute;
@@ -2026,76 +1991,33 @@ html.menu-open .menu-aside {
 
 .btn:hover::before,
 .section-link-btn:hover::before,
-.menu-btn:hover::before,
-.cta-btn:hover::before,
 .hero-btn:hover::before {
   transform: none;
 }
 
 .btn:hover,
 .section-link-btn:hover,
-.menu-btn:hover,
-.cta-btn:hover,
 .hero-btn:hover {
   box-shadow: var(--shadow-btn-hover);
 }
 
-.section-link-btn::after,
-.btn-arrow::after {
+.section-link-btn::after {
   content: "→";
   display: inline-block;
   transition: transform 0.5s var(--ease-out);
 }
 
-.section-link-btn:hover::after,
-.btn-arrow:hover::after {
+.section-link-btn:hover::after {
   transform: translateX(4px);
 }
 
-.btn--coral {
-  background: var(--accent);
-}
-
-.btn--coral::before {
-  background: var(--secondary);
-}
-
-.btn--ghost {
-  background: transparent;
-  color: var(--neutral-50);
-  border: var(--border-width-hairline) solid rgba(255, 255, 255, 0.45);
-  box-shadow: none;
-}
-
-.btn--ghost::before {
-  background: var(--neutral-50);
-}
-
-.btn--ghost:hover {
-  color: var(--primary-dark);
-}
-
-.section-link-wrapper,
-.menu-btn-wrapper {
+.section-link-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.9rem;
   max-width: var(--width-full);
   margin: 3rem auto 0;
-}
-
-.text-link {
-  position: relative;
-  color: var(--primary);
-  font-weight: 700;
-  text-decoration: none;
-  background: linear-gradient(currentColor, currentColor) left bottom / 0 1.5px no-repeat;
-  transition: background-size 0.5s var(--ease-out);
-}
-
-.text-link:hover {
-  background-size: 100% 1.5px;
 }
 
 /* 12. MEDIA */
@@ -2141,25 +2063,6 @@ video {
 
 .marquee:hover .marquee-track {
   animation-play-state: paused;
-}
-
-.marquee-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 2.5rem;
-  padding-right: 2.5rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.15rem, 2vw, 1.6rem);
-  font-style: italic;
-  font-weight: 300;
-  white-space: nowrap;
-}
-
-.marquee-item::after {
-  content: "✦";
-  color: var(--accent);
-  font-size: 0.8em;
-  font-style: normal;
 }
 
 /* 13. SUB-NAVIGATION (royal couple pages) */
@@ -2322,7 +2225,7 @@ html.header-hidden .subnav {
   background: var(--primary-dark);
   color: rgba(251, 247, 240, 0.72);
   font-size: 0.95rem;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .footer-wave {
@@ -2333,10 +2236,6 @@ html.header-hidden .subnav {
   height: 90px;
   fill: var(--primary-dark);
   pointer-events: none;
-}
-
-.site-footer {
-  overflow: visible;
 }
 
 .footer-inner {
@@ -2643,17 +2542,13 @@ html.header-hidden .subnav {
 }
 
 .body-dark .btn,
-.body-dark .section-link-btn,
-.body-dark .menu-btn,
-.body-dark .cta-btn {
+.body-dark .section-link-btn {
   background: var(--tertiary);
   color: var(--primary-dark);
 }
 
 .body-dark .btn:hover,
-.body-dark .section-link-btn:hover,
-.body-dark .menu-btn:hover,
-.body-dark .cta-btn:hover {
+.body-dark .section-link-btn:hover {
   color: var(--neutral-50);
 }
 
@@ -2806,13 +2701,6 @@ html.header-hidden .subnav {
 
   .faq-icon {
     align-items: flex-start;
-  }
-
-  .chatbot-window {
-    width: 90%;
-    right: 5%;
-    left: 5%;
-    bottom: 100px;
   }
 
   .next-chapter {

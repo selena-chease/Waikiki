@@ -16,10 +16,6 @@
   fill: var(--ill-sky);
 }
 
-.ill .f-sky2 {
-  fill: var(--ill-sky-2);
-}
-
 .ill .f-sun {
   fill: var(--ill-sun);
 }
@@ -105,11 +101,6 @@
   stroke: var(--ill-sea);
 }
 
-.ill .k-sea2 {
-  fill: none;
-  stroke: var(--ill-sea-2);
-}
-
 .ill .k-white {
   fill: none;
   stroke: var(--ill-white);
@@ -144,10 +135,6 @@
 
 .ill .drift {
   animation: illDrift 14s var(--ease-in-out) infinite alternate;
-}
-
-.ill .glide {
-  animation: illGlide 7s var(--ease-in-out) infinite;
 }
 
 .ill .dash {
@@ -192,23 +179,6 @@
 
   to {
     transform: translateX(18px);
-  }
-}
-
-@keyframes illGlide {
-  0% {
-    transform: translateX(-60px);
-    opacity: 0;
-  }
-
-  15%,
-  85% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(60px);
-    opacity: 0;
   }
 }
 
@@ -315,10 +285,6 @@
   align-items: center;
   max-width: 1320px;
   margin: 0 auto;
-}
-
-.split--flip> :first-child {
-  order: 2;
 }
 
 .ill-panel {
@@ -667,92 +633,6 @@
   }
 }
 
-/* Curated Itineraries and Travel Info Cards */
-.itinerary-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-  gap: var(--card-gap);
-  max-width: var(--width-m);
-  margin: 0 auto;
-}
-
-.itinerary-card {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1.8rem 1.8rem;
-}
-
-.itinerary-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.1rem;
-}
-
-.itinerary-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-pill);
-  font: 700 0.72rem/1 var(--font-sans);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: var(--surface-2);
-  color: var(--muted);
-  border: 1px solid var(--line);
-}
-
-.itinerary-card h3 {
-  font-size: clamp(1.22rem, 1.6vw, 1.45rem);
-  margin-bottom: 0.6rem;
-}
-
-.itinerary-stops {
-  list-style: none;
-  padding: 0;
-  margin: 1.2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  border-top: 1px dashed var(--line);
-  border-bottom: 1px dashed var(--line);
-  padding: 1rem 0;
-}
-
-.itinerary-stops li {
-  position: relative;
-  padding-left: 1.75rem;
-  font-size: 0.94rem;
-  line-height: 1.5;
-  color: var(--text);
-}
-
-.itinerary-stops li::before {
-  content: "•";
-  position: absolute;
-  left: 0.35rem;
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.itinerary-tip {
-  margin-top: auto;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: var(--muted);
-  background: var(--surface-2);
-  padding: 0.85rem 1rem;
-  border-radius: var(--radius-sm);
-  border-left: 3px solid var(--primary);
-}
-
-.itinerary-tip strong {
-  color: var(--heading);
-}
 
 /* Travel Info callout banners */
 .travel-callout {
@@ -952,10 +832,6 @@
   .split {
     grid-template-columns: 1fr;
   }
-
-  .split--flip> :first-child {
-    order: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -963,7 +839,6 @@
   .ill .spin,
   .ill .bob,
   .ill .drift,
-  .ill .glide,
   .ill .dash,
   .ill .pulse,
   .ill .twinkle {
@@ -974,7 +849,6 @@
 html.no-reveal .ill .spin,
 html.no-reveal .ill .bob,
 html.no-reveal .ill .drift,
-html.no-reveal .ill .glide,
 html.no-reveal .ill .dash,
 html.no-reveal .ill .pulse,
 html.no-reveal .ill .twinkle {

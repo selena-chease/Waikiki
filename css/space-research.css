@@ -1,11 +1,5 @@
 /* Space Research Stylesheet — Sovereign Nation of Waikiki */
 
-.space-mission-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
-    gap: var(--card-gap);
-    margin-top: 2.5rem;
-}
 
 .spec-badge {
     display: inline-flex;
@@ -71,11 +65,6 @@
 .body-dark .status-active {
     background: rgba(107, 164, 217, 0.2);
     color: var(--tertiary);
-}
-
-.status-development {
-    background: rgba(194, 154, 87, 0.15);
-    color: var(--accent);
 }
 
 /* Illustrated Panels */
@@ -174,12 +163,6 @@
     transform-box: fill-box;
     transform-origin: top center;
     animation: illFlame 0.25s ease-in-out infinite alternate;
-}
-
-.ill .sweep {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: illSpin 8s linear infinite;
 }
 
 .ill .freq-bar-1 { animation: illFreq 1.2s ease-in-out infinite alternate; }

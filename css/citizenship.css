@@ -1,10 +1,6 @@
 /* Waikiki Citizenship and Immigration Stylesheet - Tropical Luxe and Lagoon Night Edition */
 
-h2 {
-    font-family: var(--font-display);
-    color: var(--primary-dark);
-}
-
+h2,
 h3 {
     font-family: var(--font-display);
     color: var(--primary-dark);
@@ -197,8 +193,8 @@ button.open-assessment:active,
 
     .assessment-modal {
         border-radius: var(--radius-lg, 16px) !important;
-        max-height: calc(100dvh - 1rem) !important;
         max-height: calc(100vh - 1rem) !important;
+        max-height: calc(100dvh - 1rem) !important;
         width: 100% !important;
     }
 
@@ -333,8 +329,7 @@ button.open-assessment:active,
 .body-dark .assessment-modal .bg-white\/95,
 .body-dark .assessment-modal .bg-gray-50,
 .body-dark .assessment-modal .bg-blue-50,
-.body-dark .assessment-modal .bg-yellow-50,
-.body-dark .assessment-modal .from-yellow-50 {
+.body-dark .assessment-modal .bg-yellow-50 {
     background-color: rgba(255, 255, 255, 0.05) !important;
     background-image: none !important;
 }

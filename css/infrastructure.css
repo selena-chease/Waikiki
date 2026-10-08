@@ -12,10 +12,6 @@
   fill: var(--ill-sky);
 }
 
-.ill .f-sky2 {
-  fill: var(--ill-sky-2);
-}
-
 .ill .f-sun {
   fill: var(--ill-sun);
 }
@@ -119,15 +115,9 @@
   stroke: var(--ill-coral);
 }
 
-.ill .k-sea,
-.ill .k-maritime {
+.ill .k-sea {
   fill: none;
   stroke: var(--ill-maritime, #7c3aed);
-}
-
-.ill .k-sea2 {
-  fill: none;
-  stroke: var(--ill-sea-2);
 }
 
 .ill .k-white {
@@ -164,10 +154,6 @@
 
 .ill .drift {
   animation: illDrift 14s var(--ease-in-out) infinite alternate;
-}
-
-.ill .glide {
-  animation: illGlide 7s var(--ease-in-out) infinite;
 }
 
 .ill .dash {
@@ -212,23 +198,6 @@
 
   to {
     transform: translateX(18px);
-  }
-}
-
-@keyframes illGlide {
-  0% {
-    transform: translateX(-60px);
-    opacity: 0;
-  }
-
-  15%,
-  85% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(60px);
-    opacity: 0;
   }
 }
 
@@ -337,10 +306,6 @@
   margin: 0 auto;
 }
 
-.split--flip> :first-child {
-  order: 2;
-}
-
 .ill-panel {
   position: relative;
   padding: clamp(1rem, 2.5vw, 2rem);
@@ -375,13 +340,7 @@
   stroke: var(--tertiary);
 }
 
-/* Feature list (numbered rows beside or beneath an illustration) */
-#mobility .ill-panel {
-  max-width: var(--width-l);
-  width: 100%;
-  margin: 0 auto 2.5rem;
-}
-
+#mobility .ill-panel,
 #megaprojects .ill-panel {
   max-width: var(--width-l);
   width: 100%;
@@ -802,10 +761,6 @@
   .split {
     grid-template-columns: 1fr;
   }
-
-  .split--flip> :first-child {
-    order: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -813,7 +768,6 @@
   .ill .spin,
   .ill .bob,
   .ill .drift,
-  .ill .glide,
   .ill .dash,
   .ill .pulse,
   .ill .twinkle {
@@ -829,7 +783,6 @@
 html.no-reveal .ill .spin,
 html.no-reveal .ill .bob,
 html.no-reveal .ill .drift,
-html.no-reveal .ill .glide,
 html.no-reveal .ill .dash,
 html.no-reveal .ill .pulse,
 html.no-reveal .ill .twinkle {

@@ -72,15 +72,6 @@
     align-items: center;
 }
 
-.comparison-bar-track {
-    background: var(--neutral-300);
-    border-radius: var(--radius-pill);
-    overflow: hidden;
-    height: 44px;
-    padding: 3px;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
-}
-
 .comparison-bar {
     height: 100%;
     display: flex;
@@ -321,10 +312,6 @@
 
 .body-dark .comparison-label {
     color: var(--neutral-100);
-}
-
-.body-dark .comparison-bar-track {
-    background: rgba(255, 255, 255, 0.06);
 }
 
 .body-dark .legend-text {

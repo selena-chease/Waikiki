@@ -158,37 +158,6 @@
     fill: var(--brazilia-hover);
 }
 
-/* City Markers */
-.city-marker {
-    cursor: pointer;
-}
-
-.city-dot {
-    transition: r 0.3s var(--ease-out), fill 0.3s var(--ease-out);
-}
-
-.city-label {
-    font-family: var(--font-sans);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    fill: var(--primary-dark);
-    pointer-events: none;
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
-}
-
-.city-label-bg {
-    fill: rgba(255, 255, 255, 0.88);
-    rx: 4;
-    ry: 4;
-}
-
-.capital-star {
-    fill: var(--accent);
-    stroke: var(--accent-dark);
-    stroke-width: 0.6;
-    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.35));
-}
 
 /* Map Legend */
 .map-legend {
@@ -536,10 +505,6 @@
     letter-spacing: 0.04em;
 }
 
-.comparison-section {
-    margin-top: 4rem;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .map-container {
@@ -556,14 +521,8 @@
         font-size: 1.6rem;
     }
 
-    .info-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .admin-grid {
-        grid-template-columns: 1fr;
-    }
-
+    .info-stats,
+    .admin-grid,
     .cities-grid {
         grid-template-columns: 1fr;
     }
@@ -622,15 +581,6 @@
     background: var(--tertiary-subtle);
     border-color: var(--tertiary);
     color: var(--neutral-100);
-}
-
-.body-dark .city-label {
-    fill: var(--neutral-100);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
-}
-
-.body-dark .city-label-bg {
-    fill: rgba(10, 20, 32, 0.9);
 }
 
 /* Ocean Map Night Gradient */

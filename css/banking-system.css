@@ -49,10 +49,7 @@
     border-left: 4px solid var(--primary);
 }
 
-.rate-indicator-card.accent-coral {
-    border-left-color: var(--accent);
-}
-
+.rate-indicator-card.accent-coral,
 .rate-indicator-card.accent-gold {
     border-left-color: var(--accent);
 }
@@ -140,12 +137,6 @@
     animation: illCorridorPulse 4s ease-in-out infinite alternate;
 }
 
-.ill .sway {
-    transform-box: fill-box;
-    transform-origin: top center;
-    animation: illSway 6s ease-in-out infinite alternate;
-}
-
 @keyframes illSpin {
     to { transform: rotate(360deg); }
 }
@@ -177,9 +168,4 @@
 @keyframes illCorridorPulse {
     0% { opacity: 0.25; stroke-width: 1.5; }
     100% { opacity: 0.55; stroke-width: 2.5; }
-}
-
-@keyframes illSway {
-    0% { transform: rotate(-2deg); }
-    100% { transform: rotate(2deg); }
 }
