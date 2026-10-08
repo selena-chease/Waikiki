@@ -73,6 +73,7 @@ GROUPS = [
         ("tourism", {"en": "Tourism", "hu": "Turizmus"}),
         ("sights", {"en": "Sights", "hu": "Látnivalók"}),
         ("travel-guide", {"en": "Travel Guide", "hu": "Utazási Kalauz"}),
+        ("visa", {"en": "Visa and Entry", "hu": "Vízum és belépés"}),
         ("faq", {"en": "FAQ", "hu": "GYIK"}),
     ]),
 ]
@@ -118,6 +119,10 @@ COMPACT_LEADS = {
     "faq": {
         "en": "Clear answers to the questions most often asked about Waikiki's government, economy, society and way of life.",
         "hu": "Világos válaszok a Waikiki kormányzatával, gazdaságával, társadalmával és életmódjával kapcsolatos leggyakoribb kérdésekre.",
+    },
+    "visa": {
+        "en": "Official entry regulations, visa categories, biometric SmartBorder clearance and customs guidance for travelers entering the Sovereign Nation of Waikiki.",
+        "hu": "Hivatalos belépési szabályok, vízumkategóriák, biometrikus SmartBorder határátlépés és vámügyi útmutató Waikiki Szuverén Államba érkezőknek.",
     },
 }
 
